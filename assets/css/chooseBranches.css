@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles for header */
+.contractheader {
+    height: 90px;
+    background: #1F375D;
+    color: white;
+    align-content: center;
+}
+
+.container-header {
+    margin-left: 30px;
+}
+
+.container {
+    width: 98%;
+    margin: 0 10px;
+    margin-left: 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.form-group-1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#branch-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 20px; /* Adjust spacing between buttons */
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.branch-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 280px; /* Adjust width as needed */
+    height: 120px; /* Adjust height as needed */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.branch-button:hover {
+    background-color: #1F375D;
+    color: #ffffff;
+}
+
+.btn-option:hover {
+    background-color: #1F375D;
+    color: #ffffff;
+}
+
+.branch-button img {
+    width: 60px; /* Adjust image size as needed */
+    height: auto;
+    margin-bottom: 5px; /* Adjust spacing between image and text */
+}
+
+.branch-button span {
+    font-size: 14px; /* Adjust font size as needed */
+    font-weight: bold;
+    color: #333;
+}

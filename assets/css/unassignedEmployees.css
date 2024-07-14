@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    
+    box-sizing: border-box;
+}
+
+/* Basic styles for header */
+.manpowerheader {
+    height: 90px;
+    background: #1F375D;
+    color: white;
+    align-content: center;
+}
+
+.container-header{
+    margin-left: 30px;
+}
+
+.buttonContainer{
+    position: absolute;
+    right: 0;
+    margin-top: 30px;
+    margin-right:15px;
+}
+
+.container {
+    width: 98%;
+    margin: 0 10px;
+    margin-left: 20px;
+}
+
+.filter-container{
+    margin-top: 2%;
+    margin-left: 15px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/*  */
+
+
+#employees-section{
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(219, 219, 219);
+}
+
+#employees-section .text{
+    font-size: 24px;
+    font-weight: 500;
+}
+
+/* Example styling for sections and tables */
+
+h2 {
+    font-size: 20px;
+    color: #1F375D; /* Matching the header color for consistency */
+    margin-bottom: 10px;
+}
+
+table.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin-top: 10px; */
+    border: none; /* Outer border */
+}
+
+table.content-table th, table.content-table td {
+    
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Row lines */
+    border-right: none; /* Remove column borders */
+}
+
+table.content-table th {
+    border: none;
+    font-weight: bold;
+}
+
+table.content-table td{
+    font-size: 14px;
+    
+}
+
+/* Hover effect for rows */
+table.content-table tbody tr:hover {
+    background-color: #8cb2f5; /* Change to desired hover color */
+}
+
+tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 10px solid rgb(219, 219, 219);;
+    background-color: white;
+    padding: 20px;
+}
+
+/* Status Styles */
+.status {
+    display: inline-block;
+    width: 150px;
+    height: 22px;
+    border-radius: 8%;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto; /* Center horizontally */
+    cursor: pointer;
+}
+
+.status.active {
+    background-color: rgba(181, 247, 149, .5);
+    color: #3AAE00;
+}
+
+.status.incomplete {
+    background-color: rgba(247, 225, 149, .5);
+    color: #ff9500;
+}
+
+.staffed-branches {
+    width: 45%;
+    float: left;
+}
+
+.understaffed-branches {
+    width: 45%;
+    float: left;
+}
+
+.branches{
+    margin-top: 50px;
+    margin-bottom: 40px;
+    padding: 15px;
+    border-radius: 8px;
+    color: white;
+}
+
+.branch-title {
+    font-size: 22px;
+    color: black;
+}
+
+.store {
+    background: rgb(219, 219, 219);;
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+#potatocorner-full-position
+{
+    position: absolute;
+    left: 15px;
+}
+
+#auntieannes-full-position {
+    position: absolute;
+    left: 270px;
+}
+
+#macao-full-position {
+    position: absolute;
+    left: 525px;
+}
+
+#potatocorner-under-position
+{
+    position: absolute;
+    right: 780px;
+}
+
+#auntieannes-under-position {
+    position: absolute;
+    right: 525px;
+}
+
+#macao-under-position {
+    position: absolute;
+    right: 270px;
+}
+
+.logo {
+    width: auto;
+    height: 80px;
+    display: block;
+    margin: auto;
+}
+
+#store-text {
+    color: black;
+}

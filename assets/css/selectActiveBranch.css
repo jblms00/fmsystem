@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.header {
+    background-color: #1F375D;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0px;
+}
+
+.headertext {
+    font-size: 50px;
+    vertical-align: middle;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.store-types{
+    padding: 15px;
+    border-radius: 8px;
+    /* background-color: red; */
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+}
+
+.branch-title {
+    font-size: 22px;
+    color: black;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+.store {
+    background: rgb(219, 219, 219);;
+    width: 250px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.logo {
+    width: auto;
+    height: 80px;
+    display: block;
+    margin: auto;
+}
+
+#store-text {
+    color: black;
+    font-family: 'Poppins', sans-serif;
+}
+
+form .fields .input-field.grandtotal {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+
+.container form .details {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+
+.container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field {
+    display: flex;
+    width: calc(100% / 2 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.input-field input[type="date"] {
+    color: #707070;
+}
+
+.input-field input[type="date"]:valid {
+    color: #333;
+}
+
+/* transactions part */
+.container form .details.transactions {
+    margin-top: -15px;
+}
+
+form .fields .input-field.transactions {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 4px 0;
+}

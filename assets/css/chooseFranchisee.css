@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    
+    box-sizing: border-box;
+}
+
+/* Basic styles for header */
+.contractheader {
+    height: 90px;
+    background: #1F375D;
+    color: white;
+    align-content: center;
+}
+
+.container-header{
+    margin-left: 30px;
+}
+
+.container {
+    width: 98%;
+    margin: 0 10px;
+    margin-left: 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.form-group-1 {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#franchise-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.franchise-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.franchise-button img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.franchise-button span {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.franchise-button:hover {
+    background-color: #1F375D;
+    color: #ffffff;
+}
+
+.btn-option {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-option:hover, .btn-option.active {
+    background-color: #1F375D;
+    color: #ffffff;
+}

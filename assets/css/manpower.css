@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+.header {
+    background-color: #1F375D;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100px;
+    padding: 10px 0px;
+}
+
+.headertext {
+    font-size: 50px;
+    vertical-align: middle;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.schedule_sidebar {
+    background-color: #EDEDED;
+    position: absolute;
+    left: 35px;
+    top: 150px;
+    width: 17%;
+    bottom:120px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 23px;
+    /* position: absolute; */
+    left: 25px;
+    top: 10px;
+}
+
+#branch-details {
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    margin-left: 10px;
+    margin-bottom: 1px;
+}
+
+#select-branch {
+    background-color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.logo {
+    width: auto;
+    height: 40px;
+    display: block;
+}
+
+.employee-list {
+    position: absolute;
+    top: 200px;
+    left: 450px;
+    background-color: #EDEDED;
+    width: 900px;
+    height: 450px;
+    border-radius: 8px;
+}
+
+.employee-title {
+    float: left;
+    margin-left: 25px;
+    margin-top: 30px;
+    /* width: 45%; */
+}
+
+.count-title {
+    float: right;
+    margin-right: 25px;
+    margin-top: 30px;
+    /* width: 45%; */
+}
+
+.dash-content .activity .activity-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.activity .activity-data{
+    display: flex;
+    /* width: calc(100% / 3 - 15px); */
+}
+
+.activity-data .data{
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.activity-data .data-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.activity-data .data .data-list{
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    white-space: nowrap;
+    color: var(--text-color);
+
+}
+
+table.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    width: 97%;
+    margin-left: 10px;
+    border: none; /* Outer border */
+    border-radius: 8px;
+
+}
+
+table.content-table th, table.content-table td {
+    
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Row lines */
+    border-right: none; /* Remove column borders */
+}
+
+table.content-table td{
+    font-size: 14px;
+    
+}
+
+/* Hover effect for rows */
+table.content-table tbody tr:hover {
+    background-color: #8cb2f5; /* Change to desired hover color */
+}
+
+tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 10px solid rgb(219, 219, 219);;
+    background-color: white;
+    padding: 20px;
+}
+
+.input-field {
+    margin-left: 43%;
+    margin-top: 10%;
+}
+
+form .fields .input-field {
+    display: flex;
+    width: calc(100% / 2 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}

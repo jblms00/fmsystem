@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Expenses</title>
+        
+        <!-- ========= CSS ========= -->
+        <link rel="stylesheet" href="/public/css/expenses.css">
+
+        <!-- ===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Expenses</h1>
+        </div>
+    </header>
+
+    <div class="buttonContainer">
+
+         <!-- Encode Sales Report
+         <button id="btn-encode-salesreport" class="myButton">Encode Sales Report</button> -->
+
+         <!-- Upload File Button
+         <label for="file-upload" class="myButton">Upload File</label>
+         <input type="file" id="file-upload" style="display: none;"> -->
+
+    </div>
+
+    <div class="filter-container">
+
+        <!-- Filters -->
+        <div class="filters">
+            <label for="filter-franchise">Franchisee:</label>
+            <select id="filter-franchise">
+                <option value="">All</option>
+                <option value="potatoCorner">Potato Corner</option>
+                <option value="auntieAnnes">Auntie Anne's</option>
+                <option value="macaoImperial">Macao Imperial</option>
+            </select>
+
+            <!-- <label for="filter-status">Location:</label>
+            <select id="filter-status">
+                <option value="">All</option>
+                <option value="approved">location 1</option>
+                <option value="pending">Pending</option>
+                <option value="leasing">Leasing</option>
+            </select> -->
+
+            <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+              
+            <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+            
+
+            <button id="btn-generate" class="resetButton">Generate</button>
+            <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
+
+        </div>
+    </div>
+
+        
+    </header>
+
+    <div class="container">
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class='bx bxs-tachometer'></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div id="totalExpenses-link" class="box box1">
+                        <!-- <i class='bx bx-search'></i> -->
+                        <span class="text1">####</span>
+                        <span class="text">Total Expenses</span>
+                    </div>
+                    <div id="controllableExpenses-link" class="box box2">
+                        <!-- <i class='bx bx-search'></i> -->
+                        <span class="text1">####</span>
+                        <span class="text">Total Sales</span>
+                    </div>
+                    <div id="nonControllableExpenses-link" class="box box3">
+                        <!-- <i class='bx bx-search'></i> -->
+                        <span class="text1">####</span>
+                        <span class="text">Profit</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class='bx bx-time-five' ></i>
+                    <span class="text">Recent Activities</span>
+                </div>
+
+                <div class="activity-data">
+                    <div class="data names">
+                        <span class="data-title">Name</span>
+                        <span class="data-list">Julia</span>
+                        <span class="data-list">Brian</span>
+                        <span class="data-list">Matteo</span>
+                        <span class="data-list">Matthew</span>
+                    </div>
+                    <div class="data names">
+                        <span class="data-title">Activity</span>
+                        <span class="data-list">Added Controllable Expense</span>
+                        <span class="data-list">Added Non-Controllable Expense</span>
+                        <span class="data-list">Added Controllable Expense</span>
+                        <span class="data-list">Added Non-Controllable Expense</span>
+                    </div>
+                    <div class="data names">
+                        <span class="data-title">Date</span>
+                        <span class="data-list">05/27/24</span>
+                        <span class="data-list">05/27/24</span>
+                        <span class="data-list">05/27/24</span>
+                        <span class="data-list">05/27/24</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+
+    </div>
+
+</body>
+
+
+
+
+
+</html>

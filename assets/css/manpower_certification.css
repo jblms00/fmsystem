@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    
+    box-sizing: border-box;
+}
+
+/* Basic styles for header */
+.employeeheader {
+    height: 90px;
+    background: #1F375D;
+    color: white;
+    align-content: center;
+}
+
+.container-header{
+    margin-left: 30px;
+}
+
+
+.container {
+    width: 80%;
+    margin: 0 10px;
+    margin-left: 20px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+#employee-section{
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(219, 219, 219);
+}
+
+h2 {
+    font-size: 20px;
+    color: #1F375D; /* Matching the header color for consistency */
+    margin-bottom: 10px;
+}
+
+table.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    border: none; /* Outer border */
+}
+
+table.content-table th, table.content-table td {
+    
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: none;
+    text-align: center; /* Center align text horizontally */
+    vertical-align: middle; /* Center align text vertically */
+    
+}
+
+table.content-table th {
+    border: none;
+    font-weight: bold;
+}
+
+table.content-table td{
+    font-size: 12px;
+    cursor: pointer;
+    
+}
+
+/* Hover effect for rows */
+table.content-table tbody tr:hover {
+    background-color: #8cb2f5; /* Change to desired hover color */
+}
+
+tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 10px solid rgb(219, 219, 219);;
+    background-color: white;
+    padding: 20px;
+}
+
+.franchise-logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no unwanted inline spacing */
+    margin: 0 auto; /* Center the image horizontally */
+}

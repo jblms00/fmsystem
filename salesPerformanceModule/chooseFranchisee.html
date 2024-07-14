@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Choose Franchisee</title>
+        
+        <!-- ========= CSS ========= -->
+        <link rel="stylesheet" href="/public/css/chooseFranchisee.css">
+
+        <!-- ===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h2 class="title">Choose Franchisee</h2>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <!-- Franchise Selection -->
+        <div class="form-group-1">
+            <label for="franchise">FRANCHISEE:</label>
+            <div id="franchise-buttons">
+                <button type="button" id="potCorFranchisee" class="btn-option franchise-button" data-value="potato-corner">
+                    <img src="/public/images/PotCor.png" alt="Potato Corner">
+                    <span>Potato Corner</span>
+                </button>
+                <button type="button" id="auntieAnneFranchisee" class="btn-option franchise-button" data-value="auntie-annes">
+                    <img src="/public/images/AuntieAnn.png" alt="Auntie Anne's">
+                    <span>Auntie Anne's</span>
+                </button>
+                <button type="button" class="btn-option franchise-button" data-value="macao-imperial">
+                    <img src="/public/images/MacaoImp.png" alt="Macao Imperial">
+                    <span>Macao Imperial</span>
+                </button>
+            </div>
+            <input type="hidden" id="franchise" name="franchise" required>
+        </div>
+    </div>
+
+</body>
+
+
+
+
+
+</html>

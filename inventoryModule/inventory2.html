@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Total Employees</title>
+        
+        <!-- ========= CSS ========= -->
+        <link rel="stylesheet" href="/public/css/inventory2.css">
+
+        <!-- ===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Inventory</h1>
+        </div>
+    </header>
+
+    <div class="filter-container">
+        <div class="filters">
+            <input type="text" placeholder="Search" id="search">
+            <input type="date" id="date">
+            <select id="franchise">
+                <option value="">Franchise</option>
+                <option value="potato_corner">Potato Corner</option>
+                <option value="auntie_annes">Auntie Anne's</option>
+                <option value="macao">Macao Imperial Tea</option>
+            </select>
+            <button id="new-report">New Report</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <table class="inventory-table">
+            <thead>
+                <tr>
+                    <th>Franchisee</th>
+                    <th>Location</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-franchisee="Potato Corner" data-location="Lyceum of the Philippines" data-date="5/20/24">
+                    <td><img src="/public/images/PotCor.png" alt="Potato Corner"> Lyceum of the Philippines</td>
+                    <td>Lyceum of the Philippines</td>
+                    <td>5/20/24</td>
+                </tr>
+                <tr data-franchisee="Auntie Anne's" data-location="Urdaneta, Pangasinan" data-date="5/20/24">
+                    <td><img src="/public/images/AuntieAnn.png" alt="Auntie Anne's"> Urdaneta, Pangasinan</td>
+                    <td>Urdaneta, Pangasinan</td>
+                    <td>5/20/24</td>
+                </tr>
+                <tr data-franchisee="Macao Imperial Tea" data-location="SM Grand Central" data-date="5/20/24">
+                    <td><img src="/public/images/MacaoImp.png" alt="Macao Imperial Tea"> SM Grand Central</td>
+                    <td>SM Grand Central</td>
+                    <td>5/20/24</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <div id="notification-area">
+        <h2>Stock Notification</h2>
+        <ul id="notification-list">
+            <li>
+                <h3>5/20/24</h3>
+                <h4>Potato Corner</h4>
+                <h4>Circuit Makati</h4>
+                <span class="notification-details">Less than threshold amount: SOFTDRINKS IN CAN - COKE</span>
+                <button>Resolve</button>
+            </li>
+        </ul>
+    </div>
+
+    <!-- content -->
+
+</body>
+
+
+
+
+
+</html>

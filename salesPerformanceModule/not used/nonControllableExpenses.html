@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Non-Controllable Expenses</title>
+        
+        <!-- ========= CSS ========= -->
+        <link rel="stylesheet" href="/public/css/expensesTypes.css">
+
+        <!-- ===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Non-Controllable Expenses</h1>
+        </div>
+    </header>
+
+
+    <div class="filter-container">
+
+        <!-- Filters -->
+        <div class="filters">
+            <label for="filter-franchise">Franchisee:</label>
+            <select id="filter-franchise">
+                <option value="">All</option>
+                <option value="potatoCorner">Potato Corner</option>
+                <option value="auntieAnnes">Auntie Anne's</option>
+                <option value="macaoImperial">Macao Imperial</option>
+            </select>
+
+
+            <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+              
+            <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+            
+
+            <button id="btn-generate" class="resetButton">Generate</button>
+            <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
+
+             <!-- Add Expense -->
+            <button id="btn-add-expense" class="myButton">Add Expense</button>
+
+            <!-- Upload File Button
+            <label for="file-upload" class="myButton">Upload File</label>
+            <input type="file" id="file-upload" style="display: none;"> -->
+
+
+        </div>
+    </div>
+
+        
+    </header>
+
+    <div class="container">
+        <section id="nonControllable-section">
+            <table class="content-table">
+                <thead>
+                    <tr>
+                        <th>Franchisee</th>
+                        <th>Amount</th>
+                        <th>Expense Type</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="expenses-row-1">
+                        <td><img src="/public/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Non-Controllable</td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="expenses-row-2">
+                        <td><img src="/public/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Non-Controllable</td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="expenses-row-3">
+                        <td><img src="/public/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Non-Controllable</td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="expenses-row-1">
+                        <td><img src="/public/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Non-Controllable</td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="expenses-row-2">
+                        <td><img src="/public/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Non-Controllable</td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="expenses-row-3">
+                        <td><img src="/public/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Non-Controllable</td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+
+</body>
+
+
+
+
+
+</html>

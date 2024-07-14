@@ -1,0 +1,306 @@
+/* font import - poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* primary colors */
+:root {
+    --header-color: #1F375D;
+}
+
+/* Basic styles for header */
+.contractheader {
+    height: 90px;
+    background: var(--header-color);
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.container-header {
+    margin-left: 30px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* font import - poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* primary colors */
+:root {
+    --header-color: #1F375D;
+}
+
+body {
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(219, 219, 219);
+}
+
+.container {
+    position: absolute;
+    top: 120px; /* Adjust this value based on the header height and desired spacing */
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1200px;
+    width: 100%;
+    border-radius: 6px;
+    padding: 30px;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.container header {
+    position: relative;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+}
+
+.container header::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 3px;
+    width: 27px;
+    border-radius: 8px;
+    background-color: var(--header-color);
+}
+
+.transaction-form {
+    position: relative;
+    margin-top: 50px;
+    min-height: 490px;
+    background-color: #f2f2f2;
+    border-radius: 6px;
+}
+
+.expense-form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 250px;
+    background-color: #f2f2f2;
+    border-radius: 6px;
+}
+
+.grandtotal-form{
+    position: relative;
+    margin-top: 16px;
+    min-height: 120px;
+    background-color: #f2f2f2;
+    border-radius: 6px;
+    margin-left: 750px;
+}
+
+form .fields .input-field.grandtotal {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+
+.container form .details {
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.container form .title {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 6px 0;
+    color: #333;
+}
+
+.container form .fields {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field {
+    display: flex;
+    width: calc(100% / 2 - 15px);
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+.input-field label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+}
+
+.input-field input {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+}
+
+.input-field input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.input-field input[type="date"] {
+    color: #707070;
+}
+
+.input-field input[type="date"]:valid {
+    color: #333;
+}
+
+/* transactions part */
+.container form .details.transactions {
+    margin-top: -15px;
+}
+
+form .fields .input-field.transactions {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    margin: 4px 0;
+}
+
+/* transactionType part */
+.container form .details.transactionType {
+    margin-top: -15px;
+}
+
+/* Sales sections aligned side by side */
+.sales-sections {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sales-section {
+    flex: 1;
+    margin: 0 10px;
+}
+
+.sales-section .details {
+    margin-top: 0; /* Remove top margin from details */
+    padding: 0 15px; /* Add padding to details */
+}
+
+.sales-section .fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sales-section .input-field.transactionType {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    /* width: calc(50% - 10px); Two columns per section */
+    margin-right: 10px;
+}
+
+.sales-section .input-field.transactionType:last-child {
+    margin-right: 0;
+}
+
+.input-field.transactionType label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #2e2e2e;
+    margin-bottom: 6px; /* Adjust label spacing */
+}
+
+.input-field.transactionType input {
+    font-size: 11px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 4px 0;
+}
+
+.input-field.transactionType input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+.form-group .myButton {
+    position: fixed;
+    padding: 7px 30px; /* Adjust padding to make the button longer */
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    background-color: #1F375D;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: -262px 1027px;
+}
+
+.myButton:hover {
+    background-color: #1A2E4D;
+}
+
+.form-group2 .myButton {
+    display: inline-block;
+    padding: 7px 100px; /* Adjust padding to make the button longer */
+    font-size: 16px;
+    color: white;
+    background-color: #1F375D;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 auto; /* Center the button horizontally */
+    display: block; /* Ensure it takes full width of container */
+    margin-top: 20px;
+}
+
+
+/* General input styles for DROPDOWNS */
+.input-field select {
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 42px;
+    margin: 8px 0;
+    appearance: none; /* Removes default arrow */
+    background-color: #fff; /* Set the background color to white */
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4.5 8" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 1l2 2-2 2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat right 10px center, #fff;
+    background-size: 8px 10px;
+}
+
+.input-field select:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+
+/* Adjust dropdown arrow position */
+.input-field select:focus {
+    border-color: #5e9ed6;
+}

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <link rel="stylesheet" href="/public/css/encodeSales.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Sales - Encode of Daily Sales</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <header>Encode Sales</header>
+        
+        <!-- Franchisee Details Form -->
+        <form action="#" class="expense-form">
+            <div class="details franchisee">
+                <span class="title">Franchisee Details</span>
+
+                <div class="fields">
+                    <div class="input-field">
+                        <label>Franchisee</label>
+                        <input type="text" placeholder="Enter Franchisee Name" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Location</label>
+                        <input type="text" placeholder="Enter Location" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Encoder's Name" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="myButton">Save</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Transactions Form -->
+        <div id="transaction-forms-container">
+            <form action="#" class="transaction-form">
+                <div class="details transactions">
+                    <span class="title">Transactions</span>
+
+                    <div class="fields">
+                        <div class="input-field transactions">
+                            <label>Product Name</label>
+                            <input type="text" placeholder="Enter Product Name" required>
+                        </div>
+                    </div>
+
+                    <div class="sales-sections">
+                        <!-- DINE-IN -->
+                        <div class="sales-section">
+                            <div class="details transactionType">
+                                <span class="title">Dine-In</span>
+
+                                <div class="fields">
+                                    <div class="input-field transactionType">
+                                        <label>Cash/Card:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>GCash:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>Paymaya:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>Total Dine-In Sales:</label>
+                                        <input type="number" placeholder="Enter Amount" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- TAKE-OUT -->
+                        <div class="sales-section">
+                            <div class="details transactionType">
+                                <span class="title">Take-Out</span>
+
+                                <div class="fields">
+                                    <div class="input-field transactionType">
+                                        <label>Cash/Card:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>GCash:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>Paymaya:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>Total Take-Out Sales:</label>
+                                        <input type="number" placeholder="Enter Amount" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DELIVERY -->
+                        <div class="sales-section">
+                            <div class="details transactionType">
+                                <span class="title">Delivery</span>
+
+                                <div class="fields">
+                                    <div class="input-field transactionType">
+                                        <label>GrabFood:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>foodpanda:</label>
+                                        <input type="number" placeholder="Enter Amount">
+                                    </div>
+                                    <div class="input-field transactionType">
+                                        <label>Total Delivery Sales:</label>
+                                        <input type="number" placeholder="Enter Amount" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="form-group2">
+            <button type="button" class="myButton" id="add-transaction-btn">Add Transaction</button>
+        </div>
+
+         <!-- Grand Total Form -->
+         <form action="#" class="grandtotal-form">
+            <div class="details franchisee">
+                <span class="title">Grand Total:</span>
+
+                <div class="fields">
+                    <div class="input-field grandtotal">
+                        <input type="number" placeholder="Grand Total" required>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include JavaScript at the end of the body for better performance -->
+    <script src="/public/js/encodeSales.js"></script>
+</body>
+</html>

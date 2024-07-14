@@ -1,0 +1,134 @@
+/* Font import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Primary colors */
+:root {
+    --header-color: #1F375D;
+    --background-color: #f4f4f9;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --box-color: #fff;
+    --text-color: #333;
+    --highlight-color: #1F375D;
+    --box-group-background: #d3d3d3;
+}
+
+/* Header styles */
+.contractheader {
+    height: 90px;
+    background: var(--header-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.container-header {
+    margin-left: 30px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Main container */
+.container {
+    width: 98%;
+    margin: 20px;
+}
+
+.dash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.overview {
+    width: 100%;
+}
+
+.overview .title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: var(--header-color);
+}
+
+.overview .title i {
+    margin-right: 10px;
+}
+
+/* Boxes container */
+.boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.box-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(25% - 20px); /* Adjusted width for four boxes per row */
+    background-color: var(--box-group-background);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.box-group-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 10px;
+    text-align: center; /* Center the title */
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--box-color);
+    border-radius: 8px;
+    box-shadow: 0 5px 10px var(--box-shadow-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.box:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+.box i {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.box .text {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center; /* Center the text */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .box-group {
+        width: 100%;
+    }
+}

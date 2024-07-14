@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Manpower</title>
+        
+        <!-- ========= CSS ========= -->
+        <link rel="stylesheet" href="/public/css/manpower_dashboard.css">
+
+        <!-- ===== Boxicons CSS ===== -->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Manpower</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class='bx bxs-tachometer'></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div id="total-link" id="employee-total-label" class="box box1">
+                        <span class="text1">54</span>
+                        <span class="text">Total Employees</span>
+                    </div>
+                    <div id="unassigned-link" id="employee-unassigned-label" class="box box2">
+                        <span class="text1">7</span>
+                        <span class="text">Unassigned Employees</span>
+                    </div>
+                    <div id="active-link" id="employee-active-label" class="box box3">
+                        <span class="text1">41</span>
+                        <span class="text">Active Employees</span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="activity">
+                <section id="employees-section">
+                    <span class="text">Recent Activities</span>
+            
+
+                    <table class="content-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Activity</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="manpowerEmployee-row-1">
+                                <td>Firstname, Lastname</td>
+                                <td>Activity</td>
+                                <td>Date</td>
+                            </tr>
+                            <tr id="manpowerEmployee-row-2">
+                                <td>Firstname, Lastname</td>
+                                <td>Activity</td>
+                                <td>Date</td>
+                            </tr>
+                            <tr id="manpowerEmployee-row-3">
+                                <td>Firstname, Lastname</td>
+                                <td>Activity</td>
+                                <td>Date</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+    </div>
+
+</body>
+
+</html>

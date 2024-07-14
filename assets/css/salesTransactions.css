@@ -1,0 +1,385 @@
+* {
+    margin: 0;
+    
+    box-sizing: border-box;
+}
+
+
+/* Basic styles for header */
+.contractheader {
+    height: 90px;
+    background: #1F375D;
+    color: white;
+    align-content: center;
+}
+
+.container-header{
+    margin-left: 30px;
+}
+
+.buttonContainer{
+    position: absolute;
+    right: 0;
+    margin-top: 30px;
+    margin-right:15px;
+}
+
+.container {
+    width: 98%;
+    margin: 0 10px;
+    margin-left: 20px;
+}
+
+.filter-container{
+    margin-top: 2%;
+    margin-left: 15px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Example styling for sections and tables */
+
+#dineIn-section, #takeOut-section, #delivery-section{
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(219, 219, 219);;
+}
+
+h2 {
+    font-size: 20px;
+    color: #1F375D; /* Matching the header color for consistency */
+    margin-bottom: 10px;
+}
+
+table.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    /* margin-top: 0px; */
+    border: none; /* Outer border */
+}
+
+table.content-table th, table.content-table td {
+    
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Row lines */
+    border-right: none; /* Remove column borders */
+}
+
+table.content-table th {
+    border: none;
+    font-weight: bold;
+}
+
+table.content-table td{
+    font-size: 12px;
+    
+}
+
+/* Hover effect for rows */
+table.content-table tbody tr:hover {
+    background-color: #8cb2f5; /* Change to desired hover color */
+}
+
+tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 10px solid rgb(219, 219, 219);;
+    background-color: white;
+    padding: 20px;
+}
+
+
+
+/* FILTER */
+
+.filters{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#filter-franchise{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 30px 0 10px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    background: #fff;
+
+    height: 30px;
+    min-width: 200px;
+    margin: 0 5px 5px 0;
+}
+
+#filter-status{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 30px 0 10px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    background: #fff;
+
+    height: 30px;
+    min-width: 100px;
+    margin: 0 5px 5px 0;
+}
+
+#start-date, #end-date{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 5px 0 10px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    background: #fff;
+
+    height: 30px;
+    width: 150px;
+    margin: 0 5px 5px 0;
+}
+
+/* BUTTONS */
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #7a8eb9;
+	background:linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+	background-color:#637aad;
+    border-radius:6px;
+	border:1px solid #314179;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	/* font-family:Arial; */
+	font-size:13px;
+	/* font-weight:bold; */
+	padding:6px 12px;
+	text-decoration:none;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
+	background-color:#5972a7;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.resetButton {
+    box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+	background-color:#ffffff;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-size:13px;
+	font-weight:600;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+    margin-left: 12px;
+    margin-right: 16px;
+}
+
+
+.resetButton:hover{
+    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+	background-color:#f6f6f6;
+}
+
+.resetButton:active{
+    position:relative;
+	top:1px;
+}
+
+
+
+/* LOGO */
+
+.franchise-logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no unwanted inline spacing */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+
+/* ------ DASHBOARD ------ */
+.home{
+    position: relative;
+    left: 250px;
+    width: calc(100% - 250px);
+    background: #EDEDED;
+    transition: var(--tran-05);
+    
+}
+
+.top img{
+    width: 40px;
+    border-radius: 50%;
+    left: 250px;
+    position: absolute;
+}
+
+
+.dash-content .title{
+    display: flex;
+    align-items: center;
+    margin: 30px 0 30px 0;
+}
+
+.dash-content .title i{
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--primary-color-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.dash-content .title .text{
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+}
+
+
+/* ------ DASHBOARD [BOXES] ------ */
+
+.dash-content .boxes {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Align items to the start */
+    gap: 15px; /* Add gap between boxes */
+}
+
+.dash-content .boxes .box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    width: calc(100% / 3 - 15px);
+    padding: 15px 20px;
+    background-color: #1F375D;
+    cursor: pointer; /* Changes the cursor to a pointer */
+    transition: background-color 0.3s ease;
+    text-align: center; /* Center text content */
+    color: white; /* Ensure text is white */
+    text-decoration: none; /* Remove underline from text */
+}
+
+.dash-content .boxes .box1 {
+    width: calc(100% / 5 - 30px); /* Adjusted width for Box 1 */
+}
+
+.dash-content .boxes .box:hover {
+    background-color: #574bdf; /* Slight color change on hover */
+}
+
+.boxes .box i {
+    font-size: 35px;
+    color: white; /* Ensure icon color is white */
+}
+
+.boxes .box .text {
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.boxes .box.box2 {
+    background-color: #4474c0;
+}
+
+.boxes .box.box2:hover {
+    background-color: #1037c2; /* Slight color change on hover */
+}
+
+.boxes .box.box3 {
+    background-color:#4474c0;
+}
+
+.boxes .box.box3:hover {
+    background-color: #12d9b4; /* Slight color change on hover */
+}
+
+.boxes .box.box4 {
+    background-color:#4474c0;
+}
+
+.boxes .box.box3:hover {
+    background-color: #12d9b4; /* Slight color change on hover */
+}
+
+a.box {
+    text-decoration: none; /* Remove underline from text */
+    color: inherit; /* Inherit color from parent */
+    display: block; /* Make the anchor fill the box */
+}
+
+
+
+
+/* ------ DASHBOARD [ACTIVITIES] ------ */
+
+.dash-content .activity .activity-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.activity .activity-data{
+    display: flex;
+    /* width: calc(100% / 3 - 15px); */
+}
+
+.activity-data .data{
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+.activity-data .data-title{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.activity-data .data .data-list{
+    font-size: 18px;
+    font-weight: 400;
+    margin-top: 20px;
+    white-space: nowrap;
+    color: var(--text-color);
+
+}
+
+.menu-links .nav-link.active {
+    background-color: #1F375D; /* Example: Change the background color when active */
+    border-radius: 8px;
+    
+}
+
+.content-section {
+    display: none;
+}
+
+.content-section.active {
+    display: block;
+}
