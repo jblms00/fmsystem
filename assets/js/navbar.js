@@ -1,16 +1,16 @@
-const body = document.querySelector("body"),
-      sidebar = body.querySelector(".sidebar"),
-      toggle = body.querySelector(".toggle"),
-      searchBtn = body.querySelector(".search-box");
+$(document).ready(function () {
+    const body = $("body"),
+        sidebar = $(".sidebar"),
+        toggle = $(".toggle"),
+        searchBtn = $(".search-box");
 
-toggle.addEventListener("click", () => {
-    sidebar.classList.toggle("close");
-    body.classList.toggle("sidebar-open"); // Toggle class on body
+    toggle.on("click", function () {
+        sidebar.toggleClass("close");
+        body.toggleClass("sidebar-open");
+    });
+
+    searchBtn.on("click", function () {
+        sidebar.removeClass("close");
+        body.removeClass("sidebar-open");
+    });
 });
-
-searchBtn.addEventListener("click", () => {
-    sidebar.classList.remove("close");
-    body.classList.remove("sidebar-open"); // Ensure sidebar-open class is removed
-});
-
-

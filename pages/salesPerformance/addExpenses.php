@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Expenses</title>
+    <link rel="stylesheet" href="assets/css/addExpenses.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Expenses - Add Expenses</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <header>Add Expenses</header>
+
+        <!-- Expense Details Form -->
+        <form action="#" class="expense-form">
+            <div class="details franchisee">
+                <span class="title">Expense Details</span>
+
+                <div class="fields">
+                    <!-- <div class="input-field">
+                        <label>Franchisee</label>
+                        <input type="text" placeholder="Enter Franchisee Name" required>
+                    </div> -->
+                    <div class="input-field">
+                        <label>Franchisee</label>
+                        <select required>
+                            <option value="" disabled selected>Select Franchisee</option>
+                            <option value="potatoCorner">Potato Corner</option>
+                            <option value="auntieAnnes">Auntie Anne's</option>
+                            <option value="macaoIT">Macao Imperial Tea</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                    <div class="input-field">
+                        <label>Location</label>
+                        <input type="text" placeholder="Enter Branch Location" required>
+                    </div>
+                    <!-- <div class="input-field">
+                        <label>Location</label>
+                        <select required>
+                            <option value="" disabled selected>Select Location</option>
+                            <option value="controllableExpenses">Location 1</option>
+                            <option value="nonControllableExpenses">Location 2</option>
+                            <option value="nonControllableExpenses">Location 3</option>
+                           
+                        </select>
+                    </div> -->
+                    <div class="input-field">
+                        <label>Name</label>
+                        <input type="text" placeholder="Enter Encoder's Name" required>
+                    </div>
+                    <div class="input-field">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="input-field transactions">
+                        <label>Expense Category</label>
+                        <select required>
+                            <option value="" disabled selected>Select Expense Category</option>
+                            <option value="controllableExpenses">Franchisor Expenses</option>
+                            <option value="nonControllableExpenses">Leasor Expenses</option>
+                            <option value="nonControllableExpenses">Other Expenses</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group">
+                    <button type="submit" class="myButton">Save</button>
+                </div> -->
+            </div>
+        </form>
+
+        <!-- Franchisor Expenses -->
+        <form action="#" class="controllable-form">
+            <div class="details transactions">
+                <span class="title">Franchisor Expenses</span>
+
+                <div class="fields">
+                    <div class="input-field transactions">
+                        <label>Expense Type</label>
+                        <select required>
+                            <option value="" disabled selected>Select Expense Type</option>
+                            <option value="franchiseFees">Franchise Fees</option>
+                            <option value="royaltyFees">Royalty Fees</option>
+                            <option value="agencyFees">Agency Fees</option>
+                            <option value="others">Others</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <div class="input-field transactions">
+                            <!-- <label>Amount</label> -->
+                            <input type="text" placeholder="Others:">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="input-field transactions">
+                        <label>Amount</label>
+                        <input type="number" placeholder="Enter Amount">
+                        <textarea id="expenses-addDescription" name="expensesDescription"
+                            placeholder="Add a description..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="form-group2">
+                <button type="submit" class="myButton">File Upload</button>
+            </div> -->
+            <!-- <div class="form-group2">
+                    <button type="submit" class="myButton">Submit</button>
+                </div> -->
+        </form>
+
+        <!-- Leasor Expenses -->
+        <form action="#" class="controllable-form">
+            <div class="details transactions">
+                <span class="title">Leasor Expenses</span>
+
+                <div class="fields">
+                    <div class="input-field transactions">
+                        <label>Expense Type</label>
+                        <select required>
+                            <option value="" disabled selected>Select Expense Type</option>
+                            <option value="franchiseFees">Rentals</option>
+                            <option value="royaltyFees">Utilities</option>
+                            <option value="agencyFees">Maintenance</option>
+                            <option value="others">Others</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                        <div class="input-field transactions">
+                            <!-- <label>Amount</label> -->
+                            <input type="text" placeholder="Others:">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="input-field transactions">
+                        <label>Amount</label>
+                        <input type="number" placeholder="Enter Amount">
+                        <textarea id="expenses-addDescription" name="expensesDescription"
+                            placeholder="Add a description..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="form-group2">
+                <button type="submit" class="myButton">File Upload</button>
+            </div> -->
+            <!-- <div class="form-group2">
+                    <button type="submit" class="myButton">Submit</button>
+                </div> -->
+        </form>
+
+        <!-- Other Expenses -->
+        <form action="#" class="controllable-form">
+            <div class="details transactions">
+                <span class="title">Other Expenses</span>
+
+                <div class="fields">
+                    <div class="input-field transactions">
+                        <label>Expense Type</label>
+                        <input type="text" placeholder="Expense Type">
+
+                        <div class="input-field transactions">
+                            <label>Purpose</label>
+                            <input type="text" placeholder="Purpose">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fields">
+                    <div class="input-field transactions">
+                        <label>Amount</label>
+                        <input type="number" placeholder="Enter Amount">
+                        <textarea id="expenses-addDescription" name="expensesDescription"
+                            placeholder="Add a description..."></textarea>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- <div class="form-group2">
+                <button type="submit" class="myButton">File Upload</button>
+            </div> -->
+        </form>
+        <div class="form-group2">
+            <button type="submit" class="myButton">Submit</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

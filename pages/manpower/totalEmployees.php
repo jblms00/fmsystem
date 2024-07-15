@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Employees</title>
+
+    <!-- ========= CSS ========= -->
+    <link rel="stylesheet" href="assets/css/totalEmployees.css">
+
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Total Employees</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="dash-content">
+            <div class="overview">
+                <div class="boxes-container">
+                    <div class="box-group">
+                        <h3 class="box-group-title">Employee List</h3>
+                        <input type="text" class="search-box1" placeholder="Search...">
+
+                        <div class="employee-list">
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                            <a href="#" class="box box1">
+                                <i class='bx bx-user'></i>
+                                <span class="text">Employee Name</span>
+                            </a>
+                        </div>
+
+                        <button id="add-employee-btn" class="add-employee-btn"><i class='bx bxs-plus-circle'></i>Add
+                            Employee</button>
+
+                    </div>
+                    <div class="box-group2">
+                        <div class="container2">
+                            <header class="header-report">Employee Information</header>
+
+                            <div class="header-section2">
+                                <span class="header-label">Personal Information</span>
+                                <span class="header-label2">Name:</span> Maria Santos <br>
+                                <span class="header-label2">Address:</span> Address <br>
+                                <span class="header-label2">Date of Birth:</span> 01/01/01
+                            </div>
+
+                            <div class="header-section2">
+                                <span class="header-label">Contact Information</span>
+                                <span class="header-label2">Email:</span> mariasantos@email.com <br>
+                                <span class="header-label2">Mobile:</span> 0912345678
+                            </div>
+
+                            <div class="header-section2">
+                                <span class="header-label">Employment Information</span>
+                                <span class="header-label2">Branch Assignment:</span> Current branch the employee is
+                                assigned to. N/A if none <br>
+                                <span class="header-label2">Employment Status:</span> Active, on leave, terminated, etc.
+                            </div>
+
+                            <div class="header-section2">
+                                <span class="header-label">Certification Information</span>
+                                <span class="header-label2">Certifications Held:</span> List of certifications the
+                                employee has
+                            </div>
+                            <button id="certification-btn" class="certification-btn"></i>Certification Tracking</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
