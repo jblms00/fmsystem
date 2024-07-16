@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             '$franchisorRep',
                             '$franchisee',
                             '$franchiseeRep',
-                            '$notarySealFranchise',
+                            '$uploadFileName',
                             '$docStatus',
                             NOW()
                         )";

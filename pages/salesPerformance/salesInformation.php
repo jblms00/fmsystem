@@ -12,13 +12,14 @@ include ("../../phpscripts/check-login.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sales Performance</title>
+    <title>Dine-In Sales</title>
 
     <!-- ========= CSS ========= -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/sales.css">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/salesTransactions.css">
+
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -27,7 +28,7 @@ include ("../../phpscripts/check-login.php");
 
     <header class="contractheader">
         <div class="container-header">
-            <h1 class="title">Sales Report</h1>
+            <h1 class="title">Delivery Sales</h1>
         </div>
     </header>
     <nav class="sidebar close">
@@ -103,6 +104,7 @@ include ("../../phpscripts/check-login.php");
         </div>
     </nav>
     <div class="filter-container">
+
         <!-- Filters -->
         <div class="filters">
             <label for="filter-franchise">Franchisee:</label>
@@ -112,6 +114,7 @@ include ("../../phpscripts/check-login.php");
                 <option value="auntieAnnes">Auntie Anne's</option>
                 <option value="macaoImperial">Macao Imperial</option>
             </select>
+
             <label for="filter-status">Location:</label>
             <select id="filter-status">
                 <option value="">All</option>
@@ -119,68 +122,95 @@ include ("../../phpscripts/check-login.php");
                 <option value="pending">Pending</option>
                 <option value="leasing">Leasing</option>
             </select>
+
+            <label for="filter-status">Merchant:</label>
+            <select id="filter-status">
+                <option value="">All</option>
+                <option value="foodpanda">foodpanda</option>
+                <option value="grabfood">GrabFood</option>
+            </select>
+
+
             <label for="start-date">Start Date:</label>
             <input type="date" id="start-date">
+
             <label for="end-date">End Date:</label>
             <input type="date" id="end-date">
+
+
             <button id="btn-generate" class="resetButton">Generate</button>
+            <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
+
+            <!-- Encode Sales Report -->
+            <button id="btn-encode-salesreport" class="myButton">Encode</button>
+
+            <!-- Upload File Button
+            <label for="file-upload" class="myButton">Upload File</label>
+            <input type="file" id="file-upload" style="display: none;"> -->
+
+
         </div>
     </div>
-    <div class="container">
-        <div class="dash-content">
-            <div class="overview">
-                <div class="title">
-                    <i class='bx bx-wallet-alt'></i>
-                    <span class="text">Transaction Type</span>
-                </div>
-                <div class="boxes">
-                    <a href="#" class="box box1">
-                        <i class='bx bx-list-ul'></i>
-                        <span class="text">ALL</span>
-                    </a>
-                    <a href="chooseFranchisee?tp=DineIn" class="box box2">
-                        <i class='bx bx-restaurant'></i>
-                        <span class="text">Dine-In</span>
-                    </a>
-                    <a href="chooseFranchisee?tp=TakeOut" class="box box3">
-                        <i class='bx bx-walk'></i>
-                        <span class="text">Take-Out</span>
-                    </a>
-                    <a href="chooseFranchisee?tp=Delivery" class="box box4">
-                        <i class='bx bx-trip'></i>
-                        <span class="text">Delivery</span>
-                    </a>
-                </div>
-            </div>
-        </div>
 
-        <section id="sales-section">
+
+    </header>
+
+    <div class="container">
+        <section id="delivery-section">
             <table class="content-table">
                 <thead>
                     <tr>
                         <th>Franchisee</th>
                         <th>Net Sales</th>
                         <th>Transaction Type</th>
+                        <th>Merchant</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="sales-row-1">
+                    <tr id="delivery-row-1">
                         <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
                         <td>Php XXXXXXXX</td>
-                        <td>Take-Out</td>
+                        <td>Delivery</td>
+                        <td><img src="../../assets/images/foodpanda.png" alt="FoodPanda Logo" class="franchise-logo">
+                        </td>
                         <td>dd/mm/yyyy</td>
                     </tr>
-                    <tr id="sales-row-2">
+                    <tr id="delivery-row-2">
                         <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
                         <td>Php XXXXXXXX</td>
                         <td>Delivery</td>
+                        <td><img src="../../assets/images/grabfood.png" alt="GrabFood Logo" class="franchise-logo"></td>
                         <td>dd/mm/yyyy</td>
                     </tr>
-                    <tr id="sales-row-3">
+                    <tr id="delivery-row-3">
                         <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
                         <td>Php XXXXXXXX</td>
-                        <td>Dine-In</td>
+                        <td>Delivery</td>
+                        <td><img src="../../assets/images/grabfood.png" alt="GrabFood Logo" class="franchise-logo"></td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="delivery-row-1">
+                        <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Delivery</td>
+                        <td><img src="../../assets/images/foodpanda.png" alt="FoodPanda Logo" class="franchise-logo">
+                        </td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="delivery-row-2">
+                        <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Delivery</td>
+                        <td><img src="../../assets/images/grabfood.png" alt="GrabFood Logo" class="franchise-logo"></td>
+                        <td>dd/mm/yyyy</td>
+                    </tr>
+                    <tr id="delivery-row-3">
+                        <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
+                        <td>Php XXXXXXXX</td>
+                        <td>Delivery</td>
+                        <td><img src="../../assets/images/foodpanda.png" alt="FoodPanda Logo" class="franchise-logo">
+                        </td>
                         <td>dd/mm/yyyy</td>
                     </tr>
                 </tbody>
@@ -198,6 +228,7 @@ include ("../../phpscripts/check-login.php");
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/display-sales-information-script.js"></script>
 </body>
 
 </html>

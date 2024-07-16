@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+include ("../../phpscripts/database-connection.php");
+include ("../../phpscripts/check-login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -97,53 +103,8 @@
     </nav>
     <div class="container">
         <!-- Branch Selection -->
-        <div class="form-group-1">
-            <label for="branch">LOCATION:</label>
-            <div id="branch-buttons">
-                <button type="button" id="salesBranch" class="btn-option branch-button" data-value="magalang-pampanga">
-                    <img src="../../assets/images/PotCor.png" alt="Potato Corner">
-                    <span>Potato Corner</span>
-                    <span>Magalang, Pampanga</span>
-                </button>
-
-                <button type="button" id="salesBranch" class="btn-option branch-button" data-value="sm-grand-central">
-                    <img src="../../assets/images/PotCor.png" alt="Potato Corner">
-                    <span>Potato Corner</span>
-                    <span>SM Grand Central</span>
-                </button>
-
-                <button type="button" id="salesBranch" class="btn-option branch-button"
-                    data-value="urdaneta-pangasinan">
-                    <img src="../../assets/images/PotCor.png" alt="Potato Corner">
-                    <span>Potato Corner</span>
-                    <span>Urdaneta, Pangasinan</span>
-                </button>
-
-                <button type="button" id="salesBranch" class="btn-option branch-button" data-value="example-location-1">
-                    <img src="../../assets/images/PotCor.png" alt="Auntie Anne's">
-                    <span>Potato Corner</span>
-                    <span>Example Location 1</span>
-                </button>
-
-                <button type="button" id="salesBranch" class="btn-option branch-button" data-value="example-location-2">
-                    <img src="../../assets/images/PotCor.png" alt="Auntie Anne's">
-                    <span>Potato Corner</span>
-                    <span>Example Location 2</span>
-                </button>
-
-                <button type="button" id="salesBranch" class="btn-option branch-button" data-value="example-location-3">
-                    <img src="../../assets/images/PotCor.png" alt="Macao Imperial">
-                    <span>Potato Corner</span>
-                    <span>Example Location 3</span>
-                </button>
-
-                <button type="button" id="salesBranch" class="btn-option branch-button" data-value="example-location-4">
-                    <img src="../../assets/images/PotCor.png" alt="Macao Imperial">
-                    <span>Potato Corner</span>
-                    <span>Example Location 4</span>
-                </button>
-            </div>
-            <input type="hidden" id="branch" name="branch" required>
+        <h6 class="text-center my-5">LOCATION:</h6>
+        <div class="form-group-1 d-flex justify-content-center align-items-center flex-wrap gap-5" id="formGroup1">
         </div>
     </div>
     <!-- JS -->
@@ -156,6 +117,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/display-sales-location-script.js"></script>
 </body>
 
 </html>

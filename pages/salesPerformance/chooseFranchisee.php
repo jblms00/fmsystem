@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+include ("../../phpscripts/database-connection.php");
+include ("../../phpscripts/check-login.php");
+
+$eatType = mysqli_real_escape_string($con, $_GET['tp']);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -101,18 +109,18 @@
         <div class="form-group-1">
             <label for="franchise">FRANCHISEE:</label>
             <div id="franchise-buttons">
-                <a href="chooseBranches?/PotatoCorner" class="btn-option franchise-button text-decoration-none"
-                    data-value="potato-corner">
+                <a href="chooseBranches?tp=<?php echo $eatType; ?>/franchise=PotatoCorner"
+                    class="btn-option franchise-button text-decoration-none" data-value="potato-corner">
                     <img src="../../assets/images/PotCor.png" alt="Potato Corner">
                     <span>Potato Corner</span>
                 </a>
-                <a href="chooseBranches?/AuntieAnne" class="btn-option franchise-button text-decoration-none"
-                    data-value="auntie-annes">
+                <a href="chooseBranches?tp=<?php echo $eatType; ?>/franchise=AuntieAnne"
+                    class="btn-option franchise-button text-decoration-none" data-value="auntie-annes">
                     <img src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
                     <span>Auntie Anne's</span>
                 </a>
-                <a href="chooseBranches?/MacaoImperial" class="btn-option franchise-button text-decoration-none"
-                    data-value="macao-imperial">
+                <a href="chooseBranches?tp=<?php echo $eatType; ?>/franchise=MacaoImperial"
+                    class="btn-option franchise-button text-decoration-none" data-value="macao-imperial">
                     <img src="../../assets/images/MacaoImp.png" alt="Macao Imperial">
                     <span>Macao Imperial</span>
                 </a>
