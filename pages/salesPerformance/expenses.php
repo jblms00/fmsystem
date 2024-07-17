@@ -25,12 +25,6 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Expenses</h1>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -103,6 +97,14 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </nav>
+
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Expenses</h1>
+        </div>
+    </header>
     <div class="filter-container">
         <!-- Filters -->
         <div class="filters">
@@ -195,6 +197,8 @@ include ("../../phpscripts/check-login.php");
 
 
     </div>
+    </section>
+    
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
