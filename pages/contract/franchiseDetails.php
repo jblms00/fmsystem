@@ -47,11 +47,7 @@ function formatFranchiseeName($name)
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Franchisee Details</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -124,75 +120,140 @@ function formatFranchiseeName($name)
 
         </div>
     </nav>
-    <div class="container">
-        <!-- Your content for the new document franchise page -->
-        <div class="franchise-details">
-            <div class="contract-content">
-                <div class="contract-title">FRANCHISE AGREEMENT</div>
-                <div class="contract-subtitle">
-                    <?php echo strtoupper(str_replace('-', ' ', $data['franchisee'])); ?>
-                </div>
-                <!-- Other contract details and content here -->
-                <div class="detail-item">
-                    <span>Franchise Term:</span>
-                    <p><?php echo $data['franchise_term']; ?> years</p>
-                </div>
-                <div class="detail-item">
-                    <span>Agreement Date:</span>
-                    <p><?php echo $data['agreement_date']; ?></p>
-                </div>
-                <div class="detail-item">
-                    <span>Location:</span>
-                    <p><?php echo $data['location']; ?></p>
-                </div>
-                <div class="detail-item">
-                    <span>Rights Granted:</span>
-                    <ul>
-                        <?php
-                        $franchiseeName = strtoupper(str_replace('-', ' ', $data['franchisee']));
 
-                        $rightsMap = [
-                            'non-exclusive' => 'Non-exclusive right to operate a ' . $franchiseeName . ' outlet',
-                            'use-trademarks' => 'Right to use the trademark ' . $franchiseeName . ' and other proprietary marks',
-                            'sell-products' => 'Right to sell proprietary products of ' . $franchiseeName . ' at the approved location',
-                        ];
+    <section class="home">
 
-                        $rightsGranted = explode(',', $data['rights_granted']);
-
-                        foreach ($rightsGranted as $right) {
-                            if (isset($rightsMap[$right])) {
-                                echo '<li>' . $rightsMap[$right] . '</li>';
-                            }
-                        }
-                        ?>
-                    </ul>
-                </div>
-
-                <div class="detail-item">
-                    <span>Franchise Fee:</span>
-                    <p>PHP <?php echo number_format($data['franchise_fee'], 2); ?></p>
-                </div>
-
-                <div class="detail-item">
-                    <span>Franchise Package:</span>
-                    <p>PHP <?php echo number_format($data['franchise_package'], 2); ?></p>
-                </div>
-                <div class="detail-item">
-                    <span>Bond:</span>
-                    <p>PHP <?php echo number_format($data['bond'], 2); ?></p>
-                </div>
-                <div class="detail-item">
-                    <span>Notary Public:</span>
-                    <p><?php echo $data['notarization_fr']; ?></p>
-                </div>
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Franchisee Details</h1>
             </div>
+        </header>
 
+        <div class="container">
+            <!-- Your content for the new document franchise page -->
+            <div class="franchise-details">
+                <div class="contract-content">
+                    <div class="contract-title">FRANCHISE AGREEMENT</div>
+                    <div class="contract-subtitle">
+                        <?php echo strtoupper(str_replace('-', ' ', $data['franchisee'])); ?>
+                    </div>
+                    <!-- Other contract details and content here -->
+                    
+                    <div class="detail-item">
+                        <span></span>
+                        <p></p>
+                    </div>
+                   
+                    <div class="contract-subtitle">
+                        <span>LICENSE GRANTED</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Classification:</span>
+                        <p></p>
+                    </div>
+                    <div class="detail-item">
+                        <span>Rights Granted:</span>
+                        <ul>
+                            <?php
+                            $franchiseeName = strtoupper(str_replace('-', ' ', $data['franchisee']));
+
+                            $rightsMap = [
+                                'non-exclusive' => 'Non-exclusive right to operate a ' . $franchiseeName . ' outlet',
+                                'use-trademarks' => 'Right to use the trademark ' . $franchiseeName . ' and other proprietary marks',
+                                'sell-products' => 'Right to sell proprietary products of ' . $franchiseeName . ' at the approved location',
+                            ];
+
+                            $rightsGranted = explode(',', $data['rights_granted']);
+
+                            foreach ($rightsGranted as $right) {
+                                if (isset($rightsMap[$right])) {
+                                    echo '<li>' . $rightsMap[$right] . '</li>';
+                                }
+                            }
+                            ?>
+                        </ul>
+                    </div>  
+
+                    <div class="contract-subtitle">
+                        <span>TERM OF FRANCHISE</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Franchise Term:</span>
+                        <p><?php echo $data['franchise_term']; ?> years</p>
+                    </div>
+                    <div class="detail-item">
+                        <span>Agreement Date:</span>
+                        <p><?php echo $data['agreement_date']; ?></p>
+                    </div>
+
+                    <div class="contract-subtitle">
+                        <span>LOCATION</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Location:</span>
+                        <p><?php echo $data['location']; ?></p>
+                    </div>
+                    
+                    <div class="contract-subtitle">
+                        <span>FEES</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Franchise Fee:</span>
+                        <p>PHP <?php echo number_format($data['franchise_fee'], 2); ?></p>
+                    </div>
+
+                    <div class="detail-item">
+                        <span>Franchise Package:</span>
+                        <p>PHP <?php echo number_format($data['franchise_package'], 2); ?></p>
+                    </div>
+                    <div class="detail-item">
+                        <span>Bond:</span>
+                        <p>PHP <?php echo number_format($data['bond'], 2); ?></p>
+                    </div>
+
+
+                    <div class="contract-subtitle">
+                        <span>EXTRA</span>
+                    </div>
+                    <div class="detail-item">
+                        <span></span>
+                        <p></p>
+                    </div>
+                    
+                    <div class="contract-subtitle">
+                        <span>NOTARIZATION</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Franchisor:</span>
+                        <p></p>
+                        <span>Represented by:</span>
+                        <p></p>
+                    </div>
+                    <div class="detail-item">
+                        <span>Franchisee:</span>
+                        <p></p>
+                        <span>Represented by:</span>
+                        <p></p>
+                    </div>
+
+                    <div class="contract-subtitle">
+                        <span>Notary Public's Seal:</span>
+                    </div>
+                    <div class="detail-item">
+                        <p><?php echo $data['notarization_fr']; ?></p>
+                    </div>
+                    
+                </div>
+
+            </div>
+            <div class="button-group">
+                <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Edit Details</a>
+                <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Print Contract</a>
+            </div>
         </div>
-        <div class="button-group">
-            <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Edit Details</a>
-            <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Print Contract</a>
-        </div>
-    </div>
+
+    </section>
+    
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
