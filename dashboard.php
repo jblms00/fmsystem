@@ -24,6 +24,12 @@ include ("phpscripts/check-login.php");
 </head>
 
 <body>
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Dashboard</h1>
+        </div>
+    </header>
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
