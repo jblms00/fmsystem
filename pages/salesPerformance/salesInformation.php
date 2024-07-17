@@ -3,6 +3,28 @@ session_start();
 
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
+
+$queryString = $_SERVER['QUERY_STRING'];
+parse_str(str_replace('/', '&', $queryString), $queryParams);
+
+$eatType = isset($queryParams['tp']) ? mysqli_real_escape_string($con, $queryParams['tp']) : '';
+$franchise = isset($queryParams['franchise']) ? mysqli_real_escape_string($con, $queryParams['franchise']) : '';
+
+$franchiseFormattedMap = [
+    "PotatoCorner" => "Potato Corner",
+    "MacaoImperial" => "Macao Imperial",
+    "AuntieAnne" => "Auntie Anne's"
+];
+
+$eatTypeFormattedMap = [
+    "DineIn" => "Dine-In",
+    "TakeOut" => "Take-Out",
+    "Delivery" => "Delivery"
+];
+
+$franchiseFormatted = isset($franchiseFormattedMap[$franchise]) ? $franchiseFormattedMap[$franchise] : $franchise;
+$eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap[$eatType] : $eatType;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +50,7 @@ include ("../../phpscripts/check-login.php");
 
     <header class="contractheader">
         <div class="container-header">
-            <h1 class="title">Delivery Sales</h1>
+            <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales</h1>
         </div>
     </header>
     <nav class="sidebar close">
@@ -104,7 +126,6 @@ include ("../../phpscripts/check-login.php");
         </div>
     </nav>
     <div class="filter-container">
-
         <!-- Filters -->
         <div class="filters">
             <label for="filter-franchise">Franchisee:</label>
@@ -142,7 +163,8 @@ include ("../../phpscripts/check-login.php");
             <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
 
             <!-- Encode Sales Report -->
-            <button id="btn-encode-salesreport" class="myButton">Encode</button>
+            <a href="encodeSales?tp=<?php echo $eatType ?>/franchise=<?php echo $franchise ?>" class="myButton">Encode
+                Sales Report</a>
 
             <!-- Upload File Button
             <label for="file-upload" class="myButton">Upload File</label>
@@ -151,72 +173,20 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </div>
-
-
-    </header>
-
     <div class="container">
         <section id="delivery-section">
-            <table class="content-table">
+            <table class="content-table" id="salesReportTbl">
                 <thead>
                     <tr>
                         <th>Franchisee</th>
                         <th>Net Sales</th>
                         <th>Transaction Type</th>
-                        <th>Merchant</th>
                         <th>Date</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr id="delivery-row-1">
-                        <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td><img src="../../assets/images/foodpanda.png" alt="FoodPanda Logo" class="franchise-logo">
-                        </td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="delivery-row-2">
-                        <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td><img src="../../assets/images/grabfood.png" alt="GrabFood Logo" class="franchise-logo"></td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="delivery-row-3">
-                        <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td><img src="../../assets/images/grabfood.png" alt="GrabFood Logo" class="franchise-logo"></td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="delivery-row-1">
-                        <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td><img src="../../assets/images/foodpanda.png" alt="FoodPanda Logo" class="franchise-logo">
-                        </td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="delivery-row-2">
-                        <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td><img src="../../assets/images/grabfood.png" alt="GrabFood Logo" class="franchise-logo"></td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="delivery-row-3">
-                        <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td><img src="../../assets/images/foodpanda.png" alt="FoodPanda Logo" class="franchise-logo">
-                        </td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
         </section>
-
     </div>
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

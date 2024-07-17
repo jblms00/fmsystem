@@ -1,31 +1,93 @@
+var table = $("#salesReportTbl");
+
 $(document).ready(function () {
-    displayBranches();
+    var urlParams = getEatTypeAndBranchFromUrl();
+    displaySalesReport(urlParams);
+
+    $(document).on("click", ".btn-si-data", function () {
+        var id = $(this).data("rid");
+        window.location.href = "salesReport.php?id=" + id;
+    });
 });
 
 function getEatTypeAndBranchFromUrl() {
-    var url = window.location.href;
-    var parts = url.split("?")[1].split("/");
+    var queryString = window.location.search.substring(1);
+    var queryParts = queryString.split("/");
 
     var eatType = "";
-    var franchisee = "";
+    var franchise = "";
 
-    parts.forEach((part) => {
+    queryParts.forEach(function (part) {
         if (part.startsWith("tp=")) {
-            eatType = part.split("=")[1];
+            eatType = part.substring(3);
         } else if (part.startsWith("franchise=")) {
-            franchisee = part.split("=")[1];
+            franchise = part.substring(10);
         }
     });
 
-    return { eatType: eatType, franchisee: franchisee };
+    var franchiseFormattedMap = {
+        PotatoCorner: "Potato Corner",
+        MacaoImperial: "Macao Imperial",
+        AuntieAnne: "Auntie Anne's",
+    };
+
+    var eatTypeFormattedMap = {
+        DineIn: "Dine-In",
+        TakeOut: "Take-Out",
+        Delivery: "Delivery",
+    };
+
+    var franchiseFormatted = franchiseFormattedMap[franchise] || franchise;
+    var eatTypeFormatted = eatTypeFormattedMap[eatType] || eatType;
+
+    return {
+        eatType: eatType,
+        franchise: franchise,
+        eatTypeFormatted: eatTypeFormatted,
+        franchiseFormatted: franchiseFormatted,
+    };
 }
 
-function displayBranches() {
-    var { eatType, franchisee } = getEatTypeAndBranchFromUrl();
-    var formattedFranchisee = franchisee
-        .replace(/([a-z])([A-Z])/g, "$1-$2")
-        .toLowerCase();
-    var form = $("#formGroup1");
+function displaySalesReport(urlParams) {
+    var dashFranchise = urlParams.franchiseFormatted
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+    var dashServices = urlParams.eatTypeFormatted.toLowerCase();
+
+    $.ajax({
+        method: "POST",
+        data: { dashFranchise, dashServices },
+        url: "../../phpscripts/display-sales-information.php",
+        dataType: "json",
+        success: function (response) {
+            if (response.status === "success") {
+                var tableBody = $("#salesReportTbl tbody");
+                tableBody.empty();
+
+                response.sales_info.forEach(function (sale) {
+                    var img = getFranchiseImage(sale.franchisee);
+                    var formattedGrandTotal = parseFloat(
+                        sale.grand_total
+                    ).toLocaleString();
+
+                    var row = `
+                        <tr class="btn-si-data" data-rid="${sale.report_id}">
+                            <td>
+                                <img src="../../assets/images/${img}" alt="img" class="franchise-logo">
+                            </td>
+                            <td>₱${formattedGrandTotal}</td>
+                            <td>${toTitleCase(sale.services)}</td>
+                            <td>${sale.date_added}</td>
+                        </tr>
+                    `;
+                    tableBody.append(row);
+                });
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error(error);
+        },
+    });
 }
 
 function getFranchiseImage(franchise) {
@@ -39,4 +101,10 @@ function getFranchiseImage(franchise) {
         default:
             return "default-image.png";
     }
+}
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (text) {
+        return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
+    });
 }

@@ -99,7 +99,6 @@ function populateLeaseContracts() {
         dataType: "json",
         success: function (response) {
             tableBody.empty();
-
             if (response.status === "success") {
                 response.contract_details.forEach(function (contract, index) {
                     var imgFile = getFranchiseImage(contract.franchisee);

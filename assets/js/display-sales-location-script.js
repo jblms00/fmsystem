@@ -58,6 +58,8 @@ function displayBranches() {
                 });
             } else {
                 console.log(response.message);
+
+                form.append(`<p class="text-danger">${response.message}.</p>`);
             }
         },
         error: function (xhr, status, error) {

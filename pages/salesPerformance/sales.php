@@ -3,6 +3,19 @@ session_start();
 
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
+
+$query = "SELECT * FROM sales_report ORDER BY date_added DESC LIMIT 5";
+$result = mysqli_query($con, $query);
+
+if ($result) {
+    if (mysqli_num_rows($result) > 0) {
+        $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    } else {
+        $data['error'] = "No record found";
+    }
+} else {
+    $data['error'] = mysqli_error($con);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,13 +49,11 @@ include ("../../phpscripts/check-login.php");
                 <span class="image">
                     <img src="../../assets/images/BoxLogo.png" alt="logo">
                 </span>
-
                 <div class="text header-text">
                     <span class="name">NEVADA</span>
                     <span class="profession">Management Group</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
@@ -153,7 +164,6 @@ include ("../../phpscripts/check-login.php");
                 </div>
             </div>
         </div>
-
         <section id="sales-section">
             <table class="content-table">
                 <thead>
@@ -165,25 +175,43 @@ include ("../../phpscripts/check-login.php");
                     </tr>
                 </thead>
                 <tbody>
-                    <tr id="sales-row-1">
-                        <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Take-Out</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="sales-row-2">
-                        <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Delivery</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="sales-row-3">
-                        <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Dine-In</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
+                    <?php if (!empty($data) && !isset($data['error'])) {
+                        foreach ($data as $row) {
+                            $transactions = explode(',', $row['transactions']);
+
+                            // Determine franchise image based on franchise name
+                            $franchise = strtolower($row['franchisee']);
+                            $franchise_image = 'default-image.png';
+
+                            switch ($franchise) {
+                                case "potato-corner":
+                                    $franchise_image = "PotCor.png";
+                                    break;
+                                case "auntie-anne":
+                                    $franchise_image = "AuntieAnn.png";
+                                    break;
+                                case "macao-imperial":
+                                    $franchise_image = "MacaoImp.png";
+                                    break;
+                            }
+                            ?>
+                            <tr class="btn-si-data" data-rid="<?php echo $row['report_id']; ?>">
+                                <td>
+                                    <img class="franchise-logo" src="../../assets/images/<?php echo $franchise_image; ?>"
+                                        alt="Franchise Image">
+                                </td>
+                                <td><?php echo ucwords($row['services']); ?></td>
+                                <td><?php echo end($transactions); ?></td>
+                                <td><?php echo $row['date_added']; ?></td>
+                            </tr>
+                        <?php }
+                    } else { ?>
+                        <tr>
+                            <td colspan="4"><?php echo isset($data['error']) ? $data['error'] : 'No records found'; ?></td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
+
             </table>
         </section>
 
@@ -198,6 +226,14 @@ include ("../../phpscripts/check-login.php");
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(document).on("click", ".btn-si-data", function () {
+                var id = $(this).data("rid");
+                window.location.href = "salesReport.php?id=" + id;
+            });
+        });
+    </script>
 </body>
 
 </html>

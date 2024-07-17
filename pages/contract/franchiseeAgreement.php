@@ -25,7 +25,6 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-
     <header class="contractheader">
         <div class="container-header">
             <h1 class="title">Contracts</h1>
