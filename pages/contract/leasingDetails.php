@@ -42,16 +42,12 @@ function formatFranchiseeName($name)
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/franchise agreement.css">
+    <link rel="stylesheet" href="../../assets/css/leasingDetails.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Leasing Details</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -125,9 +121,100 @@ function formatFranchiseeName($name)
         </div>
     </nav>
 
-    <div class="container">
-        <!-- Your content for the new document franchise page -->
+    <section class="home">
+
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Leasing Details</h1>
+            </div>
+        </header>
+
+        <div class="container">
+        <div class="contract-content">
+            <div class="contract-title">LEASE CONTRACT</div>
+            <div class="contract-subtitle">POTATO CORNER</div>
+            
+            <div class="contract-subtitle">
+                <span>LEASE PERIOD:</span>
+            </div>
+            <div class="detail-item">
+                <span>Lease Start Date:</span>
+                <p>dd --- yyyy</p>
+                <span>Lease End Date:</span>
+                <p>dd --- yyyy</p>
+            </div>
+
+            <div class="contract-subtitle">
+                <span>RENT:</span>
+            </div>
+            <div class="detail-item">
+                <span>Space Number:</span>
+                <p>XYZ</p>
+                <span>Area:</span>
+                <p>sqm</p>
+                <span>Classification:</span>
+                <p>XYZ</p>
+                <span>Rent:</span>
+                <p>PHP/sqm</p>
+                <span>Percentage Rent:</span>
+                <p>%</p>
+                <span>Minimum Rent:</span>
+                <p>PHP/sqm</p>
+            </div>
+
+            <div class="contract-subtitle">
+                <span>FEES:</span>
+            </div>
+            <div class="detail-item">
+                <span>Additional Fee:</span>
+                <p>PHP</p>
+                <p>Add a note...</p>
+                <span>Total Monthly Dues:</span>
+                <p>PHP</p>
+                <p>Add a note...</p>
+                <span>Lease Deposit:</span>
+                <p>PHP</p>
+                <p>Add a note...</p>
+            </div>
+
+            <div class="contract-subtitle">
+                <span>PARTIES INVOLVED:</span>
+            </div>
+            <div class="detail-item">
+                <span>Lessor Name:</span>
+                <p>XYZ</p>
+                <span>Lessor Address:</span>
+                <p>Search location...</p>
+                <span>Lessee Name:</span>
+                <p>XYZ</p>
+                <span>Lessee Address:</span>
+                <p>Search location...</p>
+            </div>
+
+            <div class="contract-subtitle">
+                <span>EXTRA:</span>
+            </div>
+            <div class="detail-item">
+                <p>Add a note...</p>
+            </div>
+
+
+            <div class="contract-subtitle">
+                <span>Notary Public's Seal:</span>
+            </div>
+            <div class="detail-item">
+                <p></p>
+            </div>
+        </div>
+        <div class="button-group">
+            <button class="myButton">Edit Details</button>
+            <button class="myButton">Print Contract</button>
+        </div>
     </div>
+
+    </section>
+
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

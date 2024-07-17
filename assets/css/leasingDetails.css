@@ -1,0 +1,102 @@
+/* Reset and basic styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.contractheader {
+    height: 90px;
+    background: #1F375D;
+    color: white;
+    display: flex;
+    align-items: center;
+    
+}
+
+.container-header {
+    margin-left: 30px;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.contract-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.contract-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #1F375D;
+    margin-bottom: 10px;
+}
+
+.contract-subtitle {
+    font-size: 18px;
+    font-weight: bold;
+    color: #3965ab;
+    margin-bottom: 10px;
+}
+
+.detail-item {
+    margin-bottom: 20px;
+}
+
+.detail-item span {
+    font-weight: bold;
+    color: #1F375D;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.detail-item p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.button-group {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.myButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #1F375D;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 10px;
+}
+
+.myButton:hover {
+    background-color: #3c67a6;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+}
