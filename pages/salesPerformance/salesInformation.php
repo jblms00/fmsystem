@@ -47,12 +47,6 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
 </head>
 
 <body>
-
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales</h1>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -125,6 +119,13 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
 
         </div>
     </nav>
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales</h1>
+        </div>
+    </header>
     <div class="filter-container">
         <!-- Filters -->
         <div class="filters">
@@ -188,6 +189,8 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
             </table>
         </section>
     </div>
+    </section>
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

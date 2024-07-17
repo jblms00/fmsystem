@@ -28,11 +28,6 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
 
 <body>
 
-    <header class="contractheader">
-        <div class="container-header">
-            <h2 class="title">Choose Franchisee</h2>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -104,6 +99,13 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
 
         </div>
     </nav>
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h2 class="title">Choose Franchisee</h2>
+        </div>
+    </header>
     <div class="container">
         <!-- Franchise Selection -->
         <div class="form-group-1">
@@ -128,6 +130,8 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
             <input type="hidden" id="franchise" name="franchise" required>
         </div>
     </div>
+    </section>
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

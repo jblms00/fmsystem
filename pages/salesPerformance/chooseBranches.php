@@ -24,12 +24,6 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-
-    <header class="contractheader">
-        <div class="container-header">
-            <h2 class="title">Choose Franchisee</h2>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -101,12 +95,21 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </nav>
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h2 class="title">Choose Franchisee Branch</h2>
+        </div>
+    </header>
     <div class="container">
         <!-- Branch Selection -->
         <h6 class="text-center my-5">LOCATION:</h6>
         <div class="form-group-1 d-flex justify-content-center align-items-center flex-wrap gap-5" id="formGroup1">
         </div>
     </div>
+    </section>
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
