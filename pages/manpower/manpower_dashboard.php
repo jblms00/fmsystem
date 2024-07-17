@@ -26,11 +26,7 @@ include ("../../phpscripts/check-login.php");
 
 <body>
 
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Manpower</h1>
-        </div>
-    </header>
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -103,6 +99,13 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </nav>
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Manpower</h1>
+        </div>
+    </header>
     <div class="container">
         <div class="dash-content">
             <div class="overview">
@@ -112,14 +115,20 @@ include ("../../phpscripts/check-login.php");
                 </div>
 
                 <div class="boxes">
-                    <div id="total-link" id="employee-total-label" class="box box1">
+
+                    <!-- href to: ../../pages/manpower/totalEmployees -->
+                    <div id="total-link" id="employee-total-label" class="box box1"> 
                         <span class="text1">54</span>
                         <span class="text">Total Employees</span>
                     </div>
+
+                    <!-- href to: ../../pages/manpower/unassignedEmployees-->
                     <div id="unassigned-link" id="employee-unassigned-label" class="box box2">
                         <span class="text1">7</span>
                         <span class="text">Unassigned Employees</span>
                     </div>
+
+                    <!-- href to: ../../pages/manpower/activeEmployees-->
                     <div id="active-link" id="employee-active-label" class="box box3">
                         <span class="text1">41</span>
                         <span class="text">Active Employees</span>
@@ -163,6 +172,8 @@ include ("../../phpscripts/check-login.php");
             </div>
         </div>
     </div>
+    </section>
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

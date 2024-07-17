@@ -150,7 +150,7 @@ if ($result) {
                         <i class='bx bx-list-ul'></i>
                         <span class="text">ALL</span>
                     </a>
-                    <a href="chooseFranchisee?tp=DineIn" class="box box2">
+                    <a href="chooseFranchisee?tp=DineIn" class="box box3">
                         <i class='bx bx-restaurant'></i>
                         <span class="text">Dine-In</span>
                     </a>
@@ -158,7 +158,7 @@ if ($result) {
                         <i class='bx bx-walk'></i>
                         <span class="text">Take-Out</span>
                     </a>
-                    <a href="chooseFranchisee?tp=Delivery" class="box box4">
+                    <a href="chooseFranchisee?tp=Delivery" class="box box3">
                         <i class='bx bx-trip'></i>
                         <span class="text">Delivery</span>
                     </a>
@@ -170,8 +170,8 @@ if ($result) {
                 <thead>
                     <tr>
                         <th>Franchisee</th>
-                        <th>Net Sales</th>
                         <th>Transaction Type</th>
+                        <th>Total Sales</th>
                         <th>Date</th>
                     </tr>
                 </thead>

@@ -12,10 +12,14 @@
     align-content: center;
 }
 
-.container-header{
+.container-header {
     margin-left: 30px;
 }
 
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
 
 .container {
     width: 80%;
