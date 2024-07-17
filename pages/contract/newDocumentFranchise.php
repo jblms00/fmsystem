@@ -20,11 +20,7 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Create New Document</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -97,6 +93,15 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </nav>
+
+    <section class="home">
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Create New Document</h1>
+        </div>
+    </header>
+    
     <div class="container">
         <header>Franchisee Agreement Contract Details</header>
         <form id="agreement-document-form">
@@ -259,8 +264,11 @@ include ("../../phpscripts/check-login.php");
             </div>
         </form>
 
-
     </div>
+
+    </section>
+
+    
     <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-box" id="modalBox">

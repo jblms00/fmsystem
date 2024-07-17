@@ -25,11 +25,7 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Contracts</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -102,6 +98,15 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </nav>
+
+    <section class="home">
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Contracts</h1>
+        </div>
+    </header>
+
     <div class="filter-container">
         <!-- Filters -->
         <div class="filters">
@@ -140,7 +145,7 @@ include ("../../phpscripts/check-login.php");
                 <!-- Filters can go here if you have them -->
 
             </div>
-            <table class="table table-responsive content-table" id="agreementContractTbl">
+            <table class="content-table" id="agreementContractTbl">
                 <thead>
                     <tr>
                         <th scope="col">Franchisee</th>
@@ -192,6 +197,10 @@ include ("../../phpscripts/check-login.php");
             </ul>
         </div>
     </div>
+    </section>
+
+
+    
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
