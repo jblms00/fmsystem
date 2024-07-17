@@ -15,11 +15,6 @@
 
 <body>
 
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Create New Document</h1>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -92,6 +87,15 @@
 
         </div>
     </nav>
+
+    <section class="home">
+
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Create New Document</h1>
+        </div>
+    </header>
+
     <div class="container">
         <!-- Leasing part -->
         <header>Leasing Contract Details</header>
@@ -256,6 +260,9 @@
             </div>
         </form>
     </div>
+
+    </section>
+    
     <!-- Modal -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-box" id="modalBox">
