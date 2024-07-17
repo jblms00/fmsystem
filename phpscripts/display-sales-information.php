@@ -7,7 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dashFranchise = $_POST['dashFranchise'];
     $dashServices = $_POST['dashServices'];
 
-    $sql = "SELECT * FROM sales_report WHERE franchisee = '$dashFranchise' AND services = '$dashServices'";
+    $data['dashFranchise'] = $dashFranchise;
+    $data['dashServices'] = $dashServices;
+
+    if ($dashServices !== "all") {
+        $sql = "SELECT * FROM sales_report WHERE franchisee = '$dashFranchise' AND services = '$dashServices'";
+    } else {
+        $sql = "SELECT * FROM sales_report WHERE franchisee = '$dashFranchise'";
+    }
+
     $result = mysqli_query($con, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {

@@ -102,11 +102,6 @@ include ("phpscripts/check-login.php");
             <div class="container">
                 <div class="dash-content">
                     <div class="overview">
-                        <!-- <div class="title">
-                    <i class='bx bx-wallet-alt'></i>
-                    <span class="text">Modules</span>
-                </div> -->
-
                         <div class="boxes-container">
                             <div class="box-group">
                                 <h3 class="box-group-title">Franchising Agreement</h3>

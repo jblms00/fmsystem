@@ -100,15 +100,6 @@ include ("../../phpscripts/check-login.php");
     <div class="container">
         <header>Franchisee Agreement Contract Details</header>
         <form id="agreement-document-form">
-            <!-- Contract Type Selection -->
-            <!-- <div class="form-group">
-                <label for="contract-type">Contract Type:</label>
-                <div id="contract-type-buttons">
-                    <button type="button" class="btn-option" data-value="agreement">Agreement Contract</button>
-                    <button type="button" class="btn-option" data-value="leasing">Leasing Contract</button>
-                </div>
-                <input type="hidden" id="contract-type" name="contractType" required>
-            </div> -->
             <!-- Franchise Selection -->
             <div class="form-group-1">
                 <label for="franchise">FRANCHISEE:</label>

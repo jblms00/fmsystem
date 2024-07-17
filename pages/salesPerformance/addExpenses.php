@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+include ("../../phpscripts/database-connection.php");
+include ("../../phpscripts/check-login.php");
+$user_data = check_login($con);
+$dateToday = date("Y-m-d");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,71 +14,125 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Expenses</title>
-    <link rel="stylesheet" href="assets/css/addExpenses.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/addExpenses.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
-
     <header class="contractheader">
         <div class="container-header">
             <h1 class="title">Expenses - Add Expenses</h1>
         </div>
     </header>
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="../../assets/images/BoxLogo.png" alt="logo">
+                </span>
+                <div class="text header-text">
+                    <span class="name">NEVADA</span>
+                    <span class="profession">Management Group</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="search" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="../../dashboard">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/contract/franchiseeAgreement">
+                            <i class='bx bx-file icon'></i>
+                            <span class="text nav-text">Franchising Agreement</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/salesPerformance/sales">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Sales Performance</span>
+                        </a>
+                    </li>
+                    <li class="nav-link active">
+                        <a href="../../pages/salesPerformance/expenses">
+                            <i class='bx bx-wallet icon'></i>
+                            <span class="text nav-text">Expenses</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/inventory/inventory2">
+                            <i class='bx bx-store-alt icon'></i>
+                            <span class="text nav-text">Inventory</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/manpower/manpower_dashboard">
+                            <i class='bx bx-group icon'></i>
+                            <span class="text nav-text">Manpower Deployment</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
+            <div class="bottom-content">
+                <li>
+                    <a href="../../phpscripts/user-logout.php">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+
+        </div>
+    </nav>
     <div class="container">
         <header>Add Expenses</header>
-
         <!-- Expense Details Form -->
         <form action="#" class="expense-form">
             <div class="details franchisee">
                 <span class="title">Expense Details</span>
-
                 <div class="fields">
-                    <!-- <div class="input-field">
-                        <label>Franchisee</label>
-                        <input type="text" placeholder="Enter Franchisee Name" required>
-                    </div> -->
                     <div class="input-field">
                         <label>Franchisee</label>
-                        <select required>
-                            <option value="" disabled selected>Select Franchisee</option>
-                            <option value="potatoCorner">Potato Corner</option>
-                            <option value="auntieAnnes">Auntie Anne's</option>
-                            <option value="macaoIT">Macao Imperial Tea</option>
-                            <!-- Add more options as needed -->
+                        <select id="selectedFranchise">
+                            <option disabled selected>Select Franchisee</option>
+                            <option value="potato-corner">Potato Corner</option>
+                            <option value="auntie-anne">Auntie Anne's</option>
+                            <option value="macao-imperial">Macao Imperial Tea</option>
                         </select>
                     </div>
                     <div class="input-field">
                         <label>Location</label>
-                        <input type="text" placeholder="Enter Branch Location" required>
+                        <input type="text" id="franchiseLocation" placeholder="Enter Branch Location">
                     </div>
-                    <!-- <div class="input-field">
-                        <label>Location</label>
-                        <select required>
-                            <option value="" disabled selected>Select Location</option>
-                            <option value="controllableExpenses">Location 1</option>
-                            <option value="nonControllableExpenses">Location 2</option>
-                            <option value="nonControllableExpenses">Location 3</option>
-                           
-                        </select>
-                    </div> -->
                     <div class="input-field">
                         <label>Name</label>
-                        <input type="text" placeholder="Enter Encoder's Name" required>
+                        <input type="text" id="encoderName" placeholder="Enter Encoder's Name"
+                            value="<?php echo $user_data['user_name']; ?>" disabled>
                     </div>
                     <div class="input-field">
                         <label>Date</label>
-                        <input type="date" required>
+                        <input type="date" id="dateToday" value="<?php echo $dateToday; ?>" disabled>
                     </div>
                     <div class="input-field transactions">
                         <label>Expense Category</label>
-                        <select required>
-                            <option value="" disabled selected>Select Expense Category</option>
-                            <option value="controllableExpenses">Franchisor Expenses</option>
-                            <option value="nonControllableExpenses">Leasor Expenses</option>
-                            <option value="nonControllableExpenses">Other Expenses</option>
-                            <!-- Add more options as needed -->
+                        <select id="selectedExpense">
+                            <option disabled selected>Select Expense Category</option>
+                            <option value="controllable-expenses">Franchisor Expenses</option>
+                            <option value="non-controllable-expenses">Leasor Expenses</option>
+                            <option value="other-expenses">Other Expenses</option>
                         </select>
                     </div>
                 </div>
@@ -80,128 +142,107 @@
                 </div> -->
             </div>
         </form>
-
         <!-- Franchisor Expenses -->
-        <form action="#" class="controllable-form">
+        <form action="#" class="form-data1 controllable-form">
             <div class="details transactions">
                 <span class="title">Franchisor Expenses</span>
-
                 <div class="fields">
                     <div class="input-field transactions">
                         <label>Expense Type</label>
-                        <select required>
-                            <option value="" disabled selected>Select Expense Type</option>
+                        <select class="selectedExpenseType">
+                            <option disabled selected>Select Expense Type</option>
                             <option value="franchiseFees">Franchise Fees</option>
                             <option value="royaltyFees">Royalty Fees</option>
                             <option value="agencyFees">Agency Fees</option>
                             <option value="others">Others</option>
-                            <!-- Add more options as needed -->
                         </select>
                         <div class="input-field transactions">
-                            <!-- <label>Amount</label> -->
-                            <input type="text" placeholder="Others:">
+                            <input type="text" class="otherExpenses" placeholder="Others:">
                         </div>
                     </div>
                 </div>
-
                 <div class="fields">
                     <div class="input-field transactions">
                         <label>Amount</label>
-                        <input type="number" placeholder="Enter Amount">
-                        <textarea id="expenses-addDescription" name="expensesDescription"
-                            placeholder="Add a description..."></textarea>
+                        <input type="number" class="expensesAmount" placeholder="Enter Amount">
+                        <textarea class="expensesDescription" placeholder="Add a description..."></textarea>
                     </div>
                 </div>
-
             </div>
-
-            <!-- <div class="form-group2">
-                <button type="submit" class="myButton">File Upload</button>
-            </div> -->
-            <!-- <div class="form-group2">
-                    <button type="submit" class="myButton">Submit</button>
-                </div> -->
         </form>
-
         <!-- Leasor Expenses -->
-        <form action="#" class="controllable-form">
+        <form action="#" class="form-data2 controllable-form">
             <div class="details transactions">
                 <span class="title">Leasor Expenses</span>
-
                 <div class="fields">
                     <div class="input-field transactions">
                         <label>Expense Type</label>
-                        <select required>
-                            <option value="" disabled selected>Select Expense Type</option>
-                            <option value="franchiseFees">Rentals</option>
-                            <option value="royaltyFees">Utilities</option>
-                            <option value="agencyFees">Maintenance</option>
+                        <select class="selectedExpenseType">
+                            <option disabled selected>Select Expense Type</option>
+                            <option value="franchiseFees">Franchise Fees</option>
+                            <option value="royaltyFees">Royalty Fees</option>
+                            <option value="agencyFees">Agency Fees</option>
                             <option value="others">Others</option>
-                            <!-- Add more options as needed -->
                         </select>
                         <div class="input-field transactions">
-                            <!-- <label>Amount</label> -->
-                            <input type="text" placeholder="Others:">
+                            <input type="text" class="otherExpenses" placeholder="Others:">
                         </div>
                     </div>
                 </div>
-
                 <div class="fields">
                     <div class="input-field transactions">
                         <label>Amount</label>
-                        <input type="number" placeholder="Enter Amount">
-                        <textarea id="expenses-addDescription" name="expensesDescription"
-                            placeholder="Add a description..."></textarea>
+                        <input type="number" class="expensesAmount" placeholder="Enter Amount">
+                        <textarea class="expensesDescription" placeholder="Add a description..."></textarea>
                     </div>
                 </div>
-
             </div>
-
-            <!-- <div class="form-group2">
-                <button type="submit" class="myButton">File Upload</button>
-            </div> -->
-            <!-- <div class="form-group2">
-                    <button type="submit" class="myButton">Submit</button>
-                </div> -->
         </form>
-
         <!-- Other Expenses -->
-        <form action="#" class="controllable-form">
+        <form action="#" class="form-data3 controllable-form">
             <div class="details transactions">
                 <span class="title">Other Expenses</span>
-
                 <div class="fields">
                     <div class="input-field transactions">
                         <label>Expense Type</label>
-                        <input type="text" placeholder="Expense Type">
-
+                        <input type="text" id="expensesType" placeholder="Expense Type">
                         <div class="input-field transactions">
                             <label>Purpose</label>
-                            <input type="text" placeholder="Purpose">
+                            <input type="text" class="otherPurpose" placeholder="Purpose">
                         </div>
                     </div>
                 </div>
-
                 <div class="fields">
                     <div class="input-field transactions">
                         <label>Amount</label>
-                        <input type="number" placeholder="Enter Amount">
-                        <textarea id="expenses-addDescription" name="expensesDescription"
-                            placeholder="Add a description..."></textarea>
+                        <input type="number" class="expensesAmount" placeholder="Enter Amount">
+                        <textarea class="expensesDescription" placeholder="Add a description..."></textarea>
                     </div>
                 </div>
-
             </div>
-
-            <!-- <div class="form-group2">
-                <button type="submit" class="myButton">File Upload</button>
-            </div> -->
         </form>
         <div class="form-group2">
-            <button type="submit" class="myButton">Submit</button>
+            <button type="submit" class="myButton btn-submit-expenses">Submit</button>
         </div>
     </div>
-
+    <!-- Modal -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-box" id="modalBox">
+            <div class="modal-body">
+                <p id="modalMessage"></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/add-expenses-script.js"></script>
 </body>
 
 </html>

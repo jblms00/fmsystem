@@ -103,19 +103,7 @@ include ("../../phpscripts/check-login.php");
 
         </div>
     </nav>
-    <div class="buttonContainer">
-
-        <!-- Encode Sales Report
-         <button id="btn-encode-salesreport" class="myButton">Encode Sales Report</button> -->
-
-        <!-- Upload File Button
-         <label for="file-upload" class="myButton">Upload File</label>
-         <input type="file" id="file-upload" style="display: none;"> -->
-
-    </div>
-
     <div class="filter-container">
-
         <!-- Filters -->
         <div class="filters">
             <label for="filter-franchise">Franchisee:</label>
@@ -154,19 +142,18 @@ include ("../../phpscripts/check-login.php");
                     <i class='bx bxs-tachometer'></i>
                     <span class="text">Dashboard</span>
                 </div>
-
                 <div class="boxes">
-                    <div id="totalExpenses-link" class="box box1">
+                    <a href="totalExpenses" class="box box1">
                         <!-- <i class='bx bx-search'></i> -->
                         <span class="text1">####</span>
                         <span class="text">Total Expenses</span>
-                    </div>
-                    <div id="controllableExpenses-link" class="box box2">
+                    </a>
+                    <a href="chooseFranchisee" class="box box2">
                         <!-- <i class='bx bx-search'></i> -->
                         <span class="text1">####</span>
                         <span class="text">Total Sales</span>
-                    </div>
-                    <div id="nonControllableExpenses-link" class="box box3">
+                    </a>
+                    <div class="box box3">
                         <!-- <i class='bx bx-search'></i> -->
                         <span class="text1">####</span>
                         <span class="text">Profit</span>
@@ -209,15 +196,15 @@ include ("../../phpscripts/check-login.php");
 
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+    <script src="../../assets/js/navbar.js"></script>
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-    crossorigin="anonymous"></script>
-<script src="../../assets/js/navbar.js"></script>
 
 </html>

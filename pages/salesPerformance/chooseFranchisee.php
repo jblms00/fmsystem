@@ -4,7 +4,7 @@ session_start();
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
 
-$eatType = mysqli_real_escape_string($con, $_GET['tp']);
+$eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : 'All';
 ?>
 <!DOCTYPE html>
 <html lang="en">
