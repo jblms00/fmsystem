@@ -25,8 +25,6 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-
-
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -49,37 +47,37 @@ include ("../../phpscripts/check-login.php");
                     <input type="search" placeholder="Search...">
                 </li>
                 <ul class="menu-links">
-                    <li class="nav-link" id="dashboard-link">
+                    <li class="nav-link">
                         <a href="../../dashboard">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="franchising-link">
+                    <li class="nav-link">
                         <a href="../../pages/contract/franchiseeAgreement">
                             <i class='bx bx-file icon'></i>
                             <span class="text nav-text">Franchising Agreement</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="sales-link">
+                    <li class="nav-link">
                         <a href="../../pages/salesPerformance/sales">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">Sales Performance</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="expenses-link">
+                    <li class="nav-link">
                         <a href="../../pages/salesPerformance/expenses">
                             <i class='bx bx-wallet icon'></i>
                             <span class="text nav-text">Expenses</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="inventory-link">
+                    <li class="nav-link">
                         <a href="../../pages/inventory/inventory2">
                             <i class='bx bx-store-alt icon'></i>
                             <span class="text nav-text">Inventory</span>
                         </a>
                     </li>
-                    <li class="nav-link active" id="manpower-link">
+                    <li class="nav-link active">
                         <a href="../../pages/manpower/manpower_dashboard">
                             <i class='bx bx-group icon'></i>
                             <span class="text nav-text">Manpower Deployment</span>
@@ -87,7 +85,6 @@ include ("../../phpscripts/check-login.php");
                     </li>
                 </ul>
             </div>
-
             <div class="bottom-content">
                 <li>
                     <a href="../../phpscripts/user-logout.php">
@@ -96,84 +93,82 @@ include ("../../phpscripts/check-login.php");
                     </a>
                 </li>
             </div>
-
         </div>
     </nav>
-
     <section class="home">
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Manpower</h1>
-        </div>
-    </header>
-    <div class="container">
-        <div class="dash-content">
-            <div class="overview">
-                <div class="title">
-                    <i class='bx bxs-tachometer'></i>
-                    <span class="text">Dashboard</span>
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Manpower</h1>
+            </div>
+        </header>
+        <div class="container">
+            <div class="dash-content">
+                <div class="overview">
+                    <div class="title">
+                        <i class='bx bxs-tachometer'></i>
+                        <span class="text">Dashboard</span>
+                    </div>
+
+                    <div class="boxes">
+
+                        <!-- href to: ../../pages/manpower/totalEmployees -->
+                        <a href="totalEmployees" id="employee-total-label" class="box box1">
+                            <span class="text1">54</span>
+                            <span class="text">Total Employees</span>
+                        </a>
+
+                        <!-- href to: ../../pages/manpower/unassignedEmployees-->
+                        <a href="unassignedEmployees" class="box box2">
+                            <span class="text1">7</span>
+                            <span class="text">Unassigned Employees</span>
+                        </a>
+
+                        <!-- href to: ../../pages/manpower/activeEmployees-->
+                        <a href="activeEmployees" class="box box3">
+                            <span class="text1">41</span>
+                            <span class="text">Active Employees</span>
+                        </a>
+                    </div>
                 </div>
 
-                <div class="boxes">
 
-                    <!-- href to: ../../pages/manpower/totalEmployees -->
-                    <div id="total-link" id="employee-total-label" class="box box1"> 
-                        <span class="text1">54</span>
-                        <span class="text">Total Employees</span>
-                    </div>
+                <div class="activity">
+                    <section id="employees-section">
+                        <span class="text">Recent Activities</span>
 
-                    <!-- href to: ../../pages/manpower/unassignedEmployees-->
-                    <div id="unassigned-link" id="employee-unassigned-label" class="box box2">
-                        <span class="text1">7</span>
-                        <span class="text">Unassigned Employees</span>
-                    </div>
 
-                    <!-- href to: ../../pages/manpower/activeEmployees-->
-                    <div id="active-link" id="employee-active-label" class="box box3">
-                        <span class="text1">41</span>
-                        <span class="text">Active Employees</span>
-                    </div>
+                        <table class="content-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Activity</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="manpowerEmployee-row-1">
+                                    <td>Firstname, Lastname</td>
+                                    <td>Activity</td>
+                                    <td>Date</td>
+                                </tr>
+                                <tr id="manpowerEmployee-row-2">
+                                    <td>Firstname, Lastname</td>
+                                    <td>Activity</td>
+                                    <td>Date</td>
+                                </tr>
+                                <tr id="manpowerEmployee-row-3">
+                                    <td>Firstname, Lastname</td>
+                                    <td>Activity</td>
+                                    <td>Date</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
                 </div>
             </div>
-
-
-            <div class="activity">
-                <section id="employees-section">
-                    <span class="text">Recent Activities</span>
-
-
-                    <table class="content-table">
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Activity</th>
-                                <th>Date</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr id="manpowerEmployee-row-1">
-                                <td>Firstname, Lastname</td>
-                                <td>Activity</td>
-                                <td>Date</td>
-                            </tr>
-                            <tr id="manpowerEmployee-row-2">
-                                <td>Firstname, Lastname</td>
-                                <td>Activity</td>
-                                <td>Date</td>
-                            </tr>
-                            <tr id="manpowerEmployee-row-3">
-                                <td>Firstname, Lastname</td>
-                                <td>Activity</td>
-                                <td>Date</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </section>
-            </div>
         </div>
-    </div>
     </section>
-    
+
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
