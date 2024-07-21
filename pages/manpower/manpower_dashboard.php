@@ -44,6 +44,7 @@ if ($result) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/manpower_dashboard.css">
+    <link rel="stylesheet" href="../../assets/css/unassignedEmployees.css">
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -146,20 +147,38 @@ if ($result) {
                         </a>
                     </div>
                 </div>
-                <div class="activity">
-                    <section id="employees-section">
-                        <span class="text">Recent Activities</span>
-                        <table class="content-table" id="recentActivities">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Activity</th>
-                                    <th>Date</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </section>
+
+                <div class="branches">
+                    <div class="staffed-branches">
+                        <h1 class="branch-title">Fully Staffed Branches</h1>
+                        <a href="../../pages/manpower/manpower_fullschedule" class="store">
+                            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
+                            <h4 id="store-text">Potato Corner</h4>
+                        </a>
+                        <a href="../../pages/manpower/manpower_fullschedule" class="store">
+                            <img class="logo" src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
+                            <h4 id="store-text">Auntie Anne's</h4>
+                        </a>
+                        <a href="../../pages/manpower/manpower_fullschedule" class="store">
+                            <img class="logo" src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea">
+                            <h4 id="store-text">Macao Imperial Tea</h4>
+                        </a>
+                    </div>
+                    <div class="understaffed-branches">
+                        <h1 class="branch-title">Understaffed Branches</h1>
+                        <a href="../../pages/manpower/manpower_incompleteschedule" class="store">
+                            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
+                            <h4 id="store-text">Potato Corner</h4>
+                        </a>
+                        <a href="../../pages/manpower/manpower_incompleteschedule" class="store">
+                            <img class="logo" src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
+                            <h4 id="store-text">Auntie Anne's</h4>
+                        </a>
+                        <a href="../../pages/manpower/manpower_incompleteschedule" class="store">
+                            <img class="logo" src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea">
+                            <h4 id="store-text">Macao Imperial Tea</h4>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

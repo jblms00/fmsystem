@@ -1,26 +1,22 @@
-* {
-    margin: 0;
-    
-    box-sizing: border-box;
-}
-
 /* Basic styles for header */
 .manpowerheader {
     height: 90px;
     background: #1F375D;
     color: white;
-    align-content: center;
+    display: flex;
+    align-items: center; /* Center content vertically */
 }
 
-.container-header{
+/* Container for header */
+.container-header {
     margin-left: 30px;
 }
 
-.buttonContainer{
+.buttonContainer {
     position: absolute;
     right: 0;
     margin-top: 30px;
-    margin-right:15px;
+    margin-right: 15px;
 }
 
 .container {
@@ -29,7 +25,7 @@
     margin-left: 20px;
 }
 
-.filter-container{
+.filter-container {
     margin-top: 2%;
     margin-left: 15px;
 }
@@ -39,10 +35,8 @@
     font-weight: bold;
 }
 
-/*  */
-
-
-#employees-section{
+/* Employees section styling */
+#employees-section {
     margin-top: 20px;
     margin-bottom: 30px;
     padding: 15px;
@@ -50,28 +44,19 @@
     background: rgb(219, 219, 219);
 }
 
-#employees-section .text{
+#employees-section .text {
     font-size: 24px;
     font-weight: 500;
 }
 
-/* Example styling for sections and tables */
-
-h2 {
-    font-size: 20px;
-    color: #1F375D; /* Matching the header color for consistency */
-    margin-bottom: 10px;
-}
-
+/* Table styling */
 table.content-table {
     width: 100%;
     border-collapse: collapse;
-    /* margin-top: 10px; */
     border: none; /* Outer border */
 }
 
 table.content-table th, table.content-table td {
-    
     padding: 8px;
     text-align: center;
     border-bottom: 1px solid #ddd; /* Row lines */
@@ -83,19 +68,18 @@ table.content-table th {
     font-weight: bold;
 }
 
-table.content-table td{
+table.content-table td {
     font-size: 14px;
-    
 }
 
-/* Hover effect for rows */
+/* Hover effect for table rows */
 table.content-table tbody tr:hover {
     background-color: #8cb2f5; /* Change to desired hover color */
 }
 
 tbody tr {
     margin-bottom: 10px;
-    border-bottom: 10px solid rgb(219, 219, 219);;
+    border-bottom: 10px solid rgb(219, 219, 219);
     background-color: white;
     padding: 20px;
 }
@@ -125,75 +109,57 @@ tbody tr {
     color: #ff9500;
 }
 
-.staffed-branches {
-    width: 45%;
-    float: left;
+/* Branches section styling */
+.staffed-branches, .understaffed-branches {
+    width: 50%;
+    float: left; /* Ensure branches are side by side */
 }
 
-.understaffed-branches {
-    width: 45%;
-    float: left;
-}
-
-.branches{
-    margin-top: 50px;
-    margin-bottom: 40px;
-    padding: 15px;
+.branches {
+    padding: 50px;
     border-radius: 8px;
-    color: white;
+    background: rgb(219, 219, 219); /* Background color for branches section */
+    overflow: hidden; /* Clear floats */
 }
 
+/* Branch title styling */
 .branch-title {
-    font-size: 22px;
+    font-size: 20px;
     color: black;
 }
 
-.store {
-    background: rgb(219, 219, 219);;
-    width: 250px;
+/* Store link styling */
+a.store {
+    background: #007bff; /* Blue background */
+    width: 250px; /* Ensure all store elements have the same width */
+    height: 120px; /* Set a consistent height */
     border-radius: 8px;
     text-align: center;
+    margin: 10px; /* Add margin to ensure spacing */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Remove underline from links */
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
 }
 
-#potatocorner-full-position
-{
-    position: absolute;
-    left: 15px;
+a.store:hover {
+    background: #0056b3; /* Darker blue on hover */
 }
 
-#auntieannes-full-position {
-    position: absolute;
-    left: 270px;
-}
-
-#macao-full-position {
-    position: absolute;
-    left: 525px;
-}
-
-#potatocorner-under-position
-{
-    position: absolute;
-    right: 780px;
-}
-
-#auntieannes-under-position {
-    position: absolute;
-    right: 525px;
-}
-
-#macao-under-position {
-    position: absolute;
-    right: 270px;
-}
-
+/* Store logo styling */
 .logo {
     width: auto;
     height: 80px;
     display: block;
-    margin: auto;
+    margin-bottom: 10px; /* Space between logo and text */
 }
 
+/* Store text styling */
 #store-text {
-    color: black;
+    color: white;
+    font-size: 18px; /* Adjust font size if needed */
+    font-weight: bold;
 }

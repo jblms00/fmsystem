@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/manpower.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/manpower.css" type="text/css">
     <title>Manpower Deployment - Schedule</title>
 </head>
 
@@ -22,22 +22,22 @@
 
         <div id="select-branch">
             <h2 id="branch-details">Store</h2>
-            <img class="logo" src="assets/images/PotCor.png" alt="Potato Corner">
+            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
             <h2 id="branch-details">Branch</h2>
         </div>
         <div id="select-branch">
             <h2 id="branch-details">Store</h2>
-            <img class="logo" src="assets/images/PotCor.png" alt="Potato Corner">
+            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
             <h2 id="branch-details">Branch</h2>
         </div>
         <div id="select-branch">
             <h2 id="branch-details">Store</h2>
-            <img class="logo" src="assets/images/PotCor.png" alt="Potato Corner">
+            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
             <h2 id="branch-details">Branch</h2>
         </div>
         <div id="select-branch">
             <h2 id="branch-details">Store</h2>
-            <img class="logo" src="assets/images/PotCor.png" alt="Potato Corner">
+            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
             <h2 id="branch-details">Branch</h2>
         </div>
     </div>

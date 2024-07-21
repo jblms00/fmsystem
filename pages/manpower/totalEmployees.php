@@ -24,11 +24,7 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Total Employees</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -97,29 +93,42 @@ include ("../../phpscripts/check-login.php");
             </div>
         </div>
     </nav>
-    <div class="container">
-        <div class="dash-content">
-            <div class="overview">
-                <div class="boxes-container">
-                    <div class="box-group">
-                        <h3 class="box-group-title">Employee List</h3>
-                        <input type="text" class="search-box1" placeholder="Search...">
-                        <div class="employee-list" id="employeeList">
-                            <button type="button" class="box box1 check-employee border-0">
-                                <i class='bx bx-user'></i>
-                                <span class="text emp-name">Employee Name</span>
-                            </button>
+
+    <section class="home">
+
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Total Employees</h1>
+            </div>
+        </header>
+
+        <div class="container">
+            <div class="dash-content">
+                <div class="overview">
+                    <div class="boxes-container">
+                        <div class="box-group">
+                            <h3 class="box-group-title">Employee List</h3>
+                            <input type="text" class="search-box1" placeholder="Search...">
+                            <div class="employee-list" id="employeeList">
+                                <button type="button" class="box box1 check-employee border-0">
+                                    <i class='bx bx-user'></i>
+                                    <span class="text emp-name">Employee Name</span>
+                                </button>
+                            </div>
+                            <a href="addEmployee" class="add-employee-btn">
+                                <i class='bx bxs-plus-circle'></i>
+                                Add Employee
+                            </a>
                         </div>
-                        <a href="addEmployee" class="add-employee-btn">
-                            <i class='bx bxs-plus-circle'></i>
-                            Add Employee
-                        </a>
+                        <div class="box-group2" id="employeeDetails"></div>
                     </div>
-                    <div class="box-group2" id="employeeDetails"></div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </section>
+
+    
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

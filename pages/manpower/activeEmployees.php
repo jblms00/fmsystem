@@ -89,23 +89,31 @@
             </div>
         </div>
     </nav>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Employees - Active Today</h1>
+
+    <section class="home">
+
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Employees - Active Today</h1>
+            </div>
+        </header>
+
+        <div class="title-container">
+            <img class="current-store-logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
+            <h2 class="current-store-name">POTATO CORNER</h2>
         </div>
-    </header>
 
-    <div class="title-container">
-        <img class="current-store-logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
-        <h2 class="current-store-name">POTATO CORNER</h2>
-    </div>
+        <div class="search-field">
+            <select required>
+                <input type="text" placeholder="Search..">
+                <!-- Add more options as needed -->
+            </select>
+        </div>
+    
+    </section>
 
-    <div class="search-field">
-        <select required>
-            <input type="text" placeholder="Search..">
-            <!-- Add more options as needed -->
-        </select>
-    </div>
+
+    
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
