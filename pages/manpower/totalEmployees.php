@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+include ("../../phpscripts/database-connection.php");
+include ("../../phpscripts/check-login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,13 +35,11 @@
                 <span class="image">
                     <img src="../../assets/images/BoxLogo.png" alt="logo">
                 </span>
-
                 <div class="text header-text">
                     <span class="name">NEVADA</span>
                     <span class="profession">Management Group</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
@@ -100,89 +104,18 @@
                     <div class="box-group">
                         <h3 class="box-group-title">Employee List</h3>
                         <input type="text" class="search-box1" placeholder="Search...">
-                        <div class="employee-list">
-                            <a href="#" class="box box1">
+                        <div class="employee-list" id="employeeList">
+                            <button type="button" class="box box1 check-employee border-0">
                                 <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
-                            <a href="#" class="box box1">
-                                <i class='bx bx-user'></i>
-                                <span class="text">Employee Name</span>
-                            </a>
+                                <span class="text emp-name">Employee Name</span>
+                            </button>
                         </div>
-
-                        <button id="add-employee-btn" class="add-employee-btn"><i class='bx bxs-plus-circle'></i>Add
-                            Employee</button>
-
+                        <a href="addEmployee" class="add-employee-btn">
+                            <i class='bx bxs-plus-circle'></i>
+                            Add Employee
+                        </a>
                     </div>
-                    <div class="box-group2">
-                        <div class="container2">
-                            <header class="header-report">Employee Information</header>
-
-                            <div class="header-section2">
-                                <span class="header-label">Personal Information</span>
-                                <span class="header-label2">Name:</span> Maria Santos <br>
-                                <span class="header-label2">Address:</span> Address <br>
-                                <span class="header-label2">Date of Birth:</span> 01/01/01
-                            </div>
-
-                            <div class="header-section2">
-                                <span class="header-label">Contact Information</span>
-                                <span class="header-label2">Email:</span> mariasantos@email.com <br>
-                                <span class="header-label2">Mobile:</span> 0912345678
-                            </div>
-
-                            <div class="header-section2">
-                                <span class="header-label">Employment Information</span>
-                                <span class="header-label2">Branch Assignment:</span> Current branch the employee is
-                                assigned to. N/A if none <br>
-                                <span class="header-label2">Employment Status:</span> Active, on leave, terminated, etc.
-                            </div>
-
-                            <div class="header-section2">
-                                <span class="header-label">Certification Information</span>
-                                <span class="header-label2">Certifications Held:</span> List of certifications the
-                                employee has
-                            </div>
-                            <button id="certification-btn" class="certification-btn"></i>Certification Tracking</button>
-                        </div>
-                    </div>
+                    <div class="box-group2" id="employeeDetails"></div>
                 </div>
             </div>
         </div>
@@ -198,6 +131,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/manage-employee-script.js"></script>
 </body>
 
 </html>

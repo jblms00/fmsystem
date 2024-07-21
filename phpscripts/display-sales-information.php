@@ -7,9 +7,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $dashFranchise = $_POST['dashFranchise'];
     $dashServices = $_POST['dashServices'];
 
-    $data['dashFranchise'] = $dashFranchise;
-    $data['dashServices'] = $dashServices;
-
     if ($dashServices !== "all") {
         $sql = "SELECT * FROM sales_report WHERE franchisee = '$dashFranchise' AND services = '$dashServices'";
     } else {

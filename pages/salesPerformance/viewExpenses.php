@@ -3,7 +3,41 @@ session_start();
 
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
+
+$id = isset($_GET['id']) ? $_GET['id'] : null;
+$data = [];
+$franchiseFormattedMap = [
+    'potato-corner' => 'Potato Corner',
+    'auntie-anne' => 'Auntie Anne\'s',
+    'macao-imperial' => 'Macao Imperial Tea'
+];
+
+if ($id) {
+    $id = mysqli_real_escape_string($con, $id);
+
+    $query = "SELECT expenses.*, users_accounts.user_name 
+              FROM expenses 
+              LEFT JOIN users_accounts ON expenses.encoder_id = users_accounts.user_id 
+              WHERE expenses.ex_id = '$id'";
+    $result = mysqli_query($con, $query);
+
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            $data = mysqli_fetch_assoc($result);
+            if (isset($data['franchisee'])) {
+                $data['franchisee'] = isset($franchiseFormattedMap[$data['franchisee']]) ? $franchiseFormattedMap[$data['franchisee']] : $data['franchisee'];
+            }
+        } else {
+            $data['error'] = "No record found with ID: $id";
+        }
+    } else {
+        $data['error'] = "Database query failed: " . mysqli_error($con);
+    }
+} else {
+    $data['error'] = "ID not provided in the URL.";
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,29 +54,95 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-
     <header class="contractheader">
         <div class="container-header">
             <h1 class="title">View Expenses</h1>
         </div>
     </header>
-
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="../../assets/images/BoxLogo.png" alt="logo">
+                </span>
+                <div class="text header-text">
+                    <span class="name">NEVADA</span>
+                    <span class="profession">Management Group</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="search" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link" id="dashboard-link">
+                        <a href="../../dashboard">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link" id="franchising-link">
+                        <a href="../../pages/contract/franchiseeAgreement">
+                            <i class='bx bx-file icon'></i>
+                            <span class="text nav-text">Franchising Agreement</span>
+                        </a>
+                    </li>
+                    <li class="nav-link" id="sales-link">
+                        <a href="../../pages/salesPerformance/sales">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Sales Performance</span>
+                        </a>
+                    </li>
+                    <li class="nav-link active" id="expenses-link">
+                        <a href="../../pages/salesPerformance/expenses">
+                            <i class='bx bx-wallet icon'></i>
+                            <span class="text nav-text">Expenses</span>
+                        </a>
+                    </li>
+                    <li class="nav-link" id="inventory-link">
+                        <a href="../../pages/inventory/inventory2">
+                            <i class='bx bx-store-alt icon'></i>
+                            <span class="text nav-text">Inventory</span>
+                        </a>
+                    </li>
+                    <li class="nav-link" id="manpower-link">
+                        <a href="../../pages/manpower/manpower_dashboard">
+                            <i class='bx bx-group icon'></i>
+                            <span class="text nav-text">Manpower Deployment</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li>
+                    <a href="../../phpscripts/user-logout.php">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <header class="header-report">Expenses</header>
         <!-- Header section above the table -->
         <header class="header-info">
             <div class="header-section encoder">
-                <span class="header-label">Encoder:</span> Encoder's Name
+                <span class="header-label">Encoder:</span> <?php echo htmlspecialchars($data['user_name']); ?>
             </div>
             <div class="header-section date">
-                <span class="header-label">Date:</span> Date
+                <span class="header-label">Date:</span> <?php echo htmlspecialchars($data['date_added']); ?>
             </div>
         </header>
         <div class="header-section2">
-            <span class="header-label">Franchisee:</span> Franchisee Name
+            <span class="header-label">Franchisee:</span> <?php echo htmlspecialchars($data['franchisee']); ?>
         </div>
         <div class="header-section2">
-            <span class="header-label">Location:</span> Location of Franchisee
+            <span class="header-label">Location:</span> <?php echo htmlspecialchars($data['location']); ?>
         </div>
         <!-- Table for Expenses -->
         <table>
@@ -176,7 +276,6 @@ include ("../../phpscripts/check-login.php");
             </tbody>
         </table>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

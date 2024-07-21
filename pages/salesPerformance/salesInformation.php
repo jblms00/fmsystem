@@ -119,78 +119,78 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
 
         </div>
     </nav>
-
     <section class="home">
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales</h1>
-        </div>
-    </header>
-    <div class="filter-container">
-        <!-- Filters -->
-        <div class="filters">
-            <label for="filter-franchise">Franchisee:</label>
-            <select id="filter-franchise">
-                <option value="">All</option>
-                <option value="potatoCorner">Potato Corner</option>
-                <option value="auntieAnnes">Auntie Anne's</option>
-                <option value="macaoImperial">Macao Imperial</option>
-            </select>
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales</h1>
+            </div>
+        </header>
+        <div class="filter-container">
+            <!-- Filters -->
+            <div class="filters">
+                <label for="filter-franchise">Franchisee:</label>
+                <select id="filter-franchise">
+                    <option value="">All</option>
+                    <option value="potatoCorner">Potato Corner</option>
+                    <option value="auntieAnnes">Auntie Anne's</option>
+                    <option value="macaoImperial">Macao Imperial</option>
+                </select>
 
-            <label for="filter-status">Location:</label>
-            <select id="filter-status">
-                <option value="">All</option>
-                <option value="approved">location 1</option>
-                <option value="pending">Pending</option>
-                <option value="leasing">Leasing</option>
-            </select>
+                <label for="filter-status">Location:</label>
+                <select id="filter-status">
+                    <option value="">All</option>
+                    <option value="approved">location 1</option>
+                    <option value="pending">Pending</option>
+                    <option value="leasing">Leasing</option>
+                </select>
 
-            <label for="filter-status">Merchant:</label>
-            <select id="filter-status">
-                <option value="">All</option>
-                <option value="foodpanda">foodpanda</option>
-                <option value="grabfood">GrabFood</option>
-            </select>
-
-
-            <label for="start-date">Start Date:</label>
-            <input type="date" id="start-date">
-
-            <label for="end-date">End Date:</label>
-            <input type="date" id="end-date">
+                <label for="filter-status">Merchant:</label>
+                <select id="filter-status">
+                    <option value="">All</option>
+                    <option value="foodpanda">foodpanda</option>
+                    <option value="grabfood">GrabFood</option>
+                </select>
 
 
-            <button id="btn-generate" class="resetButton">Generate</button>
-            <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
 
-            <!-- Encode Sales Report -->
-            <a href="encodeSales?tp=<?php echo $eatType ?>/franchise=<?php echo $franchise ?>" class="myButton">Encode
-                Sales Report</a>
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
 
-            <!-- Upload File Button
+
+                <button id="btn-generate" class="resetButton">Generate</button>
+                <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
+
+                <!-- Encode Sales Report -->
+                <a href="encodeSales?tp=<?php echo $eatType ?>/franchise=<?php echo $franchise ?>"
+                    class="myButton">Encode
+                    Sales Report</a>
+
+                <!-- Upload File Button
             <label for="file-upload" class="myButton">Upload File</label>
             <input type="file" id="file-upload" style="display: none;"> -->
 
 
+            </div>
         </div>
-    </div>
-    <div class="container">
-        <section id="delivery-section">
-            <table class="content-table" id="salesReportTbl">
-                <thead>
-                    <tr>
-                        <th>Franchisee</th>
-                        <th>Net Sales</th>
-                        <th>Transaction Type</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </section>
-    </div>
+        <div class="container">
+            <section id="delivery-section">
+                <table class="content-table" id="salesReportTbl">
+                    <thead>
+                        <tr>
+                            <th>Franchisee</th>
+                            <th>Net Sales</th>
+                            <th>Transaction Type</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+        </div>
     </section>
-    
+
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

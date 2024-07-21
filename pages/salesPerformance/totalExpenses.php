@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+include ("../../phpscripts/database-connection.php");
+include ("../../phpscripts/check-login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,7 +25,6 @@
 </head>
 
 <body>
-
     <header class="contractheader">
         <div class="container-header">
             <h1 class="title">Expenses</h1>
@@ -31,13 +36,11 @@
                 <span class="image">
                     <img src="../../assets/images/BoxLogo.png" alt="logo">
                 </span>
-
                 <div class="text header-text">
                     <span class="name">NEVADA</span>
                     <span class="profession">Management Group</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
@@ -85,7 +88,6 @@
                     </li>
                 </ul>
             </div>
-
             <div class="bottom-content">
                 <li>
                     <a href="../../phpscripts/user-logout.php">
@@ -94,7 +96,6 @@
                     </a>
                 </li>
             </div>
-
         </div>
     </nav>
     <div class="filter-container">
@@ -107,40 +108,25 @@
                 <option value="auntieAnnes">Auntie Anne's</option>
                 <option value="macaoImperial">Macao Imperial</option>
             </select>
-
             <label>Category:</label>
             <select id="filter-franchise">
                 <option value="">All</option>
                 <option value="controllableExpenses">Franchisor Expenses</option>
                 <option value="nonControllableExpenses">Leasor Expenses</option>
                 <option value="nonControllableExpenses">Other Expenses</option>
-                <!-- Add more options as needed -->
             </select>
-
-
             <label for="start-date">Start Date:</label>
             <input type="date" id="start-date">
-
             <label for="end-date">End Date:</label>
             <input type="date" id="end-date">
-
-
             <button id="btn-generate" class="resetButton">Generate</button>
-            <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
-
             <!-- Add Expense -->
             <a href="addExpenses" class="myButton">Add Expense</a>
-
-            <!-- Upload File Button
-            <label for="file-upload" class="myButton">Upload File</label>
-            <input type="file" id="file-upload" style="display: none;"> -->
-
-
         </div>
     </div>
     <div class="container">
         <section id="expenses-section">
-            <table class="content-table">
+            <table class="content-table" id="totalExpensesTbl">
                 <thead>
                     <tr>
                         <th>Franchisee</th>
@@ -152,36 +138,6 @@
                 <tbody>
                     <tr id="expenses-row-1">
                         <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Expense Category</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="expenses-row-2">
-                        <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Expense Category</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="expenses-row-3">
-                        <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Expense Category</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="expenses-row-1">
-                        <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Expense Category</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="expenses-row-2">
-                        <td><img src="../../assets/images/AuntieAnn.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Expense Category</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                    <tr id="expenses-row-3">
-                        <td><img src="../../assets/images/MacaoImp.png" alt="PotCor Logo" class="franchise-logo"></td>
                         <td>Php XXXXXXXX</td>
                         <td>Expense Category</td>
                         <td>dd/mm/yyyy</td>
@@ -200,6 +156,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+    <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/display-expenses-script.js"></script>
 </body>
 
 </html>

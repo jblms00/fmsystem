@@ -3,6 +3,25 @@ session_start();
 
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
+
+$expenses_query = "SELECT SUM(expense_amount) AS total_expenses FROM expenses";
+$expenses_result = mysqli_query($con, $expenses_query);
+
+$sales_query = "SELECT SUM(grand_total) AS total_sales FROM sales_report";
+$sales_result = mysqli_query($con, $sales_query);
+
+$totalExpenses = 0;
+$totalSales = 0;
+
+if ($expenses_result || $sales_result) {
+    $sales_row = mysqli_fetch_assoc($sales_result);
+    $expenses_row = mysqli_fetch_assoc($expenses_result);
+
+    $totalSales = $sales_row['total_sales'];
+    $totalExpenses = $expenses_row['total_expenses'];
+} else {
+    $error = "Database query failed: " . mysqli_error($con);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,7 +56,6 @@ include ("../../phpscripts/check-login.php");
                     <span class="profession">Management Group</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
@@ -85,7 +103,6 @@ include ("../../phpscripts/check-login.php");
                     </li>
                 </ul>
             </div>
-
             <div class="bottom-content">
                 <li>
                     <a href="../../phpscripts/user-logout.php">
@@ -94,111 +111,88 @@ include ("../../phpscripts/check-login.php");
                     </a>
                 </li>
             </div>
-
         </div>
     </nav>
-
-
     <section class="home">
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Expenses</h1>
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Expenses</h1>
+            </div>
+        </header>
+        <div class="filter-container">
+            <!-- Filters -->
+            <div class="filters">
+                <label for="filter-franchise">Franchisee:</label>
+                <select id="filter-franchise">
+                    <option value="">All</option>
+                    <option value="potatoCorner">Potato Corner</option>
+                    <option value="auntieAnnes">Auntie Anne's</option>
+                    <option value="macaoImperial">Macao Imperial</option>
+                </select>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                <button id="btn-generate" class="resetButton">Generate</button>
+            </div>
         </div>
-    </header>
-    <div class="filter-container">
-        <!-- Filters -->
-        <div class="filters">
-            <label for="filter-franchise">Franchisee:</label>
-            <select id="filter-franchise">
-                <option value="">All</option>
-                <option value="potatoCorner">Potato Corner</option>
-                <option value="auntieAnnes">Auntie Anne's</option>
-                <option value="macaoImperial">Macao Imperial</option>
-            </select>
-
-            <!-- <label for="filter-status">Location:</label>
-            <select id="filter-status">
-                <option value="">All</option>
-                <option value="approved">location 1</option>
-                <option value="pending">Pending</option>
-                <option value="leasing">Leasing</option>
-            </select> -->
-
-            <label for="start-date">Start Date:</label>
-            <input type="date" id="start-date">
-
-            <label for="end-date">End Date:</label>
-            <input type="date" id="end-date">
-
-
-            <button id="btn-generate" class="resetButton">Generate</button>
-            <!-- <button id="btn-reset" class="resetButton">Reset</button> -->
-
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="dash-content">
-            <div class="overview">
-                <div class="title">
-                    <i class='bx bxs-tachometer'></i>
-                    <span class="text">Dashboard</span>
+        <div class="container">
+            <div class="dash-content">
+                <div class="overview">
+                    <div class="title">
+                        <i class='bx bxs-tachometer'></i>
+                        <span class="text">Dashboard</span>
+                    </div>
+                    <div class="boxes">
+                        <a href="totalExpenses" class="box box1">
+                            <span class="text1"><?php echo number_format($totalExpenses, 2) ?></span>
+                            <span class="text">Total Expenses</span>
+                        </a>
+                        <a href="chooseFranchisee" class="box box2">
+                            <span class="text1"><?php echo number_format($totalSales, 2) ?></span>
+                            <span class="text">Total Sales</span>
+                        </a>
+                        <div class="box box3">
+                            <span class="text1"><?php echo $totalSales - $totalExpenses ?></span>
+                            <span class="text">Profit</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="boxes">
-                    <a href="totalExpenses" class="box box1">
-                        <!-- <i class='bx bx-search'></i> -->
-                        <span class="text1">####</span>
-                        <span class="text">Total Expenses</span>
-                    </a>
-                    <a href="chooseFranchisee" class="box box2">
-                        <!-- <i class='bx bx-search'></i> -->
-                        <span class="text1">####</span>
-                        <span class="text">Total Sales</span>
-                    </a>
-                    <div class="box box3">
-                        <!-- <i class='bx bx-search'></i> -->
-                        <span class="text1">####</span>
-                        <span class="text">Profit</span>
+                <div class="activity">
+                    <div class="title">
+                        <i class='bx bx-time-five'></i>
+                        <span class="text">Recent Activities</span>
+                    </div>
+                    <div class="activity-data">
+                        <div class="data names">
+                            <span class="data-title">Name</span>
+                            <span class="data-list">Julia</span>
+                            <span class="data-list">Brian</span>
+                            <span class="data-list">Matteo</span>
+                            <span class="data-list">Matthew</span>
+                        </div>
+                        <div class="data names">
+                            <span class="data-title">Activity</span>
+                            <span class="data-list">Added Controllable Expense</span>
+                            <span class="data-list">Added Non-Controllable Expense</span>
+                            <span class="data-list">Added Controllable Expense</span>
+                            <span class="data-list">Added Non-Controllable Expense</span>
+                        </div>
+                        <div class="data names">
+                            <span class="data-title">Date</span>
+                            <span class="data-list">05/27/24</span>
+                            <span class="data-list">05/27/24</span>
+                            <span class="data-list">05/27/24</span>
+                            <span class="data-list">05/27/24</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="activity">
-                <div class="title">
-                    <i class='bx bx-time-five'></i>
-                    <span class="text">Recent Activities</span>
-                </div>
 
-                <div class="activity-data">
-                    <div class="data names">
-                        <span class="data-title">Name</span>
-                        <span class="data-list">Julia</span>
-                        <span class="data-list">Brian</span>
-                        <span class="data-list">Matteo</span>
-                        <span class="data-list">Matthew</span>
-                    </div>
-                    <div class="data names">
-                        <span class="data-title">Activity</span>
-                        <span class="data-list">Added Controllable Expense</span>
-                        <span class="data-list">Added Non-Controllable Expense</span>
-                        <span class="data-list">Added Controllable Expense</span>
-                        <span class="data-list">Added Non-Controllable Expense</span>
-                    </div>
-                    <div class="data names">
-                        <span class="data-title">Date</span>
-                        <span class="data-list">05/27/24</span>
-                        <span class="data-list">05/27/24</span>
-                        <span class="data-list">05/27/24</span>
-                        <span class="data-list">05/27/24</span>
-                    </div>
-                </div>
-            </div>
         </div>
-
-
-    </div>
     </section>
-    
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

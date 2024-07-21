@@ -3,6 +3,31 @@ session_start();
 
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
+
+$query = "
+    SELECT
+        COALESCE(SUM(CASE WHEN ui.employee_status = 'assigned' THEN 1 ELSE 0 END), 0) AS assigned_count,
+        COALESCE(SUM(CASE WHEN ui.employee_status = 'unassigned' THEN 1 ELSE 0 END), 0) AS unassigned_count,
+        COALESCE(SUM(CASE WHEN ui.employee_status IN ('assigned', 'unassigned') THEN 1 ELSE 0 END), 0) AS total_count
+    FROM
+        user_information ui
+    LEFT JOIN
+        users_accounts ua ON ui.user_id = ua.user_id
+";
+$result = mysqli_query($con, $query);
+
+if ($result) {
+    $row = mysqli_fetch_assoc($result);
+    $assigned_count = $row['assigned_count'];
+    $unassigned_count = $row['unassigned_count'];
+    $total_count = $row['total_count'];
+} else {
+    $assigned_count = 0;
+    $unassigned_count = 0;
+    $total_count = 0;
+    $error = mysqli_error($con);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,13 +56,11 @@ include ("../../phpscripts/check-login.php");
                 <span class="image">
                     <img src="../../assets/images/BoxLogo.png" alt="logo">
                 </span>
-
                 <div class="text header-text">
                     <span class="name">NEVADA</span>
                     <span class="profession">Management Group</span>
                 </div>
             </div>
-
             <i class='bx bx-chevron-right toggle'></i>
         </header>
         <div class="menu-bar">
@@ -108,36 +131,25 @@ include ("../../phpscripts/check-login.php");
                         <i class='bx bxs-tachometer'></i>
                         <span class="text">Dashboard</span>
                     </div>
-
                     <div class="boxes">
-
-                        <!-- href to: ../../pages/manpower/totalEmployees -->
                         <a href="totalEmployees" id="employee-total-label" class="box box1">
-                            <span class="text1">54</span>
+                            <span class="text1"><?php echo $total_count; ?></span>
                             <span class="text">Total Employees</span>
                         </a>
-
-                        <!-- href to: ../../pages/manpower/unassignedEmployees-->
                         <a href="unassignedEmployees" class="box box2">
-                            <span class="text1">7</span>
+                            <span class="text1"><?php echo $unassigned_count; ?></span>
                             <span class="text">Unassigned Employees</span>
                         </a>
-
-                        <!-- href to: ../../pages/manpower/activeEmployees-->
                         <a href="activeEmployees" class="box box3">
-                            <span class="text1">41</span>
+                            <span class="text1"><?php echo $assigned_count; ?></span>
                             <span class="text">Active Employees</span>
                         </a>
                     </div>
                 </div>
-
-
                 <div class="activity">
                     <section id="employees-section">
                         <span class="text">Recent Activities</span>
-
-
-                        <table class="content-table">
+                        <table class="content-table" id="recentActivities">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -145,23 +157,7 @@ include ("../../phpscripts/check-login.php");
                                     <th>Date</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <tr id="manpowerEmployee-row-1">
-                                    <td>Firstname, Lastname</td>
-                                    <td>Activity</td>
-                                    <td>Date</td>
-                                </tr>
-                                <tr id="manpowerEmployee-row-2">
-                                    <td>Firstname, Lastname</td>
-                                    <td>Activity</td>
-                                    <td>Date</td>
-                                </tr>
-                                <tr id="manpowerEmployee-row-3">
-                                    <td>Firstname, Lastname</td>
-                                    <td>Activity</td>
-                                    <td>Date</td>
-                                </tr>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </section>
                 </div>
@@ -179,7 +175,7 @@ include ("../../phpscripts/check-login.php");
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
-    <!-- <script src="../../assets/js/content.js"></script> -->
+    <script src="../../assets/js/manage-employee-script.js"></script>
 </body>
 
 </html>
