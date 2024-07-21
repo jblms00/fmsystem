@@ -141,7 +141,7 @@ if ($result) {
                             <span class="text1"><?php echo $unassigned_count; ?></span>
                             <span class="text">Unassigned Employees</span>
                         </a>
-                        <a href="activeEmployees" class="box box3">
+                        <a href="../../pages/manpower/selectActiveBranch" class="box box3">
                             <span class="text1"><?php echo $assigned_count; ?></span>
                             <span class="text">Active Employees</span>
                         </a>

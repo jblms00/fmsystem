@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/selectActiveBranch.css" type="text/css">
+    <link rel="stylesheet" href="../../assets/css/selectActiveBranch.css" type="text/css">
     <title>Manpower Deployment - Schedule</title>
 </head>
 
@@ -18,26 +18,19 @@
 
     <div class="store-types">
         <h1 class="branch-title">Select a Branch</h1>
-        <div id="potatocorner-full-position" class="store">
-            <img class="logo" src="assets/images/PotCor.png" alt="Potato Corner">
+        <a href="activeEmployees" id="potatocorner-full-position" class="store">
+            <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
             <h3 id="store-text">Potato Corner</h3>
-        </div>
-        <div id="auntieannes-full-position" class="store">
-            <img class="logo" src="assets/images/AuntieAnn.png" alt="Auntie Anne's">
+        </a>
+        <a href="activeEmployees" id="auntieannes-full-position" class="store">
+            <img class="logo" src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
             <h3 id="store-text">Auntie Anne's</h3>
-        </div>
-        <div id="macao-full-position" class="store">
-            <img class="logo" src="assets/images/MacaoImp.png" alt="Macao Imperial Tea">
+        </a>
+        <a href="activeEmployees" id="macao-full-position" class="store">
+            <img class="logo" src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea">
             <h3 id="store-text">Macao Imperial Tea</h3>
-        </div>
+        </a>
 
-        <div class="input-field">
-            <select required>
-                <option value="" disabled selected>Select Location</option>
-                <option value="potatoCorner">Location</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
     </div>
 </body>
 
