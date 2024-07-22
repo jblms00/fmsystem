@@ -12,7 +12,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
-    <link rel="stylesheet" href="../../assets/css/activeEmployees.css">
+    
+    <link rel="stylesheet" href="../../assets/css/activeEmployees2.css">
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -104,12 +105,38 @@
         </div>
 
         <div class="search-field">
-            <select required>
-                <input type="text" placeholder="Search..">
-                <!-- Add more options as needed -->
-            </select>
+            <input type="text" placeholder="Search..">
         </div>
-    
+
+        <div class="info-bar">
+            <span>Total Active Employees: 28</span>
+            <span>Date: Current Date*</span>
+        </div>
+
+        <div class="employee-section">
+            <h3>Magalang, Pampanga</h3>
+            <table class="employee-list">
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Shift Timing</th>
+                    <th>Status</th>
+                </tr>
+                <tr>
+                    <td>Maria Santos</td>
+                    <td>09123456789</td>
+                    <td>09:00-04:00pm</td>
+                    <td><span class="status checked-in">Checked-In</span></td>
+                </tr>
+                <tr>
+                    <td>Maria Santos</td>
+                    <td>09123456789</td>
+                    <td>09:00-04:00pm</td>
+                    <td><span class="status checked-out-grayed">Checked-In</span></td>
+                </tr>
+            </table>
+        </div>
+            
     </section>
 
 
