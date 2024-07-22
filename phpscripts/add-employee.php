@@ -17,15 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mobile = mysqli_real_escape_string($con, $_POST['mobile']);
     $franchisee = isset($_POST['franchisee']) ? mysqli_real_escape_string($con, $_POST['franchisee']) : '';
     $branch = isset($_POST['branch']) ? mysqli_real_escape_string($con, $_POST['branch']) : '';
-    $timeIn = mysqli_real_escape_string($con, $_POST['timeIn']);
-    $timeOut = mysqli_real_escape_string($con, $_POST['timeOut']);
+    $shift = mysqli_real_escape_string($con, $_POST['shift']);
 
     $userId = uniqid();
     $notificationId = uniqid();  // Generate unique ID for notification
     $activityType = 'manpower_employee_added';
 
     // Check for required fields
-    if (empty($employeeName) || empty($dob) || empty($address) || empty($email) || empty($mobile) || empty($franchisee) || empty($branch) || empty($timeIn) || empty($timeOut)) {
+    if (empty($employeeName) || empty($dob) || empty($address) || empty($email) || empty($mobile) || empty($franchisee) || empty($branch) || empty($shift)) {
         $data['status'] = 'error';
         $data['message'] = 'All fields are required.';
     } else {
@@ -45,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Insert into user_information
             $sqlInfo = "
-                INSERT INTO user_information (user_id, employee_status, franchisee, branch, time_in_sched, time_out_sched, certification_name, certification_date, certificate_file_name)
-                VALUES ('$userId', 'assigned', '$franchisee', '$branch', '$timeIn', '$timeOut', '$certificationList', '', '')
+                INSERT INTO user_information (user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
+                VALUES ('$userId', 'assigned', '$franchisee', '$branch', '$shift', '$certificationList', '', '')
             ";
             $resultInfo = mysqli_query($con, $sqlInfo);
 

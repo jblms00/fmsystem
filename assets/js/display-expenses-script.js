@@ -49,7 +49,7 @@ function getFranchiseImage(franchise) {
     switch (franchise) {
         case "potato-corner":
             return "PotCor.png";
-        case "auntie-annes":
+        case "auntie-anne":
             return "AuntieAnn.png";
         case "macao-imperial":
             return "MacaoImp.png";

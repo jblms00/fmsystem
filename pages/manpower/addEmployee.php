@@ -142,14 +142,12 @@ include ("../../phpscripts/check-login.php");
                         <option value="1">One</option>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label for="timeIn">Time In</label>
-                    <input type="time" id="timeIn" name="timeIn" required>
-                </div>
-                <div class="form-group">
-                    <label for="timeOut">Time Out</label>
-                    <input type="time" id="timeOut" name="timeOut" required>
-                </div>
+                <select class="form-select" id="shift" name="shift">
+                    <option selected disabled>Open this select menu</option>
+                    <option value="Morning Shift">Morning Shift</option>
+                    <option value="Afternoon Shift">Afternoon Shift</option>
+                    <option value="Full Time">Full Time</option>
+                </select>
             </div>
             <div class="form-section">
                 <h3>Certification Information</h3>

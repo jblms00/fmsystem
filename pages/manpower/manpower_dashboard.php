@@ -137,44 +137,45 @@ if ($result) {
                             <span class="text1"><?php echo $total_count; ?></span>
                             <span class="text">Total Employees</span>
                         </a>
-                        <a href="unassignedEmployees" class="box box2">
-                            <span class="text1"><?php echo $unassigned_count; ?></span>
-                            <span class="text">Unassigned Employees</span>
-                        </a>
                         <a href="../../pages/manpower/selectActiveBranch" class="box box3">
                             <span class="text1"><?php echo $assigned_count; ?></span>
                             <span class="text">Active Employees</span>
                         </a>
+                        <button class="box box2 border-0">
+                            <span class="text1"><?php echo $unassigned_count; ?></span>
+                            <span class="text">Unassigned Employees</span>
+                        </button>
+
                     </div>
                 </div>
 
                 <div class="branches">
                     <div class="staffed-branches">
                         <h1 class="branch-title">Fully Staffed Branches</h1>
-                        <a href="../../pages/manpower/manpower_fullschedule" class="store">
+                        <a href="../../pages/manpower/manpower_fullschedule?str=potatoCorner" class="store">
                             <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
                             <h4 id="store-text">Potato Corner</h4>
                         </a>
-                        <a href="../../pages/manpower/manpower_fullschedule" class="store">
+                        <a href="../../pages/manpower/manpower_fullschedule?str=auntieAnne" class="store">
                             <img class="logo" src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
                             <h4 id="store-text">Auntie Anne's</h4>
                         </a>
-                        <a href="../../pages/manpower/manpower_fullschedule" class="store">
+                        <a href="../../pages/manpower/manpower_fullschedule?str=macaoImperial" class="store">
                             <img class="logo" src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea">
                             <h4 id="store-text">Macao Imperial Tea</h4>
                         </a>
                     </div>
                     <div class="understaffed-branches">
                         <h1 class="branch-title">Understaffed Branches</h1>
-                        <a href="../../pages/manpower/manpower_incompleteschedule" class="store">
+                        <a href="../../pages/manpower/manpower_incompleteschedule?str=potatoCorner" class="store">
                             <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
                             <h4 id="store-text">Potato Corner</h4>
                         </a>
-                        <a href="../../pages/manpower/manpower_incompleteschedule" class="store">
+                        <a href="../../pages/manpower/manpower_incompleteschedule?str=auntieAnne" class="store">
                             <img class="logo" src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
                             <h4 id="store-text">Auntie Anne's</h4>
                         </a>
-                        <a href="../../pages/manpower/manpower_incompleteschedule" class="store">
+                        <a href="../../pages/manpower/manpower_incompleteschedule?str=macaoImperial" class="store">
                             <img class="logo" src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea">
                             <h4 id="store-text">Macao Imperial Tea</h4>
                         </a>

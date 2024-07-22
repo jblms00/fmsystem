@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .header {
-    background-color: #1F375D;
+    background-color: #1f375d;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -14,35 +14,35 @@
     font-size: 50px;
     vertical-align: middle;
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .schedule_sidebar {
-    background-color: #EDEDED;
+    background-color: #ededed;
     position: absolute;
     left: 35px;
     top: 150px;
     width: 17%;
-    bottom:120px;
+    bottom: 120px;
     border-radius: 10px;
 }
 
 h1 {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-size: 23px;
     /* position: absolute; */
     left: 25px;
     top: 10px;
 }
 
-#branch-details {
-    font-family: 'Poppins', sans-serif;
+.branch-details {
+    font-family: "Poppins", sans-serif;
     font-size: 15px;
     margin-left: 10px;
     margin-bottom: 1px;
 }
 
-#select-branch {
+.select-branch {
     background-color: white;
     margin-left: 10px;
     margin-right: 10px;
@@ -60,7 +60,7 @@ h1 {
     position: absolute;
     top: 200px;
     left: 450px;
-    background-color: #EDEDED;
+    background-color: #ededed;
     width: 900px;
     height: 450px;
     border-radius: 8px;
@@ -80,36 +80,35 @@ h1 {
     /* width: 45%; */
 }
 
-.dash-content .activity .activity-data{
+.dash-content .activity .activity-data {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
 
-.activity .activity-data{
+.activity .activity-data {
     display: flex;
     /* width: calc(100% / 3 - 15px); */
 }
 
-.activity-data .data{
+.activity-data .data {
     display: flex;
     flex-direction: column;
     margin: 0 15px;
 }
 
-.activity-data .data-title{
+.activity-data .data-title {
     font-size: 20px;
     font-weight: 500;
 }
 
-.activity-data .data .data-list{
+.activity-data .data .data-list {
     font-size: 18px;
     font-weight: 400;
     margin-top: 20px;
     white-space: nowrap;
     color: var(--text-color);
-
 }
 
 table.content-table {
@@ -119,20 +118,18 @@ table.content-table {
     margin-left: 10px;
     border: none; /* Outer border */
     border-radius: 8px;
-
 }
 
-table.content-table th, table.content-table td {
-    
+table.content-table th,
+table.content-table td {
     padding: 8px;
     text-align: center;
     border-bottom: 1px solid #ddd; /* Row lines */
     border-right: none; /* Remove column borders */
 }
 
-table.content-table td{
+table.content-table td {
     font-size: 14px;
-    
 }
 
 /* Hover effect for rows */
@@ -142,7 +139,7 @@ table.content-table tbody tr:hover {
 
 tbody tr {
     margin-bottom: 10px;
-    border-bottom: 10px solid rgb(219, 219, 219);;
+    border-bottom: 10px solid rgb(219, 219, 219);
     background-color: white;
     padding: 20px;
 }
