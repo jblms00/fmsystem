@@ -18,15 +18,15 @@
 
     <div class="store-types">
         <h1 class="branch-title">Select a Branch</h1>
-        <a href="activeEmployees" id="potatocorner-full-position" class="store">
+        <a href="activeEmployees?str=PotatoCorner" id="potatocorner-full-position" class="store">
             <img class="logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
             <h3 id="store-text">Potato Corner</h3>
         </a>
-        <a href="activeEmployees" id="auntieannes-full-position" class="store">
+        <a href="activeEmployees?str=AuntieAnne" id="auntieannes-full-position" class="store">
             <img class="logo" src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
             <h3 id="store-text">Auntie Anne's</h3>
         </a>
-        <a href="activeEmployees" id="macao-full-position" class="store">
+        <a href="activeEmployees?str=MacaoImperial" id="macao-full-position" class="store">
             <img class="logo" src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea">
             <h3 id="store-text">Macao Imperial Tea</h3>
         </a>

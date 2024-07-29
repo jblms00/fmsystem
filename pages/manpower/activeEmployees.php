@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
-    
+
     <link rel="stylesheet" href="../../assets/css/activeEmployees2.css">
 
     <!-- ===== Boxicons CSS ===== -->
@@ -92,7 +92,6 @@
     </nav>
 
     <section class="home">
-
         <header class="contractheader">
             <div class="container-header">
                 <h1 class="title">Employees - Active Today</h1>
@@ -113,34 +112,12 @@
             <span>Date: Current Date*</span>
         </div>
 
-        <div class="employee-section">
-            <h3>Magalang, Pampanga</h3>
-            <table class="employee-list">
-                <tr>
-                    <th>Name</th>
-                    <th>Phone Number</th>
-                    <th>Shift Timing</th>
-                    <th>Status</th>
-                </tr>
-                <tr>
-                    <td>Maria Santos</td>
-                    <td>09123456789</td>
-                    <td>09:00-04:00pm</td>
-                    <td><span class="status checked-in">Checked-In</span></td>
-                </tr>
-                <tr>
-                    <td>Maria Santos</td>
-                    <td>09123456789</td>
-                    <td>09:00-04:00pm</td>
-                    <td><span class="status checked-out-grayed">Checked-In</span></td>
-                </tr>
-            </table>
+        <div class="main-container">
         </div>
-            
     </section>
 
 
-    
+
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
@@ -151,6 +128,7 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
+    <script src="../../assets/js/display-active-employees-script.js"></script>
 </body>
 
 </html>
