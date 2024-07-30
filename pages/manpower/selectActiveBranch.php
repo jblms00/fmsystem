@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+include ("../../phpscripts/database-connection.php");
+include ("../../phpscripts/check-login.php");
+?>
 <!DOCTYPE html>
 
 <html lang="en">
