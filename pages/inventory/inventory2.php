@@ -117,7 +117,6 @@ include ("../../phpscripts/check-login.php");
                 <button id="new-report" data-bs-toggle="modal" data-bs-target="#modalReport">New Report</button>
             </div>
         </div>
-
         <div class="container">
             <table class="inventory-table">
                 <thead>
@@ -128,22 +127,6 @@ include ("../../phpscripts/check-login.php");
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-franchisee="Potato Corner" data-location="Lyceum of the Philippines" data-date="5/20/24">
-                        <td><img src="../../assets/images/PotCor.png" alt="Potato Corner"> Lyceum of the Philippines
-                        </td>
-                        <td>Lyceum of the Philippines</td>
-                        <td>5/20/24</td>
-                    </tr>
-                    <tr data-franchisee="Auntie Anne's" data-location="Urdaneta, Pangasinan" data-date="5/20/24">
-                        <td><img src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's"> Urdaneta, Pangasinan</td>
-                        <td>Urdaneta, Pangasinan</td>
-                        <td>5/20/24</td>
-                    </tr>
-                    <tr data-franchisee="Macao Imperial Tea" data-location="SM Grand Central" data-date="5/20/24">
-                        <td><img src="../../assets/images/MacaoImp.png" alt="Macao Imperial Tea"> SM Grand Central</td>
-                        <td>SM Grand Central</td>
-                        <td>5/20/24</td>
-                    </tr>
                     <!-- Add more rows as needed -->
                 </tbody>
             </table>
@@ -163,6 +146,14 @@ include ("../../phpscripts/check-login.php");
         </div>
         <!-- content -->
     </section>
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="liveToast" class="toast text-white bg-light" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body text-center">
+                <p class="mb-0 fw-bold"></p>
+            </div>
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="modalReport" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">

@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 .header {
-    background-color: #1F375D;
+    background-color: #1f375d;
     position: fixed;
     top: 0px;
     left: 0px;
@@ -18,17 +18,16 @@
     font-size: 50px;
     vertical-align: middle;
     color: #ffffff;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
 .subheadertext {
     font-size: 22px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
 
-.regularText{
-    font-family: 'Poppins', sans-serif;
-    
+.regularText {
+    font-family: "Poppins", sans-serif;
 }
 .container {
     width: 80%;
@@ -44,7 +43,9 @@
     padding: 10px 0;
 }
 
-.filters input, .filters select, .filters button {
+.filters input,
+.filters select,
+.filters button {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -73,7 +74,8 @@ table {
     border-spacing: 0 10px; /* Add spacing between rows */
 }
 
-table.clickedInventory-table {
+table.clickedInventory-table,
+#clickedInventory2Tbl {
     width: 100%;
     border-collapse: collapse; /* Ensure borders are collapsed */
     margin-bottom: 20px;
@@ -92,26 +94,31 @@ table.inputInventory-table {
 }
 
 table.clickedInventory-table th,
-table.clickedInventory-table td {
+table.clickedInventory-table td,
+#clickedInventory2Tbl td,
+#clickedInventory2Tbl th {
     border: none;
     padding: 10px 15px;
     text-align: left;
     background-color: #fff;
 }
 
-table.clickedInventory-table th {
+table.clickedInventory-table th,
+#clickedInventory2Tbl th {
     background-color: #f2f2f2;
     color: #333;
     font-weight: 600;
     text-align: center;
 }
 
-table.clickedInventory-table td {
+table.clickedInventory-table td,
+#clickedInventory2Tbl td {
     background-color: #fff;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.clickedInventory-table tbody tr {
+.clickedInventory-table tbody tr,
+#clickedInventory2Tbl tbody tr {
     border-bottom: 1px solid #ddd; /* Add horizontal line between rows */
 }
 
@@ -233,8 +240,8 @@ tbody tr td:last-child {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -246,9 +253,10 @@ tbody tr td:last-child {
     border-radius: 10px; /* Rounded corners */
 }
 
-.modal-header, .modal-footer {
+.modal-header,
+.modal-footer {
     padding: 10px;
-    background-color: #1F375D;
+    background-color: #1f375d;
     color: white;
     text-align: center;
     border-radius: 10px 10px 0 0; /* Round top corners */
@@ -288,8 +296,8 @@ tbody tr td:last-child {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content2 {
@@ -361,8 +369,9 @@ tbody tr td:last-child {
     width: 100%;
 }
 
-#backButton, #nextButton {
-    background-color: #4CAF50;
+#backButton,
+#nextButton {
+    background-color: #4caf50;
     color: white;
     padding: 10px 20px;
     margin: 10px;
@@ -374,6 +383,7 @@ tbody tr td:last-child {
     background-color: #f44336;
 }
 
-#backButton:hover, #nextButton:hover {
+#backButton:hover,
+#nextButton:hover {
     opacity: 0.8;
 }
