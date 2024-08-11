@@ -131,12 +131,12 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
                 <label for="filter-franchise">Franchisee:</label>
                 <select id="filter-franchise">
                     <option value="">All</option>
-                    <option value="potatoCorner">Potato Corner</option>
-                    <option value="auntieAnnes">Auntie Anne's</option>
-                    <option value="macaoImperial">Macao Imperial</option>
+                    <option value="potato-corner">Potato Corner</option>
+                    <option value="auntie-anne">Auntie Anne's</option>
+                    <option value="macao-imperial">Macao Imperial</option>
                 </select>
 
-                <label for="filter-status">Location:</label>
+                <!-- <label for="filter-status">Location:</label>
                 <select id="filter-status">
                     <option value="">All</option>
                     <option value="approved">location 1</option>
@@ -149,7 +149,7 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
                     <option value="">All</option>
                     <option value="foodpanda">foodpanda</option>
                     <option value="grabfood">GrabFood</option>
-                </select>
+                </select> -->
 
 
                 <label for="start-date">Start Date:</label>

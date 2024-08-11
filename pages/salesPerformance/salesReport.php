@@ -123,9 +123,9 @@ if ($result) {
         <div class="header-section2">
             <span class="header-label">Franchisee:</span> Franchisee Name
         </div>
-        <div class="header-section2">
+        <!-- <div class="header-section2">
             <span class="header-label">Location:</span> Location of Franchisee
-        </div>
+        </div> -->
         <!-- Table for Sales Report -->
         <table>
             <caption><strong>Product Name:</strong> Product Name</caption>

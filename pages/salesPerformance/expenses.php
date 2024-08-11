@@ -119,23 +119,6 @@ if ($expenses_result || $sales_result) {
                 <h1 class="title">Expenses</h1>
             </div>
         </header>
-        <div class="filter-container">
-            <!-- Filters -->
-            <div class="filters">
-                <label for="filter-franchise">Franchisee:</label>
-                <select id="filter-franchise">
-                    <option value="">All</option>
-                    <option value="potatoCorner">Potato Corner</option>
-                    <option value="auntieAnnes">Auntie Anne's</option>
-                    <option value="macaoImperial">Macao Imperial</option>
-                </select>
-                <label for="start-date">Start Date:</label>
-                <input type="date" id="start-date">
-                <label for="end-date">End Date:</label>
-                <input type="date" id="end-date">
-                <button id="btn-generate" class="resetButton">Generate</button>
-            </div>
-        </div>
         <div class="container">
             <div class="dash-content">
                 <div class="overview">

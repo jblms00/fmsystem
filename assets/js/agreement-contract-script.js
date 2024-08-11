@@ -131,6 +131,10 @@ function populateAgreementContracts() {
                     var timeDiff = endDate.getTime() - currentDate.getTime();
                     var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
+                    if (daysDiff < 0) {
+                        daysDiff = 0;
+                    }
+
                     var row = `
                         <tr class="btn-tr-agreement" data-ac-id="${contract.ac_id}">
                             <td><img src="../../assets/images/${imgFile}" alt="${contract.franchisee} Logo" class="franchise-logo"></td>

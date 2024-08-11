@@ -109,10 +109,10 @@ include ("../../phpscripts/check-login.php");
                 <input type="text" placeholder="Search" id="search">
                 <input type="date" id="date">
                 <select id="franchise">
-                    <option value="">Franchise</option>
-                    <option value="potato_corner">Potato Corner</option>
-                    <option value="auntie_annes">Auntie Anne's</option>
-                    <option value="macao">Macao Imperial Tea</option>
+                    <option disabled selected>Select Franchise</option>
+                    <option value="potato-corner">Potato Corner</option>
+                    <option value="auntie-anne">Auntie Anne's</option>
+                    <option value="macao-imperial">Macao Imperial Tea</option>
                 </select>
                 <button id="new-report" data-bs-toggle="modal" data-bs-target="#modalReport">New Report</button>
             </div>

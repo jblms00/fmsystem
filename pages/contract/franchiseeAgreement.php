@@ -25,7 +25,7 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-    
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -101,106 +101,93 @@ include ("../../phpscripts/check-login.php");
 
     <section class="home">
 
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Contracts</h1>
-        </div>
-    </header>
-
-    <div class="filter-container">
-        <!-- Filters -->
-        <div class="filters">
-            <label for="filter-franchise">Franchisee:</label>
-            <select id="filter-franchise">
-                <option value="">All</option>
-                <option value="magalang">Potato Corner</option>
-                <option value="urdaneta">Auntie Anne's</option>
-                <option value="sm-grand">Macao Imperial</option>
-            </select>
-
-            <label for="filter-status">Status:</label>
-            <select id="filter-status">
-                <option value="">All</option>
-                <option value="approved">Active</option>
-                <option value="pending">Expired</option>
-                <option value="leasing">Draft</option>
-            </select>
-
-            <button id="btn-reset" class="resetButton">Reset</button>
-
-
-
-            <!-- New Document Button -->
-            <a href="documentTypeSelection" class="myButton">New Document</a>
-
-            <!-- Upload File Button -->
-            <label for="file-upload" class="myButton">Upload File</label>
-            <input type="file" id="file-upload" style="display: none;">
-        </div>
-    </div>
-    <div class="container">
-        <section id="franchise-section">
-            <h2>Agreement Contract</h2>
-            <div class="filters">
-                <!-- Filters can go here if you have them -->
-
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Contracts</h1>
             </div>
-            <table class="content-table" id="agreementContractTbl">
-                <thead>
-                    <tr>
-                        <th scope="col">Franchisee</th>
-                        <th scope="col">Location</th>
-                        <th scope="col">Agreement</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">Days to Expire</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </section>
+        </header>
 
-        <section id="leasing-section">
-            <h2>Leasing Contract</h2>
+        <div class="filter-container">
+            <!-- Filters -->
             <div class="filters">
-                <!-- Filters can go here if you have them -->
-            </div>
-            <table class="content-table" id="leasingContractTbl">
-                <thead>
-                    <tr>
-                        <th>Franchisee</th>
-                        <th>Location</th>
-                        <th>Agreement</th>
-                        <th>Status</th>
-                        <th>Days to Expire</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </section>
+                <label for="filter-franchise">Franchisee:</label>
+                <select id="filter-franchise">
+                    <option value="">All</option>
+                    <option value="magalang">Potato Corner</option>
+                    <option value="urdaneta">Auntie Anne's</option>
+                    <option value="sm-grand">Macao Imperial</option>
+                </select>
 
-        <!-- Notification Area -->
-        <div id="notification-area">
-            <h2>Notifications</h2>
-            <ul id="notification-list">
-                <!-- List of notifications will go here -->
-                <li>
-                    <h3>Potato Corner</h3>
-                    <h4>Agreement Contract</h4>
-                    <span class="notification-details">Expiring in 90 days</span>
-                </li>
-                <li>
-                    <h3>Auntie Anne's</h3>
-                    <h4>Agreement Contract</h4>
-                    <span class="notification-details">Expired</span>
-                </li>
-                <!-- Add more notification items as needed -->
-            </ul>
+                <label for="filter-status">Status:</label>
+                <select id="filter-status">
+                    <option value="">All</option>
+                    <option value="approved">Active</option>
+                    <option value="pending">Expired</option>
+                    <option value="leasing">Draft</option>
+                </select>
+
+                <button id="btn-reset" class="resetButton">Reset</button>
+
+
+
+                <!-- New Document Button -->
+                <a href="documentTypeSelection" class="myButton">New Document</a>
+
+                <!-- Upload File Button -->
+                <label for="file-upload" class="myButton">Upload File</label>
+                <input type="file" id="file-upload" style="display: none;">
+            </div>
         </div>
-    </div>
+        <div class="container">
+            <section id="franchise-section">
+                <h2>Agreement Contract</h2>
+                <div class="filters">
+                    <!-- Filters can go here if you have them -->
+
+                </div>
+                <table class="content-table" id="agreementContractTbl">
+                    <thead>
+                        <tr>
+                            <th scope="col">Franchisee</th>
+                            <th scope="col">Location</th>
+                            <th scope="col">Agreement</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Days to Expire</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section id="leasing-section">
+                <h2>Leasing Contract</h2>
+                <div class="filters">
+                    <!-- Filters can go here if you have them -->
+                </div>
+                <table class="content-table" id="leasingContractTbl">
+                    <thead>
+                        <tr>
+                            <th>Franchisee</th>
+                            <th>Location</th>
+                            <th>Agreement</th>
+                            <th>Status</th>
+                            <th>Days to Expire</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <!-- Notification Area -->
+            <div id="notification-area">
+                <h2>Notifications</h2>
+                <ul id="notification-list"></ul>
+            </div>
+        </div>
     </section>
 
 
-    
+
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -215,6 +202,7 @@ include ("../../phpscripts/check-login.php");
     <!-- <script src="../../assets/js/content.js"></script> -->
     <script src="../../assets/js/leasing-contract-script.js"></script>
     <script src="../../assets/js/agreement-contract-script.js"></script>
+    <script src="../../assets/js/notification-contract-script.js"></script>
 </body>
 
 </html>

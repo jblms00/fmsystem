@@ -1,10 +1,6 @@
 <?php
 session_start();
 include ("database-connection.php");
-include ("check-login.php");
-
-$user_data = check_login($con);
-$user_id_logged_in = $user_data['user_id'];
 
 $data = [];
 
