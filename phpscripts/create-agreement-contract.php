@@ -2,6 +2,9 @@
 session_start();
 
 include ("database-connection.php");
+include ("check-login.php");
+$user_data = check_login($con);
+$user_id_logged_in = $user_data['user_id'];
 
 $data = [];
 
@@ -24,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $franchisee = isset($_POST['franchisee']) ? $_POST['franchisee'] : '';
     $franchisorRep = isset($_POST['franchisorRep']) ? $_POST['franchisorRep'] : '';
     $franchiseeRep = isset($_POST['franchiseeRep']) ? $_POST['franchiseeRep'] : '';
+    $ac_id = random_int(100000, 999999);
 
     if (empty($franchise) || empty($classification) || empty($franchiseTerm) || empty($agreementDate) || empty($location)) {
         $data['status'] = "error";
@@ -46,6 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
         }
         $insert_query = "INSERT INTO agreement_contract (
+                            ac_id,
                             franchisee,
                             classification,
                             rights_granted,
@@ -67,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             status,
                             datetime_added
                         ) VALUES (
+                            '$ac_id',
                             '$franchise',
                             '$classification',
                             '$rightsGranted',
@@ -89,7 +95,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             NOW()
                         )";
 
-        if (mysqli_query($con, $insert_query)) {
+        $notif_query = "INSERT INTO notifications(user_id, activity_type, datetime) VALUES ('$ac_id','new_agreement_contract',NOW())";
+        $notif_result = mysqli_query($con, $notif_query);
+
+        if (mysqli_query($con, $insert_query) && $notif_result) {
             $data['status'] = "success";
             $data['message'] = "Agreement contract saved successfully";
         } else {

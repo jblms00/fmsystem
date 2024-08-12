@@ -200,6 +200,7 @@ include ("../../phpscripts/check-login.php");
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
     <script src="../../assets/js/report-script.js"></script>
+    <script src="../../assets/js/display-inventory-notifications-script.js"></script>
 </body>
 
 </html>
