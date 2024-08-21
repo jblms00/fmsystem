@@ -114,7 +114,7 @@ include("../../phpscripts/check-login.php");
                             <img src="../../assets/images/PotCor.png" alt="Potato Corner">
                             <span>Potato Corner</span>
                         </button>
-                        <button type="button" class="btn-option franchise-button" data-value="auntie-annes">
+                        <button type="button" class="btn-option franchise-button" data-value="auntie-anne">
                             <img src="../../assets/images/AuntieAnn.png" alt="Auntie Anne's">
                             <span>Auntie Anne's</span>
                         </button>
