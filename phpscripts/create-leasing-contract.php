@@ -1,6 +1,6 @@
 <?php
 session_start();
-include ("database-connection.php");
+include("database-connection.php");
 
 $data = [];
 

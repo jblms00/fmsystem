@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -266,7 +266,6 @@ include ("../../phpscripts/check-login.php");
                 </div>
                 <!-- Submit and Save Button -->
                 <div class="form-group button-group">
-                    <button type="button" class="myButton">Save Draft</button>
                     <button type="button" class="myButton">Create Document</button>
                 </div>
             </form>
