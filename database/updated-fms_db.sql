@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 22, 2024 at 11:42 AM
+-- Generation Time: Aug 21, 2024 at 02:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -57,7 +57,8 @@ CREATE TABLE `agreement_contract` (
 
 INSERT INTO `agreement_contract` (`ac_id`, `franchisee`, `classification`, `rights_granted`, `franchise_term`, `agreement_date`, `location`, `franchise_fee`, `ff_note`, `franchise_package`, `fp_note`, `bond`, `b_note`, `extra_note`, `notarization_fr`, `notarization_fr_rb`, `notarization_fe`, `notarization_fe_rb`, `notary_public_seal`, `status`, `datetime_added`) VALUES
 (2, 'potato-corner', 'classicifcatiopn', 'non-exclusive,use-trademarks,sell-products', '5', '2024-06-28', 'San Pedro, Minalin, Pampanga', 500000, '', 100000, '', ' 50000', '', '', 'John Doe', 'bj', 'qwerty', 'uiop', '../assets/images/notarySeals/notarySeal-20240715084300.jpg', 'active', '2024-07-15 14:43:00'),
-(10, 'macao-imperial', 'classicifcatiopn', 'non-exclusive,use-trademarks,sell-products', '1', '2024-07-24', 'Binan City, Laguna', 500000, '', 100000, '', ' 50000', '', '', 'jd', 'bj', 'qwerty', 'uiop', '../assets/images/notarySeals/notarySeal-20240715084300.jpg', 'active', '2024-07-15 14:43:00');
+(10, 'macao-imperial', 'classicifcatiopn', 'non-exclusive,use-trademarks,sell-products', '1', '2024-07-24', 'Binan City, Laguna', 500000, '', 100000, '', ' 50000', '', '', 'jd', 'bj', 'qwerty', 'uiop', '../assets/images/notarySeals/notarySeal-20240715084300.jpg', 'active', '2024-07-15 14:43:00'),
+(11, 'auntie-annes', 'classicifcatiopn', 'non-exclusive,use-trademarks', '5', '2024-08-12', 'San Pedro, Minalin, Pampanga', 2000, '', 2000, '', '2000', '', '', 'dad', 'zxc', 'da', 'asd', 'notarySealAgreement-20240812110316.jpg', 'active', '2024-08-12 17:03:16');
 
 -- --------------------------------------------------------
 
@@ -85,6 +86,104 @@ CREATE TABLE `expenses` (
 INSERT INTO `expenses` (`ex_id`, `encoder_id`, `franchisee`, `location`, `expense_catergory`, `expense_type`, `expense_purpose`, `expense_amount`, `expense_description`, `date_added`) VALUES
 (1, 11, 'potato-corner', 'San Pedro, Minalin, Pampanga', 'non-controllable-expenses', 'franchiseFees', 'Test', '5000', 'Nothing', '2024-07-19'),
 (2, 11, 'potato-corner', 'San Pedro, Minalin, Pampanga', 'non-controllable-expenses', 'franchiseFees', 'Test', '3000', 'Nothing', '2024-07-19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `items`
+--
+
+CREATE TABLE `items` (
+  `item_id` int(250) NOT NULL,
+  `item_name` text NOT NULL,
+  `franchisee` varchar(150) NOT NULL,
+  `uo` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `items`
+--
+
+INSERT INTO `items` (`item_id`, `item_name`, `franchisee`, `uo`) VALUES
+(1, 'Generic Icetea', 'potato-corner', 'PAC'),
+(2, 'Softdrinks In Can - Coke', 'potato-corner', 'CAN'),
+(3, 'Softdrinks In Can - Royal', 'potato-corner', 'CAN'),
+(4, 'Softdrinks In Can - Sprite', 'potato-corner', 'CAN'),
+(5, 'Softdrinks In Can - Coke Zero', 'potato-corner', 'CAN'),
+(6, 'Water - Bottled 500ml', 'potato-corner', 'BT'),
+(7, 'Powder - Cheese', 'potato-corner', 'PAC'),
+(8, 'Powder - Sour Cream', 'potato-corner', 'PAC'),
+(9, 'Powder - BBQ', 'potato-corner', 'PAC'),
+(10, 'Powder - White Cheddar', 'potato-corner', 'PAC'),
+(11, 'Powder - Wasabi', 'potato-corner', 'PAC'),
+(12, 'Shoestring Fries 1kg', 'potato-corner', 'PAC'),
+(13, 'Packaging - Regular', 'potato-corner', 'PC'),
+(14, 'Packaging - Large', 'potato-corner', 'PC'),
+(15, 'Packaging - Jumbo', 'potato-corner', 'PC'),
+(16, 'Packaging - Mega', 'potato-corner', 'PC'),
+(17, 'Packaging - Giga', 'potato-corner', 'PC'),
+(18, 'Packaging - Tera', 'potato-corner', 'PC'),
+(19, 'Water - Bottled 500ml', 'macao-imperial', 'BT'),
+(20, 'Tea - Jasmine', 'macao-imperial', 'PAC'),
+(21, 'Tea - Black', 'macao-imperial', 'PAC'),
+(22, 'Boba Pack', 'macao-imperial', 'PAC'),
+(23, 'Milk 1L', 'macao-imperial', 'PC'),
+(24, 'Yakult 6pcs/Pack', 'macao-imperial', 'PAC'),
+(25, 'Cream Cheese', 'macao-imperial', 'PAC'),
+(26, 'Pudding', 'macao-imperial', 'PAC'),
+(27, 'Black Pearl', 'macao-imperial', 'PAC'),
+(28, 'Grass Jelly', 'macao-imperial', 'PAC'),
+(29, 'Generic Icetea', 'auntie-anne', 'PAC'),
+(30, 'Generic Coffee', 'auntie-anne', 'PAC'),
+(31, 'Generic Lemonade', 'auntie-anne', 'PAC'),
+(32, 'Water - Bottled 500ml', 'auntie-anne', 'BT'),
+(33, 'Premade Dough 1kg', 'auntie-anne', 'BOX'),
+(34, 'Ap Flour 1kg', 'auntie-anne', 'PC'),
+(35, 'Hotdog - (12pcs/Pack)', 'auntie-anne', 'PAC'),
+(36, 'Cream Cheese Pack', 'auntie-anne', 'PAC'),
+(37, 'Cinnamon Sugar 1kg', 'auntie-anne', 'PAC'),
+(38, 'Choco Chip 1kg', 'auntie-anne', 'PAC'),
+(39, 'Almond 1kg', 'auntie-anne', 'PAC'),
+(40, 'Sour Cream & Onion 1kg', 'auntie-anne', 'PAC'),
+(41, 'Dip - Chocolate', 'auntie-anne', 'PC'),
+(42, 'Dip - Caramel', 'auntie-anne', 'PC'),
+(43, 'Dip - Cream Cheese', 'auntie-anne', 'PC');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `item_inventory`
+--
+
+CREATE TABLE `item_inventory` (
+  `inventory_id` bigint(250) NOT NULL,
+  `item_id` bigint(250) NOT NULL,
+  `franchisee` varchar(150) NOT NULL,
+  `branch` text NOT NULL,
+  `delivery` bigint(250) NOT NULL,
+  `beginning` bigint(250) NOT NULL,
+  `waste` bigint(250) NOT NULL,
+  `sold` bigint(250) NOT NULL,
+  `remarks` text NOT NULL,
+  `filled_by` bigint(250) NOT NULL,
+  `datetime_added` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `item_inventory`
+--
+
+INSERT INTO `item_inventory` (`inventory_id`, `item_id`, `franchisee`, `branch`, `delivery`, `beginning`, `waste`, `sold`, `remarks`, `filled_by`, `datetime_added`) VALUES
+(115, 19, 'macao-imperial', 'Binan City, Laguna', 3, 1, 1, 43, '', 11, '2024-07-31 08:58:14'),
+(116, 20, 'macao-imperial', 'Binan City, Laguna', 1, 4, 4, 2, '', 11, '2024-07-31 08:58:14'),
+(117, 21, 'macao-imperial', 'Binan City, Laguna', 4, 12, 2, 3, '', 11, '2024-07-31 08:58:14'),
+(118, 22, 'macao-imperial', 'Binan City, Laguna', 4, 2, 4, 2, '', 11, '2024-07-31 08:58:14'),
+(119, 23, 'macao-imperial', 'Binan City, Laguna', 4, 2, 2, 4, '', 11, '2024-07-31 08:58:14'),
+(120, 24, 'macao-imperial', 'Binan City, Laguna', 2, 4, 4, 2, '', 11, '2024-07-31 08:58:14'),
+(121, 25, 'macao-imperial', 'Binan City, Laguna', 45, 2, 354, 2, '', 11, '2024-07-31 08:58:14'),
+(122, 26, 'macao-imperial', 'Binan City, Laguna', 5423, 342, 453, 453, '', 11, '2024-07-31 08:58:14'),
+(123, 27, 'macao-imperial', 'Binan City, Laguna', 453, 543, 45, 2, '', 11, '2024-07-31 08:58:14'),
+(124, 28, 'macao-imperial', 'Binan City, Laguna', 54, 31, 312, 5, '', 11, '2024-07-31 08:58:14');
 
 -- --------------------------------------------------------
 
@@ -144,7 +243,8 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`notification_id`, `user_id`, `activity_type`, `datetime`) VALUES
-(669, 11, 'manpower_employee_added', '2024-07-19 20:00:49');
+(669, 11, 'manpower_employee_added', '2024-07-19 20:00:49'),
+(670, 11, 'new_agreement_contract', '2024-08-12 17:03:16');
 
 -- --------------------------------------------------------
 
@@ -251,6 +351,18 @@ ALTER TABLE `expenses`
   ADD PRIMARY KEY (`ex_id`);
 
 --
+-- Indexes for table `items`
+--
+ALTER TABLE `items`
+  ADD PRIMARY KEY (`item_id`);
+
+--
+-- Indexes for table `item_inventory`
+--
+ALTER TABLE `item_inventory`
+  ADD PRIMARY KEY (`inventory_id`);
+
+--
 -- Indexes for table `lease_contract`
 --
 ALTER TABLE `lease_contract`
@@ -288,13 +400,25 @@ ALTER TABLE `user_information`
 -- AUTO_INCREMENT for table `agreement_contract`
 --
 ALTER TABLE `agreement_contract`
-  MODIFY `ac_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ac_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
   MODIFY `ex_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `items`
+--
+ALTER TABLE `items`
+  MODIFY `item_id` int(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+
+--
+-- AUTO_INCREMENT for table `item_inventory`
+--
+ALTER TABLE `item_inventory`
+  MODIFY `inventory_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- AUTO_INCREMENT for table `lease_contract`
@@ -306,7 +430,7 @@ ALTER TABLE `lease_contract`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=670;
+  MODIFY `notification_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=671;
 
 --
 -- AUTO_INCREMENT for table `sales_report`
@@ -318,7 +442,7 @@ ALTER TABLE `sales_report`
 -- AUTO_INCREMENT for table `users_accounts`
 --
 ALTER TABLE `users_accounts`
-  MODIFY `user_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31231313;
+  MODIFY `user_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31231314;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
