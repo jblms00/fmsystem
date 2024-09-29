@@ -89,7 +89,7 @@ function createDocumentFranchise() {
 
                     setTimeout(function () {
                         closeModal();
-                        window.location.href = window.location.href;
+                        window.location.href = "franchiseeAgreement";
                     }, 3000);
 
                     $("#myForm")[0].reset();
@@ -160,12 +160,12 @@ function getFranchiseImage(franchise) {
     switch (franchise) {
         case "potato-corner":
             return "PotCor.png";
-        case "auntie-annes":
+        case "auntie-anne":
             return "AuntieAnn.png";
         case "macao-imperial":
             return "MacaoImp.png";
         default:
-            return "default-image.png";
+            return "11Nevada_LOGO2.png";
     }
 }
 

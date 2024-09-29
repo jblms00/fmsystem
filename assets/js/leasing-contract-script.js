@@ -71,7 +71,7 @@ function createDocumentLeasing() {
 
                     setTimeout(function () {
                         closeModal();
-                        window.location.href = window.location.href;
+                        window.location.href = "franchiseeAgreement";
                     }, 3000);
 
                     $("#myForm")[0].reset();
@@ -101,7 +101,9 @@ function populateLeaseContracts() {
             tableBody.empty();
             if (response.status === "success") {
                 response.contract_details.forEach(function (contract, index) {
-                    var imgFile = getFranchiseImage(contract.franchisee);
+                    // var imgFile = getFranchiseImage(contract.franchisee);
+
+                    console.log(contract.franchisee);
 
                     var currentDate = new Date();
                     var endDate = new Date(contract.end_date);
@@ -137,12 +139,12 @@ function getFranchiseImage(franchise) {
     switch (franchise) {
         case "potato-corner":
             return "PotCor.png";
-        case "auntie-annes":
+        case "auntie-anne":
             return "AuntieAnn.png";
         case "macao-imperial":
             return "MacaoImp.png";
         default:
-            return "default-image.png";
+            return "11Nevada_LOGO2.png";
     }
 }
 

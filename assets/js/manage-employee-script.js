@@ -107,7 +107,7 @@ function addEmployee() {
 
                     setTimeout(function () {
                         closeModal();
-                        window.location.href = window.location.href;
+                        window.location.href = "manpower_dashboard";
                     }, 3000);
 
                     $("#addEmployeeForm")[0].reset();

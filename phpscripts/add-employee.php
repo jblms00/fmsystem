@@ -1,10 +1,16 @@
 <?php
 session_start();
 
-include ("database-connection.php");
-include ("check-login.php");
+include("database-connection.php");
+include("check-login.php");
 $user_data = check_login($con);
 $user_id_logged_in = $user_data['user_id'];
+
+function generateRandom7Digit()
+{
+    return random_int(1000000, 9999999);
+}
+
 
 $data = [];
 
@@ -19,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $branch = isset($_POST['branch']) ? mysqli_real_escape_string($con, $_POST['branch']) : '';
     $shift = mysqli_real_escape_string($con, $_POST['shift']);
 
-    $userId = uniqid();
-    $notificationId = uniqid();  // Generate unique ID for notification
+    $userId = generateRandom7Digit();
+    $notificationId = generateRandom7Digit();  // Generate unique ID for notification
     $activityType = 'manpower_employee_added';
 
     // Check for required fields
