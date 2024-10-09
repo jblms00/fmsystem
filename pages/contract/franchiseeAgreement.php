@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -168,7 +168,6 @@ include ("../../phpscripts/check-login.php");
                     <thead>
                         <tr>
                             <th>Franchisee</th>
-                            <th>Location</th>
                             <th>Agreement</th>
                             <th>Status</th>
                             <th>Days to Expire</th>

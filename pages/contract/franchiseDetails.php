@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $data = [];
@@ -47,7 +47,7 @@ function formatFranchiseeName($name)
 </head>
 
 <body>
-    
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -138,12 +138,12 @@ function formatFranchiseeName($name)
                         <?php echo strtoupper(str_replace('-', ' ', $data['franchisee'])); ?>
                     </div>
                     <!-- Other contract details and content here -->
-                    
+
                     <div class="detail-item">
                         <span></span>
                         <p></p>
                     </div>
-                   
+
                     <div class="contract-subtitle">
                         <span>LICENSE GRANTED</span>
                     </div>
@@ -172,7 +172,7 @@ function formatFranchiseeName($name)
                             }
                             ?>
                         </ul>
-                    </div>  
+                    </div>
 
                     <div class="contract-subtitle">
                         <span>TERM OF FRANCHISE</span>
@@ -193,7 +193,7 @@ function formatFranchiseeName($name)
                         <span>Location:</span>
                         <p><?php echo $data['location']; ?></p>
                     </div>
-                    
+
                     <div class="contract-subtitle">
                         <span>FEES</span>
                     </div>
@@ -219,41 +219,43 @@ function formatFranchiseeName($name)
                         <span></span>
                         <p></p>
                     </div>
-                    
+
                     <div class="contract-subtitle">
                         <span>NOTARIZATION</span>
                     </div>
                     <div class="detail-item">
-                        <span>Franchisor:</span>
-                        <p></p>
-                        <span>Represented by:</span>
-                        <p></p>
+                        <span>Franchisor: </span>
+                        <p><?php echo $data['notarization_fr']; ?></p>
+                        <span>Represented by: </span>
+                        <p><?php echo $data['notarization_fr_rb']; ?></p>
                     </div>
                     <div class="detail-item">
-                        <span>Franchisee:</span>
-                        <p></p>
+                        <span>Franchisee: </span>
+                        <p><?php echo $data['notarization_fe']; ?></p>
                         <span>Represented by:</span>
-                        <p></p>
+                        <p><?php echo $data['notarization_fe_rb']; ?></p>
                     </div>
 
                     <div class="contract-subtitle">
                         <span>Notary Public's Seal:</span>
                     </div>
                     <div class="detail-item">
-                        <p><?php echo $data['notarization_fr']; ?></p>
+                        <img src="../../assets/images/notarySeals/<?php echo $data['notary_public_seal']; ?>" alt="img">
                     </div>
-                    
+
                 </div>
 
             </div>
             <div class="button-group">
-                <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Edit Details</a>
-                <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Print Contract</a>
+                <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Edit
+                    Details</a>
+                <a href="editDocumentFranchise<?php echo $id; ?>" class=" text-decoration-none myButton">Print
+                    Contract</a>
             </div>
         </div>
 
     </section>
-    
+
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

@@ -101,7 +101,7 @@ function populateLeaseContracts() {
             tableBody.empty();
             if (response.status === "success") {
                 response.contract_details.forEach(function (contract, index) {
-                    // var imgFile = getFranchiseImage(contract.franchisee);
+                    var imgFile = getFranchiseImage(contract.franchisee);
 
                     console.log(contract.franchisee);
 
@@ -117,7 +117,6 @@ function populateLeaseContracts() {
                     var row = `
                         <tr class="btn-tr-leasing" data-lease-id="${contract.lease_id}">
                             <td><img src="../../assets/images/${imgFile}" alt="${contract.franchisee} Logo" class="franchise-logo"></td>
-                            <td>${contract.location}</td>
                             <td>${contract.classification}</td>
                             <td><span class="status ${contract.status}">${contract.status}</span></td>
                             <td><span class="days-to-expire">${daysDiff} days</span></td>

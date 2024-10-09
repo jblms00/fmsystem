@@ -1,14 +1,15 @@
 <?php
 session_start();
 
-include ("database-connection.php");
+include("database-connection.php");
 
 $data = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $currentDate = new DateTime();
+    $currentDate = new DateTime(); // Today's date
 
-    $sql = "SELECT ac_id, franchisee, classification, franchise_term, agreement_date, datetime_added 
+    // SQL Query to fetch active contracts
+    $sql = "SELECT ac_id, franchisee, classification, agreement_date, datetime_added 
             FROM agreement_contract 
             WHERE status = 'active'";
 
@@ -19,23 +20,26 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
         while ($row = mysqli_fetch_assoc($result)) {
             $agreementDate = new DateTime($row['agreement_date']);
-            $datetimeAdded = new DateTime($row['datetime_added']);
 
-            $expirationDate = clone $agreementDate;
-            $expirationDate->modify("+{$row['franchise_term']} years");
-
-            $daysRemaining = $currentDate->diff($expirationDate)->days;
-            $daysSinceAdded = $datetimeAdded->diff($currentDate)->days;
-
-            if ($daysRemaining <= 30) {
-                $statusMessage = $daysRemaining > 0 ? "Expiring in $daysRemaining days" : "Expired";
-
+            if ($currentDate > $agreementDate) {
                 $data['notifications'][] = [
                     'franchisee' => $row['franchisee'],
                     'classification' => $row['classification'],
-                    'days_remaining' => $daysRemaining,
-                    'status' => $statusMessage
+                    'days_remaining' => 0,
+                    'status' => "Expired"
                 ];
+            } else {
+                $daysRemaining = $currentDate->diff($agreementDate)->days;
+
+                if ($daysRemaining <= 30) {
+                    $statusMessage = "Expiring in $daysRemaining days";
+                    $data['notifications'][] = [
+                        'franchisee' => $row['franchisee'],
+                        'classification' => $row['classification'],
+                        'days_remaining' => $daysRemaining,
+                        'status' => $statusMessage
+                    ];
+                }
             }
         }
 

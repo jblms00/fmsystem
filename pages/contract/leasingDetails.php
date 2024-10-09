@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $data = [];
@@ -47,7 +47,7 @@ function formatFranchiseeName($name)
 </head>
 
 <body>
-    
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -130,91 +130,93 @@ function formatFranchiseeName($name)
         </header>
 
         <div class="container">
-        <div class="contract-content">
-            <div class="contract-title">LEASE CONTRACT</div>
-            <div class="contract-subtitle">POTATO CORNER</div>
-            
-            <div class="contract-subtitle">
-                <span>LEASE PERIOD:</span>
-            </div>
-            <div class="detail-item">
-                <span>Lease Start Date:</span>
-                <p>dd --- yyyy</p>
-                <span>Lease End Date:</span>
-                <p>dd --- yyyy</p>
-            </div>
+            <div class="contract-content">
+                <div class="contract-title">LEASE CONTRACT</div>
+                <div class="contract-subtitle">
+                    <?php echo strtoupper(str_replace('-', ' ', $data['franchisee'])); ?>
+                </div>
 
-            <div class="contract-subtitle">
-                <span>RENT:</span>
-            </div>
-            <div class="detail-item">
-                <span>Space Number:</span>
-                <p>XYZ</p>
-                <span>Area:</span>
-                <p>sqm</p>
-                <span>Classification:</span>
-                <p>XYZ</p>
-                <span>Rent:</span>
-                <p>PHP/sqm</p>
-                <span>Percentage Rent:</span>
-                <p>%</p>
-                <span>Minimum Rent:</span>
-                <p>PHP/sqm</p>
-            </div>
+                <div class="contract-subtitle">
+                    <span>LEASE PERIOD:</span>
+                </div>
+                <div class="detail-item">
+                    <span>Lease Start Date:</span>
+                    <p><?php echo $data['start_date']; ?></p>
+                    <span>Lease End Date:</span>
+                    <p><?php echo $data['end_date']; ?> </p>
+                </div>
 
-            <div class="contract-subtitle">
-                <span>FEES:</span>
-            </div>
-            <div class="detail-item">
-                <span>Additional Fee:</span>
-                <p>PHP</p>
-                <p>Add a note...</p>
-                <span>Total Monthly Dues:</span>
-                <p>PHP</p>
-                <p>Add a note...</p>
-                <span>Lease Deposit:</span>
-                <p>PHP</p>
-                <p>Add a note...</p>
-            </div>
+                <div class="contract-subtitle">
+                    <span>RENT:</span>
+                </div>
+                <div class="detail-item">
+                    <span>Space Number:</span>
+                    <p><?php echo $data['space_number']; ?></p>
+                    <span>Area:</span>
+                    <p><?php echo $data['area']; ?></p>
+                    <span>Classification:</span>
+                    <p><?php echo $data['classification']; ?></p>
+                    <span>Rent:</span>
+                    <p><?php echo $data['rent']; ?></p>
+                    <span>Percentage Rent:</span>
+                    <p><?php echo $data['percentage_rent']; ?></p>
+                    <span>Minimum Rent:</span>
+                    <p><?php echo $data['minimum_rent']; ?></p>
+                </div>
 
-            <div class="contract-subtitle">
-                <span>PARTIES INVOLVED:</span>
-            </div>
-            <div class="detail-item">
-                <span>Lessor Name:</span>
-                <p>XYZ</p>
-                <span>Lessor Address:</span>
-                <p>Search location...</p>
-                <span>Lessee Name:</span>
-                <p>XYZ</p>
-                <span>Lessee Address:</span>
-                <p>Search location...</p>
-            </div>
+                <div class="contract-subtitle">
+                    <span>FEES:</span>
+                </div>
+                <div class="detail-item">
+                    <span>Additional Fee:</span>
+                    <p>PHP</p>
+                    <p><?php echo $data['additional_fee']; ?></p>
+                    <span>Total Monthly Dues:</span>
+                    <p>PHP</p>
+                    <p><?php echo $data['total_monthly_dues']; ?></p>
+                    <span>Lease Deposit:</span>
+                    <p>PHP</p>
+                    <p><?php echo $data['lease_deposit']; ?></p>
+                </div>
 
-            <div class="contract-subtitle">
-                <span>EXTRA:</span>
-            </div>
-            <div class="detail-item">
-                <p>Add a note...</p>
-            </div>
+                <div class="contract-subtitle">
+                    <span>PARTIES INVOLVED:</span>
+                </div>
+                <div class="detail-item">
+                    <span>Lessor Name:</span>
+                    <p><?php echo $data['lessor_name1']; ?></p>
+                    <span>Lessor Address:</span>
+                    <p><?php echo $data['lessor_address1']; ?></p>
+                    <span>Lessee Name:</span>
+                    <p><?php echo $data['lessor_name2']; ?></p>
+                    <span>Lessee Address:</span>
+                    <p><?php echo $data['lessor_address2']; ?></p>
+                </div>
+
+                <div class="contract-subtitle">
+                    <span>EXTRA:</span>
+                </div>
+                <div class="detail-item">
+                    <p><?php echo $data['extra_note']; ?></p>
+                </div>
 
 
-            <div class="contract-subtitle">
-                <span>Notary Public's Seal:</span>
+                <div class="contract-subtitle">
+                    <span>Notary Public's Seal:</span>
+                </div>
+                <div class="detail-item">
+                    <img src="../../assets/images/notarySeals/<?php echo $data['notary_public_seal']; ?>" alt="img">
+                </div>
             </div>
-            <div class="detail-item">
-                <p></p>
+            <div class="button-group">
+                <button class="myButton">Edit Details</button>
+                <button class="myButton">Print Contract</button>
             </div>
         </div>
-        <div class="button-group">
-            <button class="myButton">Edit Details</button>
-            <button class="myButton">Print Contract</button>
-        </div>
-    </div>
 
     </section>
 
-    
+
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
