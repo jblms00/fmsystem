@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -101,33 +101,33 @@ include ("../../phpscripts/check-login.php");
             <div class="form-section">
                 <h3>Personal Information</h3>
                 <div class="form-group">
-                    <label for="employeeName">Employee Name</label>
+                    <label for="employeeName">Employee Name <span class="text-danger">*</span></label>
                     <input type="text" id="employeeName" name="employeeName" required>
                 </div>
                 <div class="form-group">
-                    <label for="dob">Date of Birth</label>
+                    <label for="dob">Date of Birth <span class="text-danger">*</span></label>
                     <input type="date" id="dob" name="dob" required>
                 </div>
                 <div class="form-group">
-                    <label for="address">Address</label>
+                    <label for="address">Address <span class="text-danger">*</span></label>
                     <input type="text" id="address" name="address" required>
                 </div>
             </div>
             <div class="form-section">
                 <h3>Contact Information</h3>
                 <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">Email <span class="text-danger">*</span></label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="mobile">Mobile</label>
+                    <label for="mobile">Mobile <span class="text-danger">*</span></label>
                     <input type="text" id="mobile" name="mobile" required>
                 </div>
             </div>
             <div class="form-section">
                 <h3>Employee Information</h3>
                 <div class="form-group">
-                    <label for="franchisee">Franchisee</label>
+                    <label for="franchisee">Franchisee <span class="text-danger">*</span></label>
                     <select id="franchisee" name="franchisee" required>
                         <option value="" disabled selected>Select Franchisee</option>
                         <option value="potato-corer">Potato Corner</option>
@@ -136,12 +136,13 @@ include ("../../phpscripts/check-login.php");
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="branch">Branch</label>
+                    <label for="branch">Branch <span class="text-danger">*</span></label>
                     <select id="branch" name="branch" required>
                         <option value="" disabled selected>Select Branch</option>
                         <option value="1">One</option>
                     </select>
                 </div>
+                <label for="shift">Shift <span class="text-danger">*</span></label>
                 <select class="form-select" id="shift" name="shift">
                     <option selected disabled>Open this select menu</option>
                     <option value="Morning Shift">Morning Shift</option>
@@ -150,7 +151,7 @@ include ("../../phpscripts/check-login.php");
                 </select>
             </div>
             <div class="form-section">
-                <h3>Certification Information</h3>
+                <h3>Certification Information <span class="text-danger">*</span></h3>
                 <div id="certificationContainer">
                     <div class="certification-row">
                         <input type="text" placeholder="Certification/ID Name" name="certificationName[]" required>

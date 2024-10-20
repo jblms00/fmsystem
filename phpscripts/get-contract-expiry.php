@@ -21,6 +21,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         while ($row = mysqli_fetch_assoc($result)) {
             $agreementDate = new DateTime($row['agreement_date']);
 
+            // Calculate the difference in days to determine the remaining days
+            $daysRemaining = $currentDate->diff($agreementDate)->days;
+
+            // Check if the contract has expired
             if ($currentDate > $agreementDate) {
                 $data['notifications'][] = [
                     'franchisee' => $row['franchisee'],
@@ -29,14 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     'status' => "Expired"
                 ];
             } else {
-                $daysRemaining = $currentDate->diff($agreementDate)->days;
-
+                // Check if the contract is expiring within the next 30 days
                 if ($daysRemaining <= 30) {
-                    $statusMessage = "Expiring in $daysRemaining days";
+                    $statusMessage = "Expiring in " . ($daysRemaining + 1) . " day(s)";
                     $data['notifications'][] = [
                         'franchisee' => $row['franchisee'],
                         'classification' => $row['classification'],
-                        'days_remaining' => $daysRemaining,
+                        'days_remaining' => $daysRemaining + 1, // Adjust for display
                         'status' => $statusMessage
                     ];
                 }

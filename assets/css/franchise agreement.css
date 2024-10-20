@@ -1,21 +1,20 @@
 * {
     margin: 0;
-    
+
     box-sizing: border-box;
 }
 
 /* Basic styles for header */
 .contractheader {
     height: 90px;
-    background: #1F375D;
+    background: #1f375d;
     color: white;
     align-content: center;
 }
 
-.container-header{
+.container-header {
     margin-left: 30px;
 }
-
 
 .container {
     width: 80%;
@@ -23,7 +22,7 @@
     margin-left: 20px;
 }
 
-.filter-container{
+.filter-container {
     margin-top: 2%;
     margin-left: 15px;
 }
@@ -33,23 +32,21 @@
     font-weight: bold;
 }
 
-
 /* styling for sections and tables */
 
-#franchise-section{
+#franchise-section {
     margin-bottom: 30px;
     padding: 15px;
     border-radius: 8px;
     background: rgb(219, 219, 219);
 }
 
-#leasing-section{
+#leasing-section {
     margin-bottom: 30px;
     padding: 15px;
     border-radius: 8px;
-    background: rgb(219, 219, 219);;
+    background: rgb(219, 219, 219);
 }
-
 
 /* NOTIFICATION AREA */
 #notification-area {
@@ -71,11 +68,9 @@ body.sidebar-open #notification-area {
     width: 13%; /* Adjust width when sidebar is open */
 }
 
-
-
 #notification-area h2 {
     font-size: 20px;
-    color: #1F375D;
+    color: #1f375d;
     margin-bottom: 10px;
 }
 
@@ -100,7 +95,7 @@ body.sidebar-open #notification-area {
 #notification-list li h3 {
     margin: 0;
     font-size: 16px;
-    color: #1F375D;
+    color: #1f375d;
 }
 
 #notification-list li h4 {
@@ -115,10 +110,9 @@ body.sidebar-open #notification-area {
     color: #666;
 }
 
-
 h2 {
     font-size: 20px;
-    color: #1F375D; /* Matching the header color for consistency */
+    color: #1f375d; /* Matching the header color for consistency */
     margin-bottom: 10px;
 }
 
@@ -129,15 +123,14 @@ table.content-table {
     border: none; /* Outer border */
 }
 
-table.content-table th, table.content-table td {
-    
+table.content-table th,
+table.content-table td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
     border-right: none;
     text-align: center; /* Center align text horizontally */
     vertical-align: middle; /* Center align text vertically */
-    
 }
 
 table.content-table th {
@@ -145,10 +138,9 @@ table.content-table th {
     font-weight: bold;
 }
 
-table.content-table td{
+table.content-table td {
     font-size: 12px;
     cursor: pointer;
-    
 }
 
 /* Hover effect for rows */
@@ -158,21 +150,19 @@ table.content-table tbody tr:hover {
 
 tbody tr {
     margin-bottom: 10px;
-    border-bottom: 10px solid rgb(219, 219, 219);;
+    border-bottom: 10px solid rgb(219, 219, 219);
     background-color: white;
     padding: 20px;
 }
 
-
-
 /* FILTER */
 
-.filters{
+.filters {
     margin-left: 10px;
     margin-bottom: 20px;
 }
 
-#filter-franchise{
+#filter-franchise {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -188,7 +178,7 @@ tbody tr {
     margin: 0 5px 5px 0;
 }
 
-#filter-status{
+#filter-status {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -204,61 +194,57 @@ tbody tr {
     margin: 0 5px 5px 0;
 }
 
-
-
 /* BUTTONS */
 .myButton {
-	box-shadow:inset 0px 1px 0px 0px #7a8eb9;
-	background:linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
-	background-color:#637aad;
-	border:1px solid #314179;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:6px 12px;
-	text-decoration:none;
+    box-shadow: inset 0px 1px 0px 0px #7a8eb9;
+    background: linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+    background-color: #637aad;
+    border: 1px solid #314179;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
-	background-color:#5972a7;
+    background: linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
+    background-color: #5972a7;
 }
 .myButton:active {
-	position:relative;
-	top:1px;
+    position: relative;
+    top: 1px;
 }
 
 .resetButton {
-    box-shadow:inset 0px 1px 0px 0px #ffffff;
-	background:linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-	background-color:#ffffff;
-	border-radius:6px;
-	border:1px solid #dcdcdc;
-	display:inline-block;
-	cursor:pointer;
-	color:#666666;
-	font-size:13px;
-	font-weight:600;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
+    background-color: #ffffff;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
     margin-left: 12px;
     margin-right: 16px;
 }
 
-.resetButton:hover{
-    background:linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
-	background-color:#f6f6f6;
+.resetButton:hover {
+    background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    background-color: #f6f6f6;
 }
 
-.resetButton:active{
-    position:relative;
-	top:1px;
+.resetButton:active {
+    position: relative;
+    top: 1px;
 }
-
-
 
 /* LOGO */
 
@@ -268,8 +254,6 @@ tbody tr {
     display: block; /* Ensures no unwanted inline spacing */
     margin: 0 auto; /* Center the image horizontally */
 }
-
-
 
 /* Status Styles */
 .status {
@@ -287,36 +271,34 @@ tbody tr {
 }
 
 .status.active {
-    background-color: rgba(181, 247, 149, .5);
-    color: #3AAE00;
+    background-color: rgba(181, 247, 149, 0.5);
+    color: #3aae00;
+    height: 100%;
 }
 
 .status.expired {
-    background-color: rgba(247, 149, 149, .5);
+    background-color: rgba(247, 149, 149, 0.5);
     color: rgb(255, 50, 50);
+    height: 100%;
 }
 
 .status.draft {
-    background-color: rgba(247, 225, 149, .5);
+    background-color: rgba(247, 225, 149, 0.5);
     color: #ff9500;
+    height: 100%;
 }
 
-
-
-.status.active:hover{
+.status.active:hover {
     background-color: rgba(181, 247, 149, 9);
 }
 
-.status.expired:hover{
-    background-color: rgba(247, 149, 149, .9);
+.status.expired:hover {
+    background-color: rgba(247, 149, 149, 0.9);
 }
 
-.status.draft:hover{
-    background-color: rgba(247, 225, 149, .9);
+.status.draft:hover {
+    background-color: rgba(247, 225, 149, 0.9);
 }
-
-
-
 
 /* Days to Expire Styles */
 .days-to-expire {
@@ -325,10 +307,6 @@ tbody tr {
     color: black;
     font-weight: bold;
     text-align: center;
-    
 }
 
-
-
 /* MODAL */
-

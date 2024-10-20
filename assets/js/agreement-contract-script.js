@@ -131,8 +131,18 @@ function populateAgreementContracts() {
                     var timeDiff = endDate.getTime() - currentDate.getTime();
                     var daysDiff = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
+                    var statusText;
+                    var statusClass;
                     if (daysDiff < 0) {
                         daysDiff = 0;
+                        statusText = "expired";
+                        statusClass = "expired";
+                    } else if (daysDiff <= 30) {
+                        statusText = `Expiring in ${daysDiff} day(s)`;
+                        statusClass = "active";
+                    } else {
+                        statusText = "Active";
+                        statusClass = "active";
                     }
 
                     var row = `
@@ -140,8 +150,8 @@ function populateAgreementContracts() {
                             <td><img src="../../assets/images/${imgFile}" alt="${contract.franchisee} Logo" class="franchise-logo"></td>
                             <td>${contract.location}</td>
                             <td>${contract.classification}</td>
-                            <td><span class="status ${contract.status}">${contract.status}</span></td>
-                            <td><span class="days-to-expire">${daysDiff} days</span></td>
+                            <td><span class="status ${statusClass}">${statusClass}</span></td>
+                            <td><span class="days-to-expire">${statusText}</span></td>
                         </tr>
                     `;
                     tableBody.append(row);

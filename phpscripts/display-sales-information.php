@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-include ("database-connection.php");
+include("database-connection.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $dashFranchise = $_POST['dashFranchise'];
-    $dashServices = $_POST['dashServices'];
+    $dashFranchise = mysqli_real_escape_string($con, $_POST['dashFranchise']);
+    $dashServices = mysqli_real_escape_string($con, $_POST['dashServices']);
 
     if ($dashServices !== "all") {
         $sql = "SELECT * FROM sales_report WHERE franchisee = '$dashFranchise' AND services = '$dashServices'";
