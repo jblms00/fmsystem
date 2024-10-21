@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-include ("database-connection.php");
+include("database-connection.php");
 
 $data = [];
 
 $query = "
     SELECT n.notification_id, n.user_id, n.activity_type, n.datetime AS notification_datetime,
-           a.franchisee, a.location, a.datetime_added
+           a.ac_id, a.franchisee, a.location, a.datetime_added
     FROM notifications n
     LEFT JOIN agreement_contract a ON n.user_id = a.ac_id
     ORDER BY n.datetime DESC
@@ -20,6 +20,7 @@ if ($result) {
 
     while ($row = mysqli_fetch_assoc($result)) {
         $notifications[] = [
+            'ac_id' => $row['ac_id'],
             'datetime' => $row['notification_datetime'],
             'franchisee' => $row['franchisee'],
             'location' => $row['location'],

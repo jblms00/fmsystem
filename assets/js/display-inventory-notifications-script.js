@@ -24,7 +24,11 @@ function fetchNotifications() {
                             <h4 class="text-success">NEWLY OPENED</h4>
                             <h4>${notification.franchisee}</h4>
                             <h4>${notification.location}</h4>
-                            <button type="button" class="add-stock">Add stock</button>
+                            <button type="button" onclick="goToInventoryPage('${
+                                notification.ac_id
+                            }', '${notification.franchisee}', '${
+                            notification.location
+                        }')" class="add-stock">Add stock</button>
                         </li>
                     `;
                     }
@@ -45,6 +49,10 @@ function fetchNotifications() {
             );
         },
     });
+}
+
+function goToInventoryPage(ac_id, franchisee, branch) {
+    window.location.href = `inventoryNewReport?id=${ac_id}&franchisee=${franchisee}&branch=${branch}`;
 }
 
 function formatDate(datetime) {

@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -135,13 +135,6 @@ include ("../../phpscripts/check-login.php");
         <div id="notification-area">
             <h2>Stock Notification</h2>
             <ul id="notification-list">
-                <li>
-                    <h3>5/20/24</h3>
-                    <h4>Potato Corner</h4>
-                    <h4>Circuit Makati</h4>
-                    <span class="notification-details">Less than threshold amount: SOFTDRINKS IN CAN - COKE</span>
-                    <button>Resolve</button>
-                </li>
             </ul>
         </div>
         <!-- content -->
@@ -187,8 +180,6 @@ include ("../../phpscripts/check-login.php");
             </div>
         </div>
     </div>
-
-
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
