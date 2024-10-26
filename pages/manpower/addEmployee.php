@@ -130,7 +130,7 @@ include("../../phpscripts/check-login.php");
                     <label for="franchisee">Franchisee <span class="text-danger">*</span></label>
                     <select id="franchisee" name="franchisee" required>
                         <option value="" disabled selected>Select Franchisee</option>
-                        <option value="potato-corer">Potato Corner</option>
+                        <option value="potato-corner">Potato Corner</option>
                         <option value="auntie-anne">Aunti Anne's</option>
                         <option value="macao-imperial">Macao Imperial</option>
                     </select>
@@ -139,7 +139,7 @@ include("../../phpscripts/check-login.php");
                     <label for="branch">Branch <span class="text-danger">*</span></label>
                     <select id="branch" name="branch" required>
                         <option value="" disabled selected>Select Branch</option>
-                        <option value="1">One</option>
+
                     </select>
                 </div>
                 <label for="shift">Shift <span class="text-danger">*</span></label>
