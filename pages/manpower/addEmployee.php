@@ -154,8 +154,8 @@ include("../../phpscripts/check-login.php");
                 <h3>Certification Information <span class="text-danger">*</span></h3>
                 <div id="certificationContainer">
                     <div class="certification-row">
-                        <input type="text" placeholder="Certification/ID Name" name="certificationName[]" required>
-                        <input type="date" name="expiryDate[]" required>
+                        <input type="text" placeholder="Certification/ID Name" name="certificationName[]" >
+                        <input type="date" name="expiryDate[]" >
                         <button type="button"><i class='bx bx-upload'></i> Upload</button>
                     </div>
                 </div>
@@ -168,7 +168,7 @@ include("../../phpscripts/check-login.php");
             </div>
         </form>
     </div>
-    <!-- Modal -->
+    <!-- Modal ERROR HERE IT MAKES THE EMPLOYEE BUT DOES NOT EXIT THE PAGE-->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-box" id="modalBox">
             <div class="modal-body">
