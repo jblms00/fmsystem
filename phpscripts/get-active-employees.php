@@ -1,20 +1,24 @@
 <?php
 session_start();
 
-include ("database-connection.php");
+include("database-connection.php");
 
 $data = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $str = $_POST['str'];
 
-    if ($str == "PotatCorner") {
-        $brach = "potato-corner";
+    $branch = '';
+    if ($str == "PotatoCorner") {
+        $branch = "potato-corner";
     } else if ($str == "AuntieAnne") {
-        $brach = "auntie-anne";
+        $branch = "auntie-anne";
     } else if ($str == "MacaoImperial") {
-        $brach = "macao-imerial";
+        $branch = "macao-imerial";
     }
+
+    $data['str'] = $str;
+    $data['branch'] = $branch;
 
     $sql = "SELECT 
                 ua.user_id, 
@@ -27,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             FROM users_accounts ua 
             LEFT JOIN user_information ui 
             ON ua.user_id = ui.user_id 
-            WHERE ui.franchisee = '$brach'
+            WHERE ui.franchisee = '$branch'
             AND ua.user_status = 'active'
             AND ui.employee_status = 'assigned'";
 

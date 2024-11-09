@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 
 $store = $_GET['str'];
 ?>
@@ -43,10 +43,10 @@ $store = $_GET['str'];
             </section>
         </div>
 
-        <div class="input-field assign-btn d-none">
+        <!-- <div class="input-field assign-btn d-none">
             <a class="btn btn-primary assign-emp">Assign
                 Employee</a>
-        </div>
+        </div> -->
     </div>
 
     <!-- Modal -->

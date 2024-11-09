@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 21, 2024 at 02:29 PM
+-- Generation Time: Oct 26, 2024 at 10:05 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -48,7 +48,7 @@ CREATE TABLE `agreement_contract` (
   `notarization_fe_rb` text NOT NULL,
   `notary_public_seal` varchar(250) NOT NULL,
   `status` varchar(120) NOT NULL,
-  `datetime_added` datetime NOT NULL
+  `datetime_added` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -56,9 +56,7 @@ CREATE TABLE `agreement_contract` (
 --
 
 INSERT INTO `agreement_contract` (`ac_id`, `franchisee`, `classification`, `rights_granted`, `franchise_term`, `agreement_date`, `location`, `franchise_fee`, `ff_note`, `franchise_package`, `fp_note`, `bond`, `b_note`, `extra_note`, `notarization_fr`, `notarization_fr_rb`, `notarization_fe`, `notarization_fe_rb`, `notary_public_seal`, `status`, `datetime_added`) VALUES
-(2, 'potato-corner', 'classicifcatiopn', 'non-exclusive,use-trademarks,sell-products', '5', '2024-06-28', 'San Pedro, Minalin, Pampanga', 500000, '', 100000, '', ' 50000', '', '', 'John Doe', 'bj', 'qwerty', 'uiop', '../assets/images/notarySeals/notarySeal-20240715084300.jpg', 'active', '2024-07-15 14:43:00'),
-(10, 'macao-imperial', 'classicifcatiopn', 'non-exclusive,use-trademarks,sell-products', '1', '2024-07-24', 'Binan City, Laguna', 500000, '', 100000, '', ' 50000', '', '', 'jd', 'bj', 'qwerty', 'uiop', '../assets/images/notarySeals/notarySeal-20240715084300.jpg', 'active', '2024-07-15 14:43:00'),
-(11, 'auntie-annes', 'classicifcatiopn', 'non-exclusive,use-trademarks', '5', '2024-08-12', 'San Pedro, Minalin, Pampanga', 2000, '', 2000, '', '2000', '', '', 'dad', 'zxc', 'da', 'asd', 'notarySealAgreement-20240812110316.jpg', 'active', '2024-08-12 17:03:16');
+(202273, 'potato-corner', 'Classification', 'non-exclusive,use-trademarks,sell-products', '2', '2024-10-21', 'San Pedro, Minalin, Pampanga', 200, '', 200, '', '200', '', '', 'John Smith', 'Hon Ben', 'John Den', 'Den Dan', 'notarySealAgreement-20241020133518.gif', 'active', '2024-10-20');
 
 -- --------------------------------------------------------
 
@@ -78,14 +76,6 @@ CREATE TABLE `expenses` (
   `expense_description` text NOT NULL,
   `date_added` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `expenses`
---
-
-INSERT INTO `expenses` (`ex_id`, `encoder_id`, `franchisee`, `location`, `expense_catergory`, `expense_type`, `expense_purpose`, `expense_amount`, `expense_description`, `date_added`) VALUES
-(1, 11, 'potato-corner', 'San Pedro, Minalin, Pampanga', 'non-controllable-expenses', 'franchiseFees', 'Test', '5000', 'Nothing', '2024-07-19'),
-(2, 11, 'potato-corner', 'San Pedro, Minalin, Pampanga', 'non-controllable-expenses', 'franchiseFees', 'Test', '3000', 'Nothing', '2024-07-19');
 
 -- --------------------------------------------------------
 
@@ -174,16 +164,24 @@ CREATE TABLE `item_inventory` (
 --
 
 INSERT INTO `item_inventory` (`inventory_id`, `item_id`, `franchisee`, `branch`, `delivery`, `beginning`, `waste`, `sold`, `remarks`, `filled_by`, `datetime_added`) VALUES
-(115, 19, 'macao-imperial', 'Binan City, Laguna', 3, 1, 1, 43, '', 11, '2024-07-31 08:58:14'),
-(116, 20, 'macao-imperial', 'Binan City, Laguna', 1, 4, 4, 2, '', 11, '2024-07-31 08:58:14'),
-(117, 21, 'macao-imperial', 'Binan City, Laguna', 4, 12, 2, 3, '', 11, '2024-07-31 08:58:14'),
-(118, 22, 'macao-imperial', 'Binan City, Laguna', 4, 2, 4, 2, '', 11, '2024-07-31 08:58:14'),
-(119, 23, 'macao-imperial', 'Binan City, Laguna', 4, 2, 2, 4, '', 11, '2024-07-31 08:58:14'),
-(120, 24, 'macao-imperial', 'Binan City, Laguna', 2, 4, 4, 2, '', 11, '2024-07-31 08:58:14'),
-(121, 25, 'macao-imperial', 'Binan City, Laguna', 45, 2, 354, 2, '', 11, '2024-07-31 08:58:14'),
-(122, 26, 'macao-imperial', 'Binan City, Laguna', 5423, 342, 453, 453, '', 11, '2024-07-31 08:58:14'),
-(123, 27, 'macao-imperial', 'Binan City, Laguna', 453, 543, 45, 2, '', 11, '2024-07-31 08:58:14'),
-(124, 28, 'macao-imperial', 'Binan City, Laguna', 54, 31, 312, 5, '', 11, '2024-07-31 08:58:14');
+(140, 1, 'potato-corner', 'San Pedro, Minalin, Pampanga', 12, 122, 12, 12, '12', 11, '2024-10-21 06:30:13'),
+(141, 2, 'potato-corner', 'San Pedro, Minalin, Pampanga', 1, 12, 21, 21, '12', 11, '2024-10-21 06:30:13'),
+(142, 3, 'potato-corner', 'San Pedro, Minalin, Pampanga', 21, 21, 21, 21, '21', 11, '2024-10-21 06:30:13'),
+(143, 4, 'potato-corner', 'San Pedro, Minalin, Pampanga', 21, 21, 21, 21, '21', 11, '2024-10-21 06:30:13'),
+(144, 5, 'potato-corner', 'San Pedro, Minalin, Pampanga', 21, 21, 21, 21, '21', 11, '2024-10-21 06:30:13'),
+(145, 6, 'potato-corner', 'San Pedro, Minalin, Pampanga', 21, 21, 21, 21, '121', 11, '2024-10-21 06:30:13'),
+(146, 7, 'potato-corner', 'San Pedro, Minalin, Pampanga', 1232, 23, 31213, 12, '1', 11, '2024-10-21 06:30:13'),
+(147, 8, 'potato-corner', 'San Pedro, Minalin, Pampanga', 31, 2212, 12, 21, '12', 11, '2024-10-21 06:30:13'),
+(148, 9, 'potato-corner', 'San Pedro, Minalin, Pampanga', 12, 12, 121, 22, '2', 11, '2024-10-21 06:30:13'),
+(149, 10, 'potato-corner', 'San Pedro, Minalin, Pampanga', 12, 12, 12, 1, '21', 11, '2024-10-21 06:30:13'),
+(150, 11, 'potato-corner', 'San Pedro, Minalin, Pampanga', 321, 212, 12, 12, '12', 11, '2024-10-21 06:30:13'),
+(151, 12, 'potato-corner', 'San Pedro, Minalin, Pampanga', 21, 1, 21, 2, '1213', 11, '2024-10-21 06:30:13'),
+(152, 13, 'potato-corner', 'San Pedro, Minalin, Pampanga', 231, 321, 23, 231231, '32121', 11, '2024-10-21 06:30:13'),
+(153, 14, 'potato-corner', 'San Pedro, Minalin, Pampanga', 321, 321, 321, 321, '321', 11, '2024-10-21 06:30:13'),
+(154, 15, 'potato-corner', 'San Pedro, Minalin, Pampanga', 321, 321, 321, 321, '321', 11, '2024-10-21 06:30:13'),
+(155, 16, 'potato-corner', 'San Pedro, Minalin, Pampanga', 312, 321, 321, 321, '321', 11, '2024-10-21 06:30:13'),
+(156, 17, 'potato-corner', 'San Pedro, Minalin, Pampanga', 321, 321, 321, 321, '312', 11, '2024-10-21 06:30:13'),
+(157, 18, 'potato-corner', 'San Pedro, Minalin, Pampanga', 321, 321, 321, 312, '321', 11, '2024-10-21 06:30:13');
 
 -- --------------------------------------------------------
 
@@ -218,13 +216,6 @@ CREATE TABLE `lease_contract` (
   `datetime_added` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `lease_contract`
---
-
-INSERT INTO `lease_contract` (`lease_id`, `franchisee`, `start_date`, `end_date`, `space_number`, `area`, `classification`, `rent`, `percentage_rent`, `minimum_rent`, `additional_fee`, `af_note`, `total_monthly_dues`, `tmd_note`, `lease_deposit`, `ld_note`, `lessor_name1`, `lessor_address1`, `lessor_name2`, `lessor_address2`, `extra_note`, `notary_public_seal`, `status`, `datetime_added`) VALUES
-(3, 'auntie-annes', '2024-07-15', '2024-07-18', '123', '456', '313', '11', '22', '33', '123', 'undefined', '123', '', '123', '', 'bb', 'eyy', 'gg', 'eyy', '', 'notarySeal-20240715145959.gif', 'draft', '2024-07-15 21:20:12');
-
 -- --------------------------------------------------------
 
 --
@@ -243,8 +234,9 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`notification_id`, `user_id`, `activity_type`, `datetime`) VALUES
-(669, 11, 'manpower_employee_added', '2024-07-19 20:00:49'),
-(670, 11, 'new_agreement_contract', '2024-08-12 17:03:16');
+(1785223, 11, 'manpower_employee_added', '2024-10-26 15:38:34'),
+(7081843, 202273, 'new_agreement_contract', '2024-10-20 19:35:18'),
+(7319307, 11, 'manpower_employee_added', '2024-10-26 15:40:46');
 
 -- --------------------------------------------------------
 
@@ -268,12 +260,7 @@ CREATE TABLE `sales_report` (
 --
 
 INSERT INTO `sales_report` (`report_id`, `ac_id`, `encoder_id`, `franchisee`, `services`, `transactions`, `grand_total`, `date_added`) VALUES
-(3, 2, 11, 'potato-corner', 'dine-in', '10, 420, 3, 1250', '1683.00', '2024-07-16'),
-(4, 2, 11, 'macao-imperial', 'take-out', '10, 420, 3, 1250', '1683.00', '2024-07-16'),
-(5, 2, 11, 'auntie-anne', 'delivery', '10, 420, 1680', '1680.00', '2024-07-16'),
-(6, 2, 11, 'macao-imperial', 'take-out', '10, 420, 3, 1250', '1683.00', '2024-07-16'),
-(7, 2, 11, 'macao-imperial', 'delivery', '10, 420, 1680', '1680.00', '2024-07-16'),
-(8, 2, 11, 'potato-corner', 'dine-in', '10, 420, 3, 1250', '1683.00', '2024-07-16');
+(9, 202273, 0, '11', 'dine-in', '200, 200, 200, 200', '800.00', '2024-10-21');
 
 -- --------------------------------------------------------
 
@@ -301,9 +288,8 @@ CREATE TABLE `users_accounts` (
 
 INSERT INTO `users_accounts` (`user_id`, `user_name`, `user_photo`, `user_email`, `user_password`, `user_phone_number`, `user_address`, `user_birthdate`, `user_type`, `user_status`, `date_created`) VALUES
 (11, 'John Doe', 'default-profile.png', 'jd@gmail.com', 'YWRtaW4=', 947326212, 'San Pedro, Minalin, Pampanga', '2024-07-17', 'user', 'active', '2024-07-04 13:05:09'),
-(669, 'Kai Cen', 'default-profile.png', 'kai@gmail.com', 'YWRtaW4=', 947326246, 'San Pedro, Minalin, Pampanga', '2024-07-19', 'user', 'active', '2024-07-19 20:00:49'),
-(31231, 'Code Zero', 'default-profile.png', 'cd@gmail.com', 'YWRtaW4=', 947326212, 'Binan City, Laguna', '2024-07-17', 'user', 'active', '2024-07-04 13:05:09'),
-(31231312, 'Kobe Bryant', 'default-profile.png', 'kb@gmail.com', 'YWRtaW4=', 947326212, 'San Pedro City, Laguna', '2024-07-17', 'user', 'active', '2024-07-04 13:05:09');
+(5135376, 'John Smith', '', 'js@gmail.com', '', 2147483647, 'dasdsada', '2024-10-26', 'user', 'active', '2024-10-26 15:38:34'),
+(7294738, 'JP', '', 'jp@gmail.com', '', 2147483647, 'das das das d', '2024-10-26', 'user', 'active', '2024-10-26 15:40:46');
 
 -- --------------------------------------------------------
 
@@ -329,10 +315,8 @@ CREATE TABLE `user_information` (
 --
 
 INSERT INTO `user_information` (`user_id`, `assigned_at`, `employee_status`, `franchisee`, `branch`, `user_shift`, `certification_name`, `certification_date`, `certificate_file_name`, `certificate_status`) VALUES
-(11, 2, 'assigned', 'potato-corner', 'San Pedro, Minalin, Pampanga', 'Morning Shift', '', '0000-00-00', '', ''),
-(669, 2, 'assigned', 'potato-corner', 'San Pedro, Minalin, Pampanga', 'Afternoon Shift', '', '0000-00-00', '', ''),
-(31231, 10, 'assigned', 'macao-imperial', 'Binan City, Laguna', 'Full Time', '', '0000-00-00', '', ''),
-(31231312, 0, 'unassigned', '', '', 'Full Time', '', '0000-00-00', '', '');
+(5135376, 202273, 'assigned', 'potato-corner', 'San Pedro, Minalin, Pampanga', 'Morning Shift', '', '0000-00-00', '', ''),
+(7294738, 202273, 'assigned', 'potato-corner', 'San Pedro, Minalin, Pampanga', 'Morning Shift', '', '0000-00-00', '', '');
 
 --
 -- Indexes for dumped tables
@@ -400,7 +384,7 @@ ALTER TABLE `user_information`
 -- AUTO_INCREMENT for table `agreement_contract`
 --
 ALTER TABLE `agreement_contract`
-  MODIFY `ac_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ac_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=211889;
 
 --
 -- AUTO_INCREMENT for table `expenses`
@@ -418,25 +402,25 @@ ALTER TABLE `items`
 -- AUTO_INCREMENT for table `item_inventory`
 --
 ALTER TABLE `item_inventory`
-  MODIFY `inventory_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
+  MODIFY `inventory_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT for table `lease_contract`
 --
 ALTER TABLE `lease_contract`
-  MODIFY `lease_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `lease_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `notification_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=671;
+  MODIFY `notification_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7319308;
 
 --
 -- AUTO_INCREMENT for table `sales_report`
 --
 ALTER TABLE `sales_report`
-  MODIFY `report_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `report_id` bigint(250) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `users_accounts`

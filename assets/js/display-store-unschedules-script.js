@@ -18,7 +18,7 @@ function displayStoreSchedules() {
 
     $.ajax({
         method: "POST",
-        url: "../../phpscripts/display-stores-schedules.php",
+        url: "../../phpscripts/display-stores-unschedules.php",
         data: { str: str },
         dataType: "json",
         success: function (response) {
@@ -100,7 +100,7 @@ function showStoreDetails() {
                         `;
                     });
 
-                    $(".assign-emp").attr("data-ac-id", id);
+                    // $(".assign-emp").attr("data-ac-id", id);
 
                     $("#employees-section-unsched tbody").html(htmlContent);
                     $(".count-title").text(`${count}/2`);
@@ -141,15 +141,15 @@ function showStoreDetails() {
         });
     });
 
-    $(document).on("click", ".assign-emp", function () {
-        var id = $(this).data("ac-id");
-        var str = getUrlParameter("str");
-        var newUrl = `unassignedEmployees?str=${str}&id=${id}`;
+    // $(document).on("click", ".assign-emp", function () {
+    //     var id = $(this).data("ac-id");
+    //     var str = getUrlParameter("str");
+    //     var newUrl = `unassignedEmployees?str=${str}&id=${id}`;
 
-        console.log(id);
-        console.log(str);
-        window.location.href = newUrl;
-    });
+    //     console.log(id);
+    //     console.log(str);
+    //     window.location.href = newUrl;
+    // });
 }
 
 function formatFranchiseeName(name) {

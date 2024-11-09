@@ -130,8 +130,8 @@ include("../../phpscripts/check-login.php");
                     <label for="franchisee">Franchisee <span class="text-danger">*</span></label>
                     <select id="franchisee" name="franchisee" required>
                         <option value="" disabled selected>Select Franchisee</option>
-                        <option value="potato-corer">Potato Corner</option>
-                        <option value="auntie-anne">Aunti Anne's</option>
+                        <option value="potato-corner">Potato Corner</option>
+                        <option value="auntie-anne">Auntie Anne's</option>
                         <option value="macao-imperial">Macao Imperial</option>
                     </select>
                 </div>
@@ -139,7 +139,7 @@ include("../../phpscripts/check-login.php");
                     <label for="branch">Branch <span class="text-danger">*</span></label>
                     <select id="branch" name="branch" required>
                         <option value="" disabled selected>Select Branch</option>
-                        <option value="1">One</option>
+
                     </select>
                 </div>
                 <label for="shift">Shift <span class="text-danger">*</span></label>
@@ -154,8 +154,8 @@ include("../../phpscripts/check-login.php");
                 <h3>Certification Information <span class="text-danger">*</span></h3>
                 <div id="certificationContainer">
                     <div class="certification-row">
-                        <input type="text" placeholder="Certification/ID Name" name="certificationName[]" required>
-                        <input type="date" name="expiryDate[]" required>
+                        <input type="text" placeholder="Certification/ID Name" name="certificationName[]" >
+                        <input type="date" name="expiryDate[]" >
                         <button type="button"><i class='bx bx-upload'></i> Upload</button>
                     </div>
                 </div>
@@ -168,7 +168,7 @@ include("../../phpscripts/check-login.php");
             </div>
         </form>
     </div>
-    <!-- Modal -->
+    <!-- Modal ERROR HERE IT MAKES THE EMPLOYEE BUT DOES NOT EXIT THE PAGE-->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-box" id="modalBox">
             <div class="modal-body">

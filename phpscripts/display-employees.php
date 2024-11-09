@@ -1,12 +1,17 @@
 <?php
 session_start();
 
-include ("database-connection.php");
+include("database-connection.php");
+include("check-login.php");
+
+$user_data = check_login($con);
+$user_id_logged_in = $user_data['user_id'];
 
 $data = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    $sql = "SELECT user_id, user_name FROM users_accounts";
+    // Modify the query to select only active users
+    $sql = "SELECT user_id, user_name FROM users_accounts WHERE user_status = 'active'";
     $result = mysqli_query($con, $sql);
 
     if ($result && mysqli_num_rows($result) > 0) {

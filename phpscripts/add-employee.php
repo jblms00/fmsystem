@@ -11,7 +11,6 @@ function generateRandom7Digit()
     return random_int(1000000, 9999999);
 }
 
-
 $data = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -41,24 +40,28 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ";
         $resultAccounts = mysqli_query($con, $sqlAccounts);
 
-        if ($resultAccounts) {
+        // Fetch branch name based on branch id
+        $branchQuery = "SELECT location FROM agreement_contract WHERE ac_id = '$branch'";
+        $branchResult = mysqli_query($con, $branchQuery);
+        $branchName = mysqli_num_rows($branchResult) > 0 ? mysqli_fetch_assoc($branchResult)['location'] : '';
+
+        if ($resultAccounts && $branchName) {
             // Combine certification information
             $certificationNames = isset($_POST['certificationName']) ? $_POST['certificationName'] : [];
             $certificationList = implode(', ', array_map(function ($cert) use ($con) {
                 return mysqli_real_escape_string($con, $cert);
             }, $certificationNames));
 
-            // Insert into user_information
+            // Insert into user_information with branch name instead of ID
             $sqlInfo = "
                 INSERT INTO user_information (user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
-                VALUES ('$userId', 'assigned', '$franchisee', '$branch', '$shift', '$certificationList', '', '')
+                VALUES ('$userId', 'assigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
             ";
             $resultInfo = mysqli_query($con, $sqlInfo);
 
             if ($resultInfo) {
                 // Insert into notifications
-                $sqlNotification = "INSERT INTO notifications (notification_id, user_id, activity_type, datetime) VALUES ('$notificationId', '$user_id_logged_in', '$activityType', NOW())
-                ";
+                $sqlNotification = "INSERT INTO notifications (notification_id, user_id, activity_type, datetime) VALUES ('$notificationId', '$user_id_logged_in', '$activityType', NOW())";
                 $resultNotification = mysqli_query($con, $sqlNotification);
 
                 if ($resultNotification) {
@@ -74,7 +77,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
         } else {
             $data['status'] = 'error';
-            $data['message'] = 'Error adding user account.';
+            $data['message'] = 'Error adding user account or invalid branch selected.';
         }
     }
 }

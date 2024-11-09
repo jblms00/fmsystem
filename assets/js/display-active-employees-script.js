@@ -58,7 +58,7 @@ function displayActiveEmployees() {
             }
         },
         error: function () {
-            console.log("An error occurred while retrieving employee data.");
+            console.log("An error occured while retrieving employee data.");
         },
     });
 }

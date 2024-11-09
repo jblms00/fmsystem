@@ -37,7 +37,7 @@ include ("phpscripts/check-login.php");
                 </div>
                 <button type="submit" class="btn">login</button>
                 <div class="sign-link">
-                    <p>Don't have an account? <a href="#" class="signin-link">Sign up</a></p>
+                    <!-- <p>Don't have an account? <a href="#" class="signin-link">Sign up</a></p> -->
                 </div>
             </form>
         </div>
