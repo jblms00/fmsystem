@@ -1,115 +1,312 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
 * {
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+
     box-sizing: border-box;
-    
 }
 
 /* Basic styles for header */
 .contractheader {
     height: 90px;
-    background: #1F375D;
+    background: #1f375d;
     color: white;
     align-content: center;
 }
 
-.title-container {
-    display: flex;
-    align-items: center;
-    padding: 20px;
+.container-header {
+    margin-left: 30px;
 }
 
-.current-store-logo {
-    width: 100px;
-    margin-right: 20px;
+.container {
+    width: 80%;
+    margin: 0 10px;
+    margin-left: 20px;
 }
 
-.search-field {
-    padding: 10px 20px;
-    
+.filter-container {
+    margin-top: 2%;
+    margin-left: 15px;
 }
 
-.search-field input {
-    width: 100%;
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* styling for sections and tables */
+
+#franchise-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(219, 219, 219);
+}
+
+#leasing-section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(219, 219, 219);
+}
+
+/* NOTIFICATION AREA */
+#notification-area {
+    position: fixed;
+    top: 120px; /* Adjust based on your header/navbar height */
+    right: 20px;
+    width: 15%; /* Default width */
+    max-width: 300px; /* Maximum width */
+    height: 82%;
+    padding: 15px;
+    border-radius: 8px;
+    background: rgb(219, 219, 219);
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+    transition: width 0.4s ease; /* Smooth transition for width changes */
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+body.sidebar-open #notification-area {
+    width: 13%; /* Adjust width when sidebar is open */
+}
+
+#notification-area h2 {
+    font-size: 20px;
+    color: #1f375d;
+    margin-bottom: 10px;
+}
+
+#notification-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#notification-list li {
+    margin-bottom: 10px;
     padding: 10px;
-    margin-top: 10px;
-    box-sizing: border-box;
-    border-radius: 15px; /* Rounded corners */
-    border: 1px solid #ccc; /* Optional border */
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer; /* Make the notification clickable */
 }
 
-.employee-section {
-    margin: 20px;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #f8f9fa; /* Added background color */
+#notification-list li:hover {
+    background-color: #f0f0f0; /* Change color on hover */
 }
 
-.employee-section h3 {
-    margin-top: 0;
+#notification-list li h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #1f375d;
 }
 
-.employee-list {
+#notification-list li h4 {
+    margin: 0;
+    font-size: 14px;
+    color: #3965ab;
+}
+
+.notification-details {
+    display: block;
+    font-size: 12px;
+    color: #666;
+}
+
+h2 {
+    font-size: 20px;
+    color: #1f375d; /* Matching the header color for consistency */
+    margin-bottom: 10px;
+}
+
+table.content-table {
     width: 100%;
     border-collapse: collapse;
-    border-collapse: separate; /* Changed border-collapse to separate */
-    border-spacing: 0 10px; /* Added spacing between rows */
     margin-top: 10px;
+    border: none; /* Outer border */
 }
 
-.employee-list td {
-    background-color: #efefef; /* Set background color for each row */
-    padding: 10px;
-    border-radius: 10px; /* Added rounded corners to each row */
+table.content-table th,
+table.content-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: none;
+    text-align: center; /* Center align text horizontally */
+    vertical-align: middle; /* Center align text vertically */
 }
 
-.employee-list tr td:first-child {
-    border-top-left-radius: 10px; /* Added rounded corners to the first cell of each row */
-    border-bottom-left-radius: 10px;
+table.content-table th {
+    border: none;
+    font-weight: bold;
 }
 
-.employee-list tr td:last-child {
-    border-top-right-radius: 10px; /* Added rounded corners to the last cell of each row */
-    border-bottom-right-radius: 10px;
+table.content-table td {
+    font-size: 12px;
+    cursor: pointer;
 }
 
-.status {
-    border-radius: 5px;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
+/* Hover effect for rows */
+table.content-table tbody tr:hover {
+    background-color: #8cb2f5; /* Change to desired hover color */
+}
+
+tbody tr {
+    margin-bottom: 10px;
+    border-bottom: 10px solid rgb(219, 219, 219);
+    background-color: white;
+    padding: 20px;
+}
+
+/* FILTER */
+
+.filters {
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+#filter-franchise {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 30px 0 10px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    background: #fff;
+
+    height: 30px;
+    min-width: 200px;
+    margin: 0 5px 5px 0;
+}
+
+#filter-status {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0 30px 0 10px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 1px 0px rgba(0, 0, 0, 0.2);
+    background: #fff;
+
+    height: 30px;
+    min-width: 100px;
+    margin: 0 5px 5px 0;
+}
+
+/* BUTTONS */
+.myButton {
+    box-shadow: inset 0px 1px 0px 0px #7a8eb9;
+    background: linear-gradient(to bottom, #637aad 5%, #5972a7 100%);
+    background-color: #637aad;
+    border: 1px solid #314179;
     display: inline-block;
-    width: 100%; /* Ensures the status is centered */
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 6px 12px;
+    text-decoration: none;
+}
+.myButton:hover {
+    background: linear-gradient(to bottom, #5972a7 5%, #637aad 100%);
+    background-color: #5972a7;
+}
+.myButton:active {
+    position: relative;
+    top: 1px;
 }
 
-.checked-in {
-    background-color: #96FF94; /* Changed background color for checked-in status */
-    
-    color: black; /* Changed text color for better readability */
-}
-
-.checked-out {
-    background-color: #ffc107;
-    color: black;
-}
-
-.checked-out-grayed {
-    background-color: #d3d3d3; /* Grayed out background color for the second row checked-in status */
-    color: black; /* Changed text color for better readability */
-    opacity: .60;
-}
-
-.info-bar {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
+.resetButton {
+    box-shadow: inset 0px 1px 0px 0px #ffffff;
+    background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
     background-color: #ffffff;
-    border-bottom: 1px solid #ccc;
+    border-radius: 6px;
+    border: 1px solid #dcdcdc;
+    display: inline-block;
+    cursor: pointer;
+    color: #666666;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 6px 24px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ffffff;
+    margin-left: 12px;
+    margin-right: 16px;
 }
 
-.info-bar span {
-    font-size: 1rem;
+.resetButton:hover {
+    background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+    background-color: #f6f6f6;
 }
+
+.resetButton:active {
+    position: relative;
+    top: 1px;
+}
+
+/* LOGO */
+
+.franchise-logo {
+    width: 100px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensures no unwanted inline spacing */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+/* Status Styles */
+.status {
+    display: inline-block;
+    width: 80px;
+    height: 22px;
+    border-radius: 8%;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    margin: auto; /* Center horizontally */
+    cursor: pointer;
+}
+
+.status.active {
+    background-color: rgba(181, 247, 149, 0.5);
+    color: #3aae00;
+    height: 100%;
+}
+
+.status.expired {
+    background-color: rgba(247, 149, 149, 0.5);
+    color: rgb(255, 50, 50);
+    height: 100%;
+}
+
+.status.draft {
+    background-color: rgba(247, 225, 149, 0.5);
+    color: #ff9500;
+    height: 100%;
+}
+
+.status.active:hover {
+    background-color: rgba(181, 247, 149, 9);
+}
+
+.status.expired:hover {
+    background-color: rgba(247, 149, 149, 0.9);
+}
+
+.status.draft:hover {
+    background-color: rgba(247, 225, 149, 0.9);
+}
+
+/* Days to Expire Styles */
+.days-to-expire {
+    display: inline-block;
+    border-radius: 15px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* MODAL */

@@ -25,11 +25,7 @@ include ("../../phpscripts/check-login.php");
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Expenses</h1>
-        </div>
-    </header>
+  
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -98,55 +94,63 @@ include ("../../phpscripts/check-login.php");
             </div>
         </div>
     </nav>
-    <div class="filter-container">
-        <!-- Filters -->
-        <div class="filters">
-            <label for="filter-franchise">Franchisee:</label>
-            <select id="filter-franchise">
-                <option value="">All</option>
-                <option value="potatoCorner">Potato Corner</option>
-                <option value="auntieAnnes">Auntie Anne's</option>
-                <option value="macaoImperial">Macao Imperial</option>
-            </select>
-            <label>Category:</label>
-            <select id="filter-franchise">
-                <option value="">All</option>
-                <option value="controllableExpenses">Franchisor Expenses</option>
-                <option value="nonControllableExpenses">Leasor Expenses</option>
-                <option value="nonControllableExpenses">Other Expenses</option>
-            </select>
-            <label for="start-date">Start Date:</label>
-            <input type="date" id="start-date">
-            <label for="end-date">End Date:</label>
-            <input type="date" id="end-date">
-            <button id="btn-generate" class="resetButton">Generate</button>
-            <!-- Add Expense -->
-            <a href="addExpenses" class="myButton">Add Expense</a>
-        </div>
-    </div>
-    <div class="container">
-        <section id="expenses-section">
-            <table class="content-table" id="totalExpensesTbl">
-                <thead>
-                    <tr>
-                        <th>Franchisee</th>
-                        <th>Amount</th>
-                        <th>Expense Category</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr id="expenses-row-1">
-                        <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                        <td>Php XXXXXXXX</td>
-                        <td>Expense Category</td>
-                        <td>dd/mm/yyyy</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
 
-    </div>
+    <section class="home">
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Expenses</h1>
+            </div>
+        </header>
+        <div class="filter-container">
+            <!-- Filters -->
+            <div class="filters">
+                <label for="filter-franchise">Franchisee:</label>
+                <select id="filter-franchise">
+                    <option value="">All</option>
+                    <option value="potatoCorner">Potato Corner</option>
+                    <option value="auntieAnnes">Auntie Anne's</option>
+                    <option value="macaoImperial">Macao Imperial</option>
+                </select>
+                <label>Category:</label>
+                <select id="filter-franchise">
+                    <option value="">All</option>
+                    <option value="controllableExpenses">Franchisor Expenses</option>
+                    <option value="nonControllableExpenses">Leasor Expenses</option>
+                    <option value="nonControllableExpenses">Other Expenses</option>
+                </select>
+                <label for="start-date">Start Date:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">End Date:</label>
+                <input type="date" id="end-date">
+                <button id="btn-generate" class="resetButton">Generate</button>
+                <!-- Add Expense -->
+                <a href="addExpenses" class="myButton">Add Expense</a>
+            </div>
+        </div>
+        <div class="container">
+            <section id="expenses-section">
+                <table class="content-table" id="totalExpensesTbl">
+                    <thead>
+                        <tr>
+                            <th>Franchisee</th>
+                            <th>Amount</th>
+                            <th>Expense Category</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="expenses-row-1">
+                            <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
+                            <td>Php XXXXXXXX</td>
+                            <td>Expense Category</td>
+                            <td>dd/mm/yyyy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+        </div>
+    </section>
 
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

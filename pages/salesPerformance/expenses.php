@@ -144,9 +144,9 @@ if ($expenses_result || $sales_result) {
                 <div class="activity">
                     <div class="title">
                         <i class='bx bx-time-five'></i>
-                        <span class="text">Recent Activities</span>
+                        <span class="text">Analytics</span>
                     </div>
-                    <div class="activity-data">
+                    <!-- <div class="activity-data">
                         <div class="data names">
                             <span class="data-title">Name</span>
                             <span class="data-list">Julia</span>
@@ -167,7 +167,7 @@ if ($expenses_result || $sales_result) {
                             <span class="data-list">05/27/24</span>
                             <span class="data-list">05/27/24</span>
                             <span class="data-list">05/27/24</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

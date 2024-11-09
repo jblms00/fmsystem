@@ -1,39 +1,9 @@
 <?php
 session_start();
 
-include ("../../phpscripts/database-connection.php");
-include ("../../phpscripts/check-login.php");
-$user_data = check_login($con);
-
-if (isset($_SERVER['REQUEST_URI'])) {
-    $url = $_SERVER['REQUEST_URI'];
-
-    $queryString = parse_url($url, PHP_URL_QUERY);
-
-    parse_str($queryString, $params);
-
-    $id = isset($params['id']) ? $params['id'] : '';
-    $franchisee = isset($params['franchisee']) ? $params['franchisee'] : '';
-    $branch = isset($params['branch']) ? urldecode($params['branch']) : '';
-
-    $franchise = '';
-    switch ($franchisee) {
-        case 'potato-corner':
-            $franchise = "Potato Corner";
-            break;
-        case 'auntie-anne':
-            $franchise = "Auntie Anne's";
-            break;
-        case 'macao-imperial':
-            $franchise = "Macao Imperial";
-            break;
-        default:
-            $franchise = "Unknown Franchise";
-            break;
-    }
-}
+include("../../phpscripts/database-connection.php");
+include("../../phpscripts/check-login.php");
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,20 +11,21 @@ if (isset($_SERVER['REQUEST_URI'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Franchise Contracts</title>
+
     <!-- ========= CSS ========= -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../assets/css/franchise agreement.css">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
-    <!-- <link rel="stylesheet" href="../../assets/css/inventory.css" type="text/css"> -->
-    <link rel="stylesheet" href="../../assets/css/clickedInventory.css">
-
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Inventory Module</title>
 </head>
 
 <body>
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -83,7 +54,7 @@ if (isset($_SERVER['REQUEST_URI'])) {
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="franchising-link">
+                    <li class="nav-link active" id="franchising-link">
                         <a href="../../pages/contract/franchiseeAgreement">
                             <i class='bx bx-file icon'></i>
                             <span class="text nav-text">Franchising Agreement</span>
@@ -101,7 +72,7 @@ if (isset($_SERVER['REQUEST_URI'])) {
                             <span class="text nav-text">Expenses</span>
                         </a>
                     </li>
-                    <li class="nav-link active" id="inventory-link">
+                    <li class="nav-link" id="inventory-link">
                         <a href="../../pages/inventory/inventory2">
                             <i class='bx bx-store-alt icon'></i>
                             <span class="text nav-text">Inventory</span>
@@ -128,71 +99,73 @@ if (isset($_SERVER['REQUEST_URI'])) {
         </div>
     </nav>
 
-
     <section class="home">
+
         <header class="contractheader">
             <div class="container-header">
-                <h1 class="title">Daily Ending Inventory</h1>
+                <h1 class="title">Employees - Active Today</h1>
             </div>
         </header>
-            <div class="container">
-                <div class="regularText">Franchise: <span class="text-uppercase"><?php echo $franchise ?></span></div>
-                <div class="regularText">Location: <?php echo $branch; ?></divp>
-                    <div class="regularText">Filled by: <?php echo $user_data['user_name']; ?></div>
-                    <div class="filters">
-                        <!-- removed search -->
-                        <!-- <input type="text" placeholder="Search Item"> -->
-                        <button id="save-button">Save</button>
-                    </div>
-                    <table class="clickedInventory-table">
-                        <thead>
-                            <tr>
-                                <th>Item</th>
-                                <th>Beginning<span class="text-danger">*</span></th>
-                                <th>Delivery<span class="text-danger">*</span></th>
-                                <th>Waste<span class="text-danger">*</span></th>
-                                <th>Sold<span class="text-danger">*</span></th>
-                                <th>Remarks</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Rows will be dynamically inserted here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="confirmationModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="subheadertext">Save Report?</h2>
-                    </div>
-                    <div class="modal-footer">
-                        <button id="cancelButton" class="cancel">Cancel</button>
-                        <button id="confirmSaveButton" class="save">Save</button>
-                    </div>
-                </div>
-            </div>
-            <div id="successModal" class="modal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h2 class="subheadertext">Save Report</h2>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" id="nextButton">Next</button>
-                        <button type="button" class="btn btn-primary" id="downloadButton">Download</button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Toast -->
-            <div class="toast-container position-fixed bottom-0 end-0 p-3">
-                <div id="liveToast" class="toast text-white bg-light" role="alert" aria-live="assertive" aria-atomic="true">
-                    <div class="toast-body text-center">
-                        <p class="mb-0 fw-bold"></p>
-                    </div>
-                </div>
+        <div class="filter-container">
+            <!-- Filters -->
+            <div class="filters">
+                <input type="text" placeholder="Search" id="search">
             </div>
+           
+            <div class="title-container">
+                <img class="current-store-logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
+                <h2 class="current-store-name">POTATO CORNER</h2>
+             </div>
+
+            <div class="info-bar">
+                    <span>Total Active Employees: 28</span>
+                    <span>Date: Current Date*</span>
+                 </div>
+        </div>
+        <div class="container">
+            <section id="franchise-section">
+                <h2>Branch Location</h2>
+                <div class="filters">
+                    <!-- Filters can go here if you have them -->
+
+                </div>
+                <table class="content-table" id="agreementContractTbl">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Franchisee</th>
+                            <th scope="col">Shift Timing</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
+
+            <section id="leasing-section">
+                <h2>Leasing Contract</h2>
+                <div class="filters">
+                    <!-- Filters can go here if you have them -->
+                </div>
+                <table class="content-table" id="leasingContractTbl">
+                    <thead>
+                        <tr>
+                        <th scope="col">Name</th>
+                            <th scope="col">Phone Number</th>
+                            <th scope="col">Franchisee</th>
+                            <th scope="col">Shift Timing</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </section>
     </section>
+
+
+
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
@@ -204,7 +177,10 @@ if (isset($_SERVER['REQUEST_URI'])) {
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
-    <script src="../../assets/js/report-script.js"></script>
+    <!-- <script src="../../assets/js/content.js"></script> -->
+    <script src="../../assets/js/leasing-contract-script.js"></script>
+    <script src="../../assets/js/agreement-contract-script.js"></script>
+    <script src="../../assets/js/notification-contract-script.js"></script>
 </body>
 
 </html>
