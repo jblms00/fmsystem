@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $amount = isset($_POST['amount']) ? mysqli_real_escape_string($con, $_POST['amount']) : '';
         $description = isset($_POST['description']) ? mysqli_real_escape_string($con, $_POST['description']) : '';
         $otherDetails = isset($_POST['otherDetails']) ? mysqli_real_escape_string($con, $_POST['otherDetails']) : '';
-
+        
         // Insert data into the database
         $query = "INSERT INTO expenses 
                   (encoder_id, franchisee, location, expense_catergory, expense_type, expense_purpose, expense_amount, expense_description, date_added) 

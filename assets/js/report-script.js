@@ -342,10 +342,13 @@ function displayReports() {
                 });
             } else {
                 console.error(response.message);
+                console.error("Error in response:", response.message);
             }
         },
         error: function (xhr, status, error) {
             console.error("AJAX Error:", error);
+            console.log("XHR Response:", xhr.responseText);
+            console.log("Status:", status);
         },
     });
 }
