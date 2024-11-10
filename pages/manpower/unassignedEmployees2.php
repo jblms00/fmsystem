@@ -149,7 +149,7 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <?php
                         if ($data['status'] === 'success') {
                             foreach ($data['employees'] as $employee) {
-                                $certificateStatus = empty($employee['certificate_status']) ? 'Incomplete Certification' : 'Ready for Deployment';
+                                $certificateStatus = empty($employee['certificate_status']) ? 'No branch assignment' : 'Ready for Deployment';
                                 $alertClass = empty($employee['certificate_status']) ? 'alert-warning' : 'alert-success';
                                 echo "<tr>";
                                 echo "<td>" . htmlspecialchars($employee['user_name']) . "</td>";
