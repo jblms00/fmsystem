@@ -17,8 +17,8 @@ include("../../phpscripts/check-login.php");
     <!-- ========= CSS ========= -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/franchise agreement.css">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
+    <link rel="stylesheet" href="../../assets/css/activeEmployees3.css">
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
@@ -109,23 +109,25 @@ include("../../phpscripts/check-login.php");
 
         <div class="filter-container">
             <!-- Filters -->
-            <div class="filters">
-                <input type="text" placeholder="Search" id="search">
-            </div>
            
             <div class="title-container">
                 <img class="current-store-logo" src="../../assets/images/PotCor.png" alt="Potato Corner">
                 <h2 class="current-store-name">POTATO CORNER</h2>
              </div>
 
+            <div class="search-bar-container">
+                <input type="text" placeholder="Search..." id="search" class="search-bar">
+            </div>
+
             <div class="info-bar">
-                    <span>Total Active Employees: 28</span>
+                    <span>Total Active Employees: Number of Active Employees*</span>
                     <span>Date: Current Date*</span>
-                 </div>
+            </div>
         </div>
         <div class="container">
             <section id="franchise-section">
                 <h2>Branch Location</h2>
+                <h3 class="employee-list-title">Employee List:</h3> <!-- Added Employee List Heading -->
                 <div class="filters">
                     <!-- Filters can go here if you have them -->
 
@@ -140,19 +142,30 @@ include("../../phpscripts/check-login.php");
                             <th scope="col">Status</th>
                         </tr>
                     </thead>
-                    <tbody></tbody>
+                    <!-- HARDCODED EXAMPLE -->
+                    <!-- <tbody>
+                        <tr>
+                            <td>Maria Santos</td>
+                            <td>09123456789</td>
+                            <td>Magalang, Pampanga</td>
+                            <td><span class="shift-timing">09:00–04:00pm</span></td>
+                            <td><span class="status checked-in">Checked-in</span></td>
+                        </tr>
+                    </tbody> -->
+
                 </table>
             </section>
 
             <section id="leasing-section">
-                <h2>Leasing Contract</h2>
+                <h2>Branch Location</h2>
+                <h3 class="employee-list-title">Employee List:</h3>
                 <div class="filters">
                     <!-- Filters can go here if you have them -->
                 </div>
                 <table class="content-table" id="leasingContractTbl">
                     <thead>
                         <tr>
-                        <th scope="col">Name</th>
+                            <th scope="col">Name</th>
                             <th scope="col">Phone Number</th>
                             <th scope="col">Franchisee</th>
                             <th scope="col">Shift Timing</th>
