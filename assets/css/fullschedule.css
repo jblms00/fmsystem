@@ -1,0 +1,271 @@
+/* Font import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Primary colors */
+:root {
+    --header-color: #1F375D;
+    --background-color: #f4f4f9;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --box-color: #fff;
+    --text-color: #333;
+    --highlight-color: #1F375D;
+    --box-group-background: #d3d3d3;
+}
+
+/* Header styles */
+.contractheader {
+    height: 90px;
+    background: var(--header-color);
+    color: white;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.container-header {
+    margin-left: 30px;
+}
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+/* Main container */
+.container {
+    width: 95%;
+    margin: 20px auto;
+}
+
+.dash-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.overview {
+    width: 100%;
+}
+
+.overview .title {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: var(--header-color);
+}
+
+.overview .title i {
+    margin-right: 10px;
+}
+
+/* Boxes container */
+.boxes-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.box-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(25% - 20px);
+    background-color: var(--box-group-background);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.box-group2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: calc(70% - 20px);
+    background-color: var(--box-group-background);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+/* Box Title Styling */
+.box-group-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Box Styling */
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--box-color);
+    border-radius: 4px;
+    box-shadow: 0 5px 10px var(--box-shadow-color);
+    padding: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.box i {
+    font-size: 22px;
+    margin-right: 10px;
+}
+
+.box .text {
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+}
+
+/* Search box */
+.search-box1 {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.search-box:focus {
+    outline: none;
+    border-color: var(--highlight-color);
+}
+
+/* Employee Table */
+.activity {
+    width: 100%;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+}
+
+.content-table thead tr {
+    background-color: var(--header-color);
+    color: white;
+}
+
+.content-table th,
+.content-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-table tbody tr:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .box-group,
+    .box-group2 {
+        width: 100%;
+    }
+    .boxes-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.branch-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Spacing between each branch box */
+    width: 80%; /* Reduce the width to make it smaller */
+    margin: 20px auto; /* Center the branch list */
+}
+
+.branch-list .branch-item {
+    background-color: var(--box-color); /* Same box color as other UI elements */
+    border-radius: 8px; /* Rounded corners for each box */
+    box-shadow: 0 5px 10px var(--box-shadow-color); /* Shadow to give a raised effect */
+    padding: 15px; /* Add some padding inside the box */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer; /* Change cursor to indicate interactivity */
+}
+
+.branch-list .branch-item:hover {
+    background-color: var(--highlight-color); /* Change background on hover */
+    color: white; /* Make text white on hover for better contrast */
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Box content (like text inside the branch box) */
+.branch-list .branch-item i {
+    font-size: 10px; /* Reduce icon size to keep consistency */
+    margin-right: 10px; /* Spacing between icon and text */
+}
+
+.branch-list .branch-item span {
+    font-size: 16px; /* Size of the text in the box */
+    font-weight: 500;
+}
+
+/* Container to hold both titles */
+.employee-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 10px; /* Add some space below the title container */
+}
+
+/* Employee title - smaller and bold */
+.employee-title {
+    font-size: 20px; /* Same size for Employee Title */
+    font-weight: bold; /* Make it bold */
+    text-align: left; /* Align text to the left */
+}
+
+/* Count title - same size as Employee Title */
+.count-title {
+    font-size: 20px; /* Same size for Employee Title */
+    font-weight: bold; /* Make it bold */
+    text-align: right; /* Align text to the right */
+}
+
+#employees-section .content-table {
+    background-color: #ffffff; /* Set white background */
+    border-radius: 8px; /* Optional: Round the corners */
+    padding: 10px; /* Optional: Add some padding inside the table */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow to make it stand out */
+    width: 100%; /* Ensure the table takes the full width of the parent */
+}
+
+#employees-section .content-table th, 
+#employees-section .content-table td {
+    padding: 10px; /* Add padding to the table cells for better readability */
+    text-align: center; /* Center-align the text */
+}
+
+#employees-section .content-table th {
+    background-color: #1F375D; /* Optional: Light gray background for the header cells */
+    font-weight: bold; /* Ensure header cells are bold */
+}
+

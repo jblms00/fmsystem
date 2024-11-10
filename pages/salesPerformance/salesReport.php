@@ -7,12 +7,40 @@ include ("../../phpscripts/check-login.php");
 $id = isset($_GET['id']) ? $_GET['id'] : null;
 $data = [];
 
-$query = "SELECT * FROM sales_report WHERE report_id = '$id'";
+// Updated query
+$query = "
+    SELECT 
+        sr.*, 
+        ua.user_name AS encoder_name,
+        ac.franchisee AS franchisee_name
+    FROM 
+        sales_report sr
+    LEFT JOIN 
+        users_accounts ua ON sr.encoder_id = ua.user_id
+    LEFT JOIN 
+        agreement_contract ac ON sr.ac_id = ac.ac_id
+    WHERE 
+        sr.report_id = '$id'
+";
+
 $result = mysqli_query($con, $query);
 
 if ($result) {
     if (mysqli_num_rows($result) > 0) {
         $data = mysqli_fetch_assoc($result);
+
+        // Format the franchisee name
+        switch ($data['franchisee_name']) {
+            case "potato-corner":
+                $data['franchisee_name'] = "Potato Corner";
+                break;
+            case "macao-imperial":
+                $data['franchisee_name'] = "Macao Imperial";
+                break;
+            case "auntie-anne":
+                $data['franchisee_name'] = "Auntie Anne's";
+                break;
+        }
     } else {
         $data['error'] = "No record found with ID: $id";
     }
@@ -114,21 +142,18 @@ if ($result) {
         <!-- Header section above the table -->
         <header class="header-info">
             <div class="header-section encoder">
-                <span class="header-label">Encoder:</span> Encoder's Name
+                <span class="header-label">Encoder:</span> <?php echo htmlspecialchars($data['encoder_name']); ?>
             </div>
             <div class="header-section date">
-                <span class="header-label">Date:</span> Date
+            <span class="header-label">Date:</span> <?php echo htmlspecialchars($data['date_added']); ?>
             </div>
         </header>
         <div class="header-section2">
-            <span class="header-label">Franchisee:</span> Franchisee Name
+            <span class="header-label">Franchisee:</span> <?php echo htmlspecialchars($data['franchisee_name']); ?>
         </div>
-        <!-- <div class="header-section2">
-            <span class="header-label">Location:</span> Location of Franchisee
-        </div> -->
         <!-- Table for Sales Report -->
         <table>
-            <caption><strong>Product Name:</strong> Product Name</caption>
+            <caption><strong>Product Name:</strong> <?php echo htmlspecialchars($data['services']); ?></caption>
             <thead>
                 <tr>
                     <th>Transaction Type</th>
