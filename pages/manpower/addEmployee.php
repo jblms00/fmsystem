@@ -131,7 +131,7 @@ include("../../phpscripts/check-login.php");
                     <select id="franchisee" name="franchisee" required>
                         <option value="" disabled selected>Select Franchisee</option>
                         <option value="potato-corner">Potato Corner</option>
-                        <option value="auntie-anne">Aunti Anne's</option>
+                        <option value="auntie-anne">Auntie Anne's</option>
                         <option value="macao-imperial">Macao Imperial</option>
                     </select>
                 </div>

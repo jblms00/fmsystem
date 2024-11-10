@@ -162,10 +162,14 @@ include("../../phpscripts/check-login.php");
                 <div class="form-group-1">
                     <label for="termFranchise">TERM OF FRANCHISE:</label>
                     <div class="input-field">
-                        <label for="franchise-term" class="subLabel">Franchise Term (in years):</label>
+
+                        <!-- <label for="franchise-term" class="subLabel">Franchise Term (in years):</label>
                         <input type="number" id="franchise-term" name="franchiseTerm" class="short-input" min="1"
-                            required>
-                        <label for="agreement-date" class="subLabel">This Agreement entered into on this:</label>
+                            required> -->
+                        <<label for="agreement-start" class="subLabel">This Agreement entered into on this:</label>
+                        <input type="date" id="agreement-start" name="agreementStart" class="short-input" required>
+
+                        <label for="agreement-date" class="subLabel">End Date:</label>
                         <input type="date" id="agreement-date" name="agreementDate" class="short-input" required>
                     </div>
                 </div>
