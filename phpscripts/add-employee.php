@@ -11,6 +11,7 @@ function generateRandom7Digit()
     return random_int(1000000, 9999999);
 }
 
+
 $data = [];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -33,51 +34,57 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $data['status'] = 'error';
         $data['message'] = 'All fields are required.';
     } else {
-        // Insert into users_accounts
-        $sqlAccounts = "
-            INSERT INTO users_accounts (user_id, user_name, user_photo, user_email, user_password, user_phone_number, user_address, user_birthdate, user_type, user_status, date_created)
-            VALUES ('$userId', '$employeeName', '', '$email', '', '$mobile', '$address', '$dob', 'user', 'active', NOW())
-        ";
-        $resultAccounts = mysqli_query($con, $sqlAccounts);
-
         // Fetch branch name based on branch id
         $branchQuery = "SELECT location FROM agreement_contract WHERE ac_id = '$branch'";
         $branchResult = mysqli_query($con, $branchQuery);
         $branchName = mysqli_num_rows($branchResult) > 0 ? mysqli_fetch_assoc($branchResult)['location'] : '';
 
-        if ($resultAccounts && $branchName) {
-            // Combine certification information
-            $certificationNames = isset($_POST['certificationName']) ? $_POST['certificationName'] : [];
-            $certificationList = implode(', ', array_map(function ($cert) use ($con) {
-                return mysqli_real_escape_string($con, $cert);
-            }, $certificationNames));
-
-            // Insert into user_information with branch name instead of ID
-            $sqlInfo = "
-                INSERT INTO user_information (user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
-                VALUES ('$userId', 'assigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
+        if ($branchName) {
+            // Insert into users_accounts
+            $sqlAccounts = "
+                INSERT INTO users_accounts (user_id, user_name, user_photo, user_email, user_password, user_phone_number, user_address, user_birthdate, user_type, user_status, date_created)
+                VALUES ('$userId', '$employeeName', '', '$email', '', '$mobile', '$address', '$dob', 'user', 'active', NOW())
             ";
-            $resultInfo = mysqli_query($con, $sqlInfo);
+            $resultAccounts = mysqli_query($con, $sqlAccounts);
 
-            if ($resultInfo) {
-                // Insert into notifications
-                $sqlNotification = "INSERT INTO notifications (notification_id, user_id, activity_type, datetime) VALUES ('$notificationId', '$user_id_logged_in', '$activityType', NOW())";
-                $resultNotification = mysqli_query($con, $sqlNotification);
+            if ($resultAccounts) {
+                // Combine certification information
+                $certificationNames = isset($_POST['certificationName']) ? $_POST['certificationName'] : [];
+                $certificationList = implode(', ', array_map(function ($cert) use ($con) {
+                    return mysqli_real_escape_string($con, $cert);
+                }, $certificationNames));
 
-                if ($resultNotification) {
-                    $data['status'] = 'success';
-                    $data['message'] = 'Employee added successfully.';
+                // Insert into user_information
+                $sqlInfo = "
+                    INSERT INTO user_information (assigned_at, user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
+                    VALUES ('$branch', 'assigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
+                ";
+                $resultInfo = mysqli_query($con, $sqlInfo);
+
+                if ($resultInfo) {
+                    // Insert into notifications
+                    $sqlNotification = "INSERT INTO notifications (notification_id, user_id, activity_type, datetime) VALUES ('$notificationId', '$user_id_logged_in', '$activityType', NOW())
+                    ";
+                    $resultNotification = mysqli_query($con, $sqlNotification);
+
+                    if ($resultNotification) {
+                        $data['status'] = 'success';
+                        $data['message'] = 'Employee added successfully.';
+                    } else {
+                        $data['status'] = 'error';
+                        $data['message'] = 'Error adding notification.';
+                    }
                 } else {
                     $data['status'] = 'error';
-                    $data['message'] = 'Error adding notification.';
+                    $data['message'] = 'Error adding employee details.';
                 }
             } else {
                 $data['status'] = 'error';
-                $data['message'] = 'Error adding employee details.';
+                $data['message'] = 'Error adding user account.';
             }
         } else {
             $data['status'] = 'error';
-            $data['message'] = 'Error adding user account or invalid branch selected.';
+            $data['message'] = 'Invalid branch selected.';
         }
     }
 }

@@ -4,52 +4,52 @@ $(document).ready(function () {
     addEmployee();
     displayRecentActivities();
 
-    // $("#franchisee").on("change", function () {
-    //     var franchisee = $(this).val();
+    $("#franchisee").on("change", function () {
+        var franchisee = $(this).val();
 
-    //     if (franchisee) {
-    //         $.ajax({
-    //             url: "../../phpscripts/get-branches.php",
-    //             type: "POST",
-    //             data: { franchisee: franchisee },
-    //             dataType: "json",
-    //             success: function (response) {
-    //                 if (response.status === "success") {
-    //                     var branches = response.details;
-    //                     $("#branch")
-    //                         .empty()
-    //                         .append(
-    //                             '<option value="" disabled selected>Select Branch</option>'
-    //                         );
-    //                     $.each(branches, function (index, branch) {
-    //                         $("#branch").append(
-    //                             '<option value="' +
-    //                                 branch.ac_id +
-    //                                 '">' +
-    //                                 branch.location +
-    //                                 "</option>"
-    //                         );
-    //                     });
-    //                 } else {
-    //                     $("#branch")
-    //                         .empty()
-    //                         .append(
-    //                             '<option value="" disabled selected>Select Branch</option>'
-    //                         );
-    //                 }
-    //             },
-    //             error: function (xhr, status, error) {
-    //                 console.error("AJAX Error:", error);
-    //             },
-    //         });
-    //     } else {
-    //         $("#branch")
-    //             .empty()
-    //             .append(
-    //                 '<option value="" disabled selected>Select Branch</option>'
-    //             );
-    //     }
-    // });
+        if (franchisee) {
+            $.ajax({
+                url: "../../phpscripts/get-branches.php",
+                type: "POST",
+                data: { franchisee: franchisee },
+                dataType: "json",
+                success: function (response) {
+                    if (response.status === "success") {
+                        var branches = response.details;
+                        $("#branch")
+                            .empty()
+                            .append(
+                                '<option value="" disabled selected>Select Branch</option>'
+                            );
+                        $.each(branches, function (index, branch) {
+                            $("#branch").append(
+                                '<option value="' +
+                                    branch.ac_id +
+                                    '">' +
+                                    branch.location +
+                                    "</option>"
+                            );
+                        });
+                    } else {
+                        $("#branch")
+                            .empty()
+                            .append(
+                                '<option value="" disabled selected>Select Branch</option>'
+                            );
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("AJAX Error:", error);
+                },
+            });
+        } else {
+            $("#branch")
+                .empty()
+                .append(
+                    '<option value="" disabled selected>Select Branch</option>'
+                );
+        }
+    });
 });
 
 function displayEmployees() {
