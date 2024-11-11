@@ -4,7 +4,6 @@ session_start();
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
 
-// Initialize variables
 $store = isset($_GET['str']) ? $_GET['str'] : '';
 $id = isset($_GET['id']) ? $_GET['id'] : '';
 
@@ -19,10 +18,13 @@ if ($store === "potatoCorner") {
 
 $data = [];
 $sql = "
-    SELECT ua.user_id, ua.user_name, ua.user_phone_number, ua.user_address, ui.employee_status, ui.certificate_status
+    SELECT ua.user_id, ua.user_name, ua.user_phone_number, ua.user_address,
+           IFNULL(ui.employee_status, 'unassigned') AS employee_status,
+           IFNULL(ui.certificate_status, 'No branch assignment') AS certificate_status
     FROM users_accounts ua
     LEFT JOIN user_information ui ON ua.user_id = ui.user_id
-    WHERE ui.assigned_at = 0 AND ui.employee_status = 'unassigned' 
+    WHERE (ui.assigned_at = 0 AND ui.employee_status = 'unassigned') 
+       OR ui.user_id IS NULL
 ";
 $result = mysqli_query($con, $sql);
 
@@ -37,6 +39,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     $data['message'] = 'No unassigned employees found';
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
