@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $franchiseNameMap = [
             '11' => 'potato-corner',
             '12' => 'macao-imperial',
-            '13' => 'auntie-annes'
+            '13' => 'auntie-anne'
         ];
         // Assign the formatted franchise name if the franchise is an ID
         $franchise = $franchiseNameMap[$franchise] ?? strtolower(str_replace(' ', '-', $franchise));

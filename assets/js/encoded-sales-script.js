@@ -22,10 +22,11 @@ function getEatTypeAndBranchFromUrl() {
         }
     });
 
+    // Map franchise names to database-compatible formats
     var franchiseFormattedMap = {
-        PotatoCorner: "Potato Corner",
-        MacaoImperial: "Macao Imperial",
-        AuntieAnne: "Auntie Anne's",
+        PotatoCorner: "potato-corner",
+        MacaoImperial: "macao-imperial",
+        AuntieAnne: "auntie-anne",
     };
 
     var eatTypeFormattedMap = {
@@ -45,10 +46,7 @@ function getEatTypeAndBranchFromUrl() {
     };
 }
 
-function updateSalesSectionForm(
-    urlParams,
-    salesSectionForm = $("#salesSectionForm")
-) {
+function updateSalesSectionForm(urlParams, salesSectionForm = $("#salesSectionForm")) {
     var salesSectionHTML = "";
     if (urlParams.eatType === "TakeOut" || urlParams.eatType === "DineIn") {
         salesSectionHTML = `
@@ -81,7 +79,6 @@ function updateSalesSectionForm(
             <div class="sales-section">
                 <div class="details transactionType">
                     <p>${urlParams.eatTypeFormatted}</p>
-
                     <div class="fields">
                         <div class="input-field transactionType">
                             <label>GrabFood:</label>
@@ -102,9 +99,7 @@ function updateSalesSectionForm(
     }
     salesSectionForm.html(salesSectionHTML);
 
-    var dashFranchise = urlParams.franchiseFormatted
-        .toLowerCase()
-        .replace(/\s+/g, "-");
+    var dashFranchise = urlParams.franchiseFormatted; // Already formatted as "auntie-anne"
     var dashServices = urlParams.eatTypeFormatted.toLowerCase();
     var encoderName = $("body").data("user-name");
 
