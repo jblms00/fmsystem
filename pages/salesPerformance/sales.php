@@ -178,7 +178,7 @@ if ($result) {
                     <tbody>
                         <?php if (!empty($data) && !isset($data['error'])) {
                             foreach ($data as $row) {
-                                $transactions = explode(',', $row['transactions']);
+                                $transactions = explode(',', $row['grand_total']);
 
                                 // Determine franchise image based on franchise name
                                 $franchise = strtolower($row['franchisee']);

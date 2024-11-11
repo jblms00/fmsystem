@@ -139,7 +139,7 @@ $user_data = check_login($con);
                     <p class="fw-semibold">Transactions</p>
                     <div class="fields mb-3">
                         <div class="input-field transactions">
-                            <label>Product Name</label>
+                            <label>Product Name!!!!!!!!!!!</label>
                             <input type="text" class="input-product-name" placeholder="Enter Product Name"
                                 style="width: 100%">
                         </div>

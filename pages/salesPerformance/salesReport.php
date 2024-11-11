@@ -182,7 +182,7 @@ if ($result) {
                             <td><?php echo $transactions[2] ?></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="text-align: right;">Total <?php echo ucwords($data['services']) ?> Sales:
+                            <td colspan="2" style="text-align: right;">Others:
                             </td>
                             <td><?php echo $transactions[3] ?></td>
                         </tr>
@@ -199,7 +199,7 @@ if ($result) {
                             <td><?php echo $transactions[1] ?></td>
                         </tr>
                         <tr>
-                            <td colspan="2" style="text-align: right;">Total Delivery Sales:</td>
+                            <td colspan="2" style="text-align: right;">Others:</td>
                             <td><?php echo $transactions[2] ?></td>
                         </tr>
                     <?php } ?>

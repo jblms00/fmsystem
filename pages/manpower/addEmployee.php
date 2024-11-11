@@ -20,12 +20,6 @@ include("../../phpscripts/check-login.php");
 </head>
 
 <body>
-
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Add Employee</h1>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -96,6 +90,13 @@ include("../../phpscripts/check-login.php");
             </div>
         </div>
     </nav>
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Add Employee</h1>
+        </div>
+    </header>
     <div class="content">
         <form id="addEmployeeForm">
             <div class="form-section">
@@ -176,6 +177,8 @@ include("../../phpscripts/check-login.php");
             </div>
         </div>
     </div>
+
+    </section>
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
