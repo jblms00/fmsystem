@@ -7,16 +7,17 @@ $data = [];
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "
     SELECT
-        ac.location AS location,
-        ac.franchisee AS franchisee,
-        MAX(ic.inventory_id) AS inventory_id,
+        ic.branch AS location,
+        ic.franchisee AS franchisee,
+        ic.inventory_id AS inventory_id,
         ic.datetime_added AS datetime_added
     FROM
-        agreement_contract AS ac
-    JOIN
-        item_inventory AS ic ON ac.franchisee = ic.franchisee
+        item_inventory AS ic
+    WHERE
+        ic.branch IS NOT NULL 
+        AND (ic.delivery IS NOT NULL OR ic.beginning IS NOT NULL OR ic.waste IS NOT NULL OR ic.sold IS NOT NULL)
     GROUP BY
-        ac.location, ac.franchisee, ic.datetime_added
+        ic.branch, ic.franchisee, ic.datetime_added
     ORDER BY
         ic.datetime_added DESC
     ";
