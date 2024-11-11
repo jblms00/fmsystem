@@ -122,7 +122,7 @@ $eatTypeFormatted = isset($eatTypeFormattedMap[$eatType]) ? $eatTypeFormattedMap
     <section class="home">
         <header class="contractheader">
             <div class="container-header">
-                <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales</h1>
+                <h1 class="title"><?php echo $eatTypeFormatted; ?> Sales - <?php echo $franchiseFormatted; ?></h1>
             </div>
         </header>
         <div class="filter-container">

@@ -13,7 +13,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $transactions = json_decode($input, true);
 
     foreach ($transactions as $transaction) {
+        // Retrieve and escape form data
         $franchise = mysqli_real_escape_string($con, $transaction['franchise']);
+        
+        // Map franchise ID to lowercase-hyphenated franchise name
+        $franchiseNameMap = [
+            '11' => 'potato-corner',
+            '12' => 'macao-imperial',
+            '13' => 'auntie-annes'
+        ];
+        // Assign the formatted franchise name if the franchise is an ID
+        $franchise = $franchiseNameMap[$franchise] ?? strtolower(str_replace(' ', '-', $franchise));
+
+        // Remaining code for inserting into sales_report table
         $location = mysqli_real_escape_string($con, $transaction['location']);
         $encoderName = mysqli_real_escape_string($con, $transaction['encoderName']);
         $date = mysqli_real_escape_string($con, $transaction['date']);
@@ -31,25 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         // Build the transactions string based on selected service type
         if ($services == "dine-in" || $services == "take-out") {
             $transactionsString = "$cashCard, $gCash, $paymaya, $totalSales";
-            $requiredFields = [
-                $cashCard,
-                $gCash,
-                $paymaya,
-                $totalSales
-            ];
-
-            $data['cashCard'] = $cashCard;
-            $data['paymaya'] = $paymaya;
+            $requiredFields = [$cashCard, $gCash, $paymaya, $totalSales];
         } else {
             $transactionsString = "$grabFood, $foodPanda, $totalSales";
-            $requiredFields = [
-                $grabFood,
-                $foodPanda,
-                $totalSales
-            ];
+            $requiredFields = [$grabFood, $foodPanda, $totalSales];
         }
-
-        $data['totalSales'] = $totalSales;
 
         foreach ($requiredFields as $field) {
             if (empty($field) || $totalSales == 0) {
@@ -60,8 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
         }
 
-        $data['transactions'] = $transactions;
-
+        // Insert the record with mapped franchise name
         $insert_query = "INSERT INTO sales_report (
             ac_id,
             encoder_id,
@@ -72,8 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             date_added
         ) VALUES (
             '$acId',
-            '$franchise',
             '$logged_in_user',
+            '$franchise',
             '$services',
             '$transactionsString',
             '$grandTotal',
@@ -86,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
             $data['status'] = "error";
             $data['message'] = "Failed to save report. Please try again later.";
-            break; // Exit the loop on the first error
+            break;
         }
     }
 } else {
