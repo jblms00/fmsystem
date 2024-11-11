@@ -64,11 +64,7 @@ if ($result) {
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">View Sales Report</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -137,81 +133,89 @@ if ($result) {
             </div>
         </div>
     </nav>
-    <div class="container">
-        <header class="header-report">Sales Report</header>
-        <!-- Header section above the table -->
-        <header class="header-info">
-            <div class="header-section encoder">
-                <span class="header-label">Encoder:</span> <?php echo htmlspecialchars($data['encoder_name']); ?>
-            </div>
-            <div class="header-section date">
-            <span class="header-label">Date:</span> <?php echo htmlspecialchars($data['date_added']); ?>
+
+    <section class="home">
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">View Sales Report</h1>
             </div>
         </header>
-        <div class="header-section2">
-            <span class="header-label">Franchisee:</span> <?php echo htmlspecialchars($data['franchisee_name']); ?>
+        <div class="container">
+            <header class="header-report">Sales Report</header>
+            <!-- Header section above the table -->
+            <header class="header-info">
+                <div class="header-section encoder">
+                    <span class="header-label">Encoder:</span> <?php echo htmlspecialchars($data['encoder_name']); ?>
+                </div>
+                <div class="header-section date">
+                <span class="header-label">Date:</span> <?php echo htmlspecialchars($data['date_added']); ?>
+                </div>
+            </header>
+            <div class="header-section2">
+                <span class="header-label">Franchisee:</span> <?php echo htmlspecialchars($data['franchisee_name']); ?>
+            </div>
+            <!-- Table for Sales Report -->
+            <table>
+                <caption><strong>Product Name:</strong> <?php echo htmlspecialchars($data['services']); ?></caption>
+                <thead>
+                    <tr>
+                        <th>Transaction Type</th>
+                        <th>Mode of Payment</th>
+                        <th>Total Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $transactions = explode(',', $data['transactions']);
+                    if ($data['services'] === "dine-in" || $data['services'] === "take-out") {
+                        ?>
+                        <tr>
+                            <td rowspan="3"><?php echo ucwords($data['services']) ?></td>
+                            <td>Cash/Card</td>
+                            <td><?php echo $transactions[0] ?></td>
+                        </tr>
+                        <tr>
+                            <td>GCash</td>
+                            <td><?php echo $transactions[1] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Paymaya</td>
+                            <td><?php echo $transactions[2] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: right;">Total <?php echo ucwords($data['services']) ?> Sales:
+                            </td>
+                            <td><?php echo $transactions[3] ?></td>
+                        </tr>
+                    <?php } else { ?>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <td rowspan="2">Delivery</td>
+                            <td>GrabFood</td>
+                            <td><?php echo $transactions[0] ?></td>
+                        </tr>
+                        <tr>
+                            <td>foodpanda</td>
+                            <td><?php echo $transactions[1] ?></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: right;">Total Delivery Sales:</td>
+                            <td><?php echo $transactions[2] ?></td>
+                        </tr>
+                    <?php } ?>
+                    <!-- Grand Total Row -->
+                <tfoot>
+                    <tr>
+                        <td colspan="2" style="text-align: right;">Grand Total:</td>
+                        <td><?php echo $data['grand_total'] ?></td>
+                    </tr>
+                </tfoot>
+
+                </tbody>
+            </table>
         </div>
-        <!-- Table for Sales Report -->
-        <table>
-            <caption><strong>Product Name:</strong> <?php echo htmlspecialchars($data['services']); ?></caption>
-            <thead>
-                <tr>
-                    <th>Transaction Type</th>
-                    <th>Mode of Payment</th>
-                    <th>Total Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php $transactions = explode(',', $data['transactions']);
-                if ($data['services'] === "dine-in" || $data['services'] === "take-out") {
-                    ?>
-                    <tr>
-                        <td rowspan="3"><?php echo ucwords($data['services']) ?></td>
-                        <td>Cash/Card</td>
-                        <td><?php echo $transactions[0] ?></td>
-                    </tr>
-                    <tr>
-                        <td>GCash</td>
-                        <td><?php echo $transactions[1] ?></td>
-                    </tr>
-                    <tr>
-                        <td>Paymaya</td>
-                        <td><?php echo $transactions[2] ?></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: right;">Total <?php echo ucwords($data['services']) ?> Sales:
-                        </td>
-                        <td><?php echo $transactions[3] ?></td>
-                    </tr>
-                <?php } else { ?>
-
-                    <!-- Row 3 -->
-                    <tr>
-                        <td rowspan="2">Delivery</td>
-                        <td>GrabFood</td>
-                        <td><?php echo $transactions[0] ?></td>
-                    </tr>
-                    <tr>
-                        <td>foodpanda</td>
-                        <td><?php echo $transactions[1] ?></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2" style="text-align: right;">Total Delivery Sales:</td>
-                        <td><?php echo $transactions[2] ?></td>
-                    </tr>
-                <?php } ?>
-                <!-- Grand Total Row -->
-            <tfoot>
-                <tr>
-                    <td colspan="2" style="text-align: right;">Grand Total:</td>
-                    <td><?php echo $data['grand_total'] ?></td>
-                </tr>
-            </tfoot>
-
-            </tbody>
-        </table>
-    </div>
-
+    </section>
+                  
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>

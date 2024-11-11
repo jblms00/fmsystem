@@ -22,11 +22,7 @@ $user_data = check_login($con);
 </head>
 
 <body data-user-name="<?php echo $user_data['user_name']; ?>">
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Sales - Encode of Daily Sales</h1>
-        </div>
-    </header>
+    
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -99,74 +95,84 @@ $user_data = check_login($con);
 
         </div>
     </nav>
-    <div class="container">
-        <header>Encode Sales</header>
-        <!-- Franchisee Details Form -->
-        <form class="expense-form">
-            <div class="details franchisee">
-                <p class="title">Franchisee Details</p>
-                <div class="fields">
-                    <div class="input-field">
-                        <label>Franchisee</label>
-                        <input type="text" class="input-franchise-name" placeholder="Enter Franchisee Name" disabled>
-                    </div>
-                    <div class="input-field">
-                        <label>Location</label>
-                        <input type="text" class="input-location" placeholder="Enter Location" disabled>
-                    </div>
-                    <div class="input-field">
-                        <label>Name</label>
-                        <input type="text" class="input-encoders-name" placeholder="Enter Encoder's Name" disabled>
-                    </div>
-                    <div class="input-field">
-                        <label>Date</label>
-                        <input type="date" class="input-date" disabled>
-                    </div>
-                </div>
 
-                <div class=" form-group">
-                    <button type="button" class="myButton save-encoded-sales">Save</button>
-                </div>
+    <section class="home">
+        <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Sales - Encode of Daily Sales</h1>
             </div>
-        </form>
-        <!-- Transactions Form -->
-        <div class="transaction-forms-container">
-            <div class="details transactions transaction-form p-4">
-                <p class="fw-semibold">Transactions</p>
-                <div class="fields mb-3">
-                    <div class="input-field transactions">
-                        <label>Product Name</label>
-                        <input type="text" class="input-product-name" placeholder="Enter Product Name"
-                            style="width: 100%">
-                    </div>
-                </div>
-                <div class="sales-sections" id="salesSectionForm"></div>
-            </div>
-        </div>
-        <div class="form-group2">
-            <button type="button" class="myButton add-transaction-btn">Add Transaction</button>
-        </div>
-        <!-- Grand Total Form -->
-        <form class="grandtotal-form m-auto" style="width: 40%;">
-            <div class="details franchisee">
-                <span class="title">Grand Total:</span>
+        </header>
 
-                <div class="fields">
-                    <div class="input-field grandtotal">
-                        <input type="number" class="input-grand-total" placeholder="Grand Total" disabled>
+        <div class="container">
+            <header>Encode Sales</header>
+            <!-- Franchisee Details Form -->
+            <form class="expense-form">
+                <div class="details franchisee">
+                    <p class="title">Franchisee Details</p>
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>Franchisee</label>
+                            <input type="text" class="input-franchise-name" placeholder="Enter Franchisee Name" disabled>
+                        </div>
+                        <div class="input-field">
+                            <label>Location</label>
+                            <input type="text" class="input-location" placeholder="Enter Location" disabled>
+                        </div>
+                        <div class="input-field">
+                            <label>Name</label>
+                            <input type="text" class="input-encoders-name" placeholder="Enter Encoder's Name" disabled>
+                        </div>
+                        <div class="input-field">
+                            <label>Date</label>
+                            <input type="date" class="input-date" disabled>
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <button type="button" class="myButton save-encoded-sales">Save</button>
                     </div>
                 </div>
+            </form>
+            <!-- Transactions Form -->
+            <div class="transaction-forms-container">
+                <div class="details transactions transaction-form p-4">
+                    <p class="fw-semibold">Transactions</p>
+                    <div class="fields mb-3">
+                        <div class="input-field transactions">
+                            <label>Product Name</label>
+                            <input type="text" class="input-product-name" placeholder="Enter Product Name"
+                                style="width: 100%">
+                        </div>
+                    </div>
+                    <div class="sales-sections" id="salesSectionForm"></div>
+                </div>
             </div>
-        </form>
-    </div>
-    <!-- Modal -->
-    <div class="modal-overlay" id="modalOverlay">
-        <div class="modal-box" id="modalBox">
-            <div class="modal-body">
-                <p id="modalMessage"></p>
+            <div class="form-group2">
+                <button type="button" class="myButton add-transaction-btn">Add Transaction</button>
+            </div>
+            <!-- Grand Total Form -->
+            <form class="grandtotal-form m-auto" style="width: 40%;">
+                <div class="details franchisee">
+                    <span class="title">Grand Total:</span>
+
+                    <div class="fields">
+                        <div class="input-field grandtotal">
+                            <input type="number" class="input-grand-total" placeholder="Grand Total" disabled>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Modal -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-box" id="modalBox">
+                <div class="modal-body">
+                    <p id="modalMessage"></p>
+                </div>
             </div>
         </div>
-    </div>
+    </section>
+
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
