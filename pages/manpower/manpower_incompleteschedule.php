@@ -16,38 +16,132 @@ $store = $_GET['str'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../assets/css/manpower.css" type="text/css">
+   
+        <link rel="stylesheet" href="../../assets/css/navbar.css">
+        <link rel="stylesheet" href="../../assets/css/fullschedule.css">
+    
+        <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
     <title>Manpower Deployment - Schedule</title>
 </head>
 
 <body>
-    <!-- This area contains the blue header on top -->
-    <div class="header">
-        <h1 class="headertext"> &emsp; Scheduling</h1>
-    </div>
+<nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="../../assets/images/BoxLogo.png" alt="logo">
+                </span>
 
-    <!-- This area contains the side bar -->
-    <div class="schedule_sidebar">
-        <h1 class="sidebar-title">Store Schedules</h1>
-        <div class="branch-list" id="branchList"></div>
-    </div>
-    <div class="employee-list">
-        <h1 class="employee-title">Employees</h1>
-        <h1 class="count-title">0/2</h1>
+                <div class="text header-text">
+                    <span class="name">NEVADA</span>
+                    <span class="profession">Management Group</span>
+                </div>
+            </div>
 
-        <div class="activity">
-            <section id="employees-section-unsched">
-                <table class="content-table">
-                    <tbody></tbody>
-                </table>
-            </section>
+            <i class='bx bx-chevron-right toggle'></i>
+        </header>
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <i class='bx bx-search icon'></i>
+                    <input type="search" placeholder="Search...">
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="../../dashboard">
+                            <i class='bx bx-home-alt icon'></i>
+                            <span class="text nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/contract/franchiseeAgreement">
+                            <i class='bx bx-file icon'></i>
+                            <span class="text nav-text">Franchising Agreement</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/salesPerformance/sales">
+                            <i class='bx bx-bar-chart-alt-2 icon'></i>
+                            <span class="text nav-text">Sales Performance</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/salesPerformance/expenses">
+                            <i class='bx bx-wallet icon'></i>
+                            <span class="text nav-text">Expenses</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="../../pages/inventory/inventory2">
+                            <i class='bx bx-store-alt icon'></i>
+                            <span class="text nav-text">Inventory</span>
+                        </a>
+                    </li>
+                    <li class="nav-link active">
+                        <a href="../../pages/manpower/manpower_dashboard">
+                            <i class='bx bx-group icon'></i>
+                            <span class="text nav-text">Manpower Deployment</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="bottom-content">
+                <li>
+                    <a href="../../phpscripts/user-logout.php">
+                        <i class='bx bx-log-out icon'></i>
+                        <span class="text nav-text">Logout</span>
+                    </a>
+                </li>
+            </div>
         </div>
+    </nav>
 
-        <!-- <div class="input-field assign-btn d-none">
-            <a class="btn btn-primary assign-emp">Assign
-                Employee</a>
-        </div> -->
-    </div>
+    <section class="home">
+
+    <header class="contractheader">
+            <div class="container-header">
+                <h1 class="title">Scheduling</h1>
+            </div>
+        </header>
+
+    <div class="container">
+            <div class="dash-content">
+                <div class="overview">
+                    <div class="boxes-container">
+                        <div class="box-group">
+                            <h3 class="box-group-title">Store Schedules</h3>
+                            <div class="branch-list" id="branchList">
+                                <button type="button" class="box box1 check-employee border-0">
+                                    <i class='bx bx-user'></i>
+                                    <!-- <span class="text emp-name">Employee Name</span> -->
+                                </button>
+                            </div>
+                        
+                        </div>
+                        <div class="box-group2" id="employeeDetails">
+                        <h1 class="employee-title">Employees</h1>
+                            <h1 class="count-title"><span>0</span>/2</h1>
+                            <div class="activity">
+                                <section id="employees-section-unsched">
+                                    <table class="content-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Schedule</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     <!-- Modal -->
     <div class="modal fade" id="assignModal" tabindex="-1" aria-hidden="true">
@@ -76,6 +170,8 @@ $store = $_GET['str'];
             </div>
         </div>
     </div>
+
+    </section>
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"

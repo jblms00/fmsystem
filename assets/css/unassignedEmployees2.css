@@ -119,58 +119,61 @@ tbody tr {
     color: #ff9500;
 }
 
-/* Branches section styling */
-.staffed-branches, .understaffed-branches {
-    width: 50%;
-    float: left; /* Ensure branches are side by side */
-}
-
 .branches {
-    margin-top: 30px;
-    padding: 50px;
-    border-radius: 8px;
-    background: rgb(219, 219, 219); /* Background color for branches section */
-    overflow: hidden; /* Clear floats */
+    display: flex;
+    flex-direction: row; /* Arrange the branches sections side by side */
+    gap: 40px; /* Add spacing between the two branch sections */
+    margin-top: 40px;
+    justify-content: space-between; /* Add some spacing between the two sections */
 }
 
-/* Branch title styling */
+.staffed-branches,
+.understaffed-branches {
+    display: flex;
+    flex-direction: column; /* Keep each branch vertically arranged */
+    gap: 10px;
+    width: 100%; /* Make sure they take up equal width */
+}
+
 .branch-title {
-    font-size: 20px;
-    color: black;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #1F375D; /* Adjust as needed */
 }
 
-/* Store link styling */
-a.store {
-    background: #7a1919; /* Blue background */
-    width: 250px; /* Ensure all store elements have the same width */
-    height: 120px; /* Set a consistent height */
-    border-radius: 8px;
-    text-align: center;
-    margin: 10px; /* Add margin to ensure spacing */
-    color: white;
+.store {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    text-decoration: none; /* Remove underline from links */
-    transition: background-color 0.3s; /* Smooth transition for hover effect */
+    justify-content: center;
+    background-color: #ffffff; /* White background for the boxes */
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Use the inherited text color */
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-a.store:hover {
-    background: #0056b3; /* Darker blue on hover */
+.store:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Store logo styling */
 .logo {
-    width: auto;
-    height: 80px;
-    display: block;
-    margin-bottom: 10px; /* Space between logo and text */
+    width: 120px; /* Adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-bottom: 10px; /* Space between image and text */
 }
 
-/* Store text styling */
 #store-text {
-    color: white;
-    font-size: 18px; /* Adjust font size if needed */
-    font-weight: bold;
+    font-size: 18px; /* Adjust the text size */
+    font-weight: 600; /* Make the text semi-bold */
+    text-align: center; /* Center the text */
+    color: #1F375D; /* Adjust color if needed */
 }
+
+
+

@@ -19,6 +19,9 @@ $store = $_GET['str'];
     
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/fullschedule.css">
+
+    <!-- ===== Boxicons CSS ===== -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
     <title>Manpower Deployment - Schedule</title>
 </head>

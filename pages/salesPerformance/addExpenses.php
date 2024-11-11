@@ -22,11 +22,6 @@ $dateToday = date("Y-m-d");
 </head>
 
 <body>
-    <header class="contractheader">
-        <div class="container-header">
-            <h1 class="title">Expenses - Add Expenses</h1>
-        </div>
-    </header>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
@@ -97,6 +92,14 @@ $dateToday = date("Y-m-d");
 
         </div>
     </nav>
+
+
+    <section class="home">
+    <header class="contractheader">
+        <div class="container-header">
+            <h1 class="title">Expenses - Add Expenses</h1>
+        </div>
+    </header>
     <div class="container">
         <header>Add Expenses</header>
         <!-- Expense Details Form -->
@@ -233,6 +236,8 @@ $dateToday = date("Y-m-d");
             </div>
         </div>
     </div>
+
+    </section>
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

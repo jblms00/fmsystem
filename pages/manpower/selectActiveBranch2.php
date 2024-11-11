@@ -28,12 +28,13 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
 
 <body>
 
-    <nav class="sidebar close">
+<nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
                     <img src="../../assets/images/BoxLogo.png" alt="logo">
                 </span>
+
                 <div class="text header-text">
                     <span class="name">NEVADA</span>
                     <span class="profession">Management Group</span>
@@ -49,37 +50,37 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
                     <input type="search" placeholder="Search...">
                 </li>
                 <ul class="menu-links">
-                    <li class="nav-link" id="dashboard-link">
+                    <li class="nav-link">
                         <a href="../../dashboard">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="franchising-link">
+                    <li class="nav-link">
                         <a href="../../pages/contract/franchiseeAgreement">
                             <i class='bx bx-file icon'></i>
                             <span class="text nav-text">Franchising Agreement</span>
                         </a>
                     </li>
-                    <li class="nav-link active" id="sales-link">
+                    <li class="nav-link">
                         <a href="../../pages/salesPerformance/sales">
                             <i class='bx bx-bar-chart-alt-2 icon'></i>
                             <span class="text nav-text">Sales Performance</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="expenses-link">
+                    <li class="nav-link">
                         <a href="../../pages/salesPerformance/expenses">
                             <i class='bx bx-wallet icon'></i>
                             <span class="text nav-text">Expenses</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="inventory-link">
+                    <li class="nav-link">
                         <a href="../../pages/inventory/inventory2">
                             <i class='bx bx-store-alt icon'></i>
                             <span class="text nav-text">Inventory</span>
                         </a>
                     </li>
-                    <li class="nav-link" id="manpower-link">
+                    <li class="nav-link active">
                         <a href="../../pages/manpower/manpower_dashboard">
                             <i class='bx bx-group icon'></i>
                             <span class="text nav-text">Manpower Deployment</span>
@@ -87,7 +88,6 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
                     </li>
                 </ul>
             </div>
-
             <div class="bottom-content">
                 <li>
                     <a href="../../phpscripts/user-logout.php">
@@ -96,7 +96,6 @@ $eatType = isset($_GET['tp']) ? mysqli_real_escape_string($con, $_GET['tp']) : '
                     </a>
                 </li>
             </div>
-
         </div>
     </nav>
 

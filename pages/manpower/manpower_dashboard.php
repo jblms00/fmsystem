@@ -44,7 +44,7 @@ if ($result) {
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../../assets/css/navbar.css">
     <link rel="stylesheet" href="../../assets/css/manpower_dashboard.css">
-    <link rel="stylesheet" href="../../assets/css/unassignedEmployees.css">
+    <link rel="stylesheet" href="../../assets/css/unassignedEmployees2.css">
 
     <!-- ===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>

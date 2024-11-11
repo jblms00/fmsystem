@@ -127,13 +127,17 @@ if ($result && mysqli_num_rows($result) > 0) {
             </div>
         </div>
     </nav>
+
     <section class="home">
         <header class="manpowerheader">
             <div class="container-header">
                 <h1 class="title">Unassigned Employees</h1>
             </div>
         </header>
-        <div class="activity">
+
+        <div class="container">
+             <div class="activity">
+           
             <section id="employees-section">
                 <span class="text">Unassigned Employee</span>
                 <table class="content-table">
@@ -165,6 +169,9 @@ if ($result && mysqli_num_rows($result) > 0) {
                     </tbody>
                 </table>
             </section>
+        
+            </div>
+
         </div>
     </section>
     <!-- JS -->
