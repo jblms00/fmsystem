@@ -4,7 +4,7 @@ session_start();
 include("../../phpscripts/database-connection.php");
 include("../../phpscripts/check-login.php");
 
-$store = $_GET['str'];
+//$store = $_GET['str'];
 ?>
 <!DOCTYPE html>
 
@@ -133,18 +133,33 @@ $store = $_GET['str'];
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <tr>
+                                                <td>Garby Garbler</td>
+                                                <td>123123123</td>
+                                                <td>Manila</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Speak Easy</td>
+                                                <td>123123123</td>
+                                                <td>Paranaque</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Moe Joe</td>
+                                                <td>123123123</td>
+                                                <td>Merville</td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </section>
-                            </div>
-                            <!-- Add the new button here -->
-                            <?php
-                            // Replace `SelectedBranch` and `1` with dynamic values for branch_id and branch_name if available
-                            $branch_name = isset($store) ? htmlspecialchars($store) : "Selected Branch";
-                            $branch_id = isset($_GET['branch_id']) ? (int)$_GET['branch_id'] : 1;
-                            ?>
-                            <div class="text-end mt-3">
-                                <a href="manpower_assign.php?branch=<?php echo urlencode($branch_name); ?>&branch_id=<?php echo $branch_id; ?>" class="btn btn-primary">Assign Manpower</a>
                             </div>
                         </div>
                     </div>
@@ -170,7 +185,32 @@ $store = $_GET['str'];
                                 <th scope="col">Status</th>
                             </tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody>
+                            <tr>
+                                <td>Garby Garbler</td>
+                                <td>123123123</td>
+                                <td>Manila</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Speak Easy</td>
+                                <td>123123123</td>
+                                <td>Paranaque</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Moe Joe</td>
+                                <td>123123123</td>
+                                <td>Merville</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
                     </table>
                 </div>
                 <div class="modal-footer">
@@ -193,7 +233,15 @@ $store = $_GET['str'];
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
     <script src="../../assets/js/display-store-unschedules-script.js"></script>
+
+<!-- Assign Employee Button
+<div style="text-align: center; margin-top: 20px;">
+    <button type="button" class="btn btn-primary" onclick="window.location.href='manpower_assign.php'">Assign Employee</button>
+</div> -->
+
 </body>
 
 
 </html>
+
+
