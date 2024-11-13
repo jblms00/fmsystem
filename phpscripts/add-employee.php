@@ -29,11 +29,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $activityType = 'manpower_employee_added';
 
     // Check for required fields
-    if (empty($employeeName) || empty($dob) || empty($address) || empty($email) || empty($mobile) || empty($franchisee) || empty($branch) || empty($shift)) {
+    if (empty($employeeName) || empty($dob) || empty($address) || empty($email) || empty($mobile)) {
         $data['status'] = 'error';
         $data['message'] = 'All fields are required.';
     } else {
-    
+        
+        if (empty($branch) || empty($franchisee)){
+            $branch = '0';
+            $franchisee = '0';
+        }
         // Insert into users_accounts
         $sqlAccounts = "
         INSERT INTO users_accounts (user_id, user_name, user_photo, user_email, user_password, user_phone_number, user_address, user_birthdate, user_type, user_status, date_created)
@@ -41,10 +45,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ";
     $resultAccounts = mysqli_query($con, $sqlAccounts);
 
-        // Fetch branch name based on branch id
-        $branchQuery = "SELECT location FROM agreement_contract WHERE ac_id = '$branch'";
-        $branchResult = mysqli_query($con, $branchQuery);
-        $branchName = mysqli_num_rows($branchResult) > 0 ? mysqli_fetch_assoc($branchResult)['location'] : '';
+        if (!empty($branch) || empty($franchisee)){
+            // Fetch branch name based on branch id
+            $branchQuery = "SELECT location FROM agreement_contract WHERE ac_id = '$branch'";
+            $branchResult = mysqli_query($con, $branchQuery);
+            $branchName = mysqli_num_rows($branchResult) > 0 ? mysqli_fetch_assoc($branchResult)['location'] : '';
+        }
+
 
         // if ($branchName) {
         //     // Insert into users_accounts
@@ -54,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         //     ";
         //     $resultAccounts = mysqli_query($con, $sqlAccounts);
 
-        if ($resultAccounts && $branchName) {
+        if ($resultAccounts) {
             // Combine certification information
             $certificationNames = isset($_POST['certificationName']) ? $_POST['certificationName'] : [];
             $certificationList = implode(', ', array_map(function ($cert) use ($con) {
@@ -77,8 +84,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Insert into user_information with branch name instead of ID
         $sqlInfo = "
-        INSERT INTO user_information (user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
-        VALUES ('$userId', 'assigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
+        INSERT INTO user_information (assigned_at, user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
+        VALUES ('$branch', '$userId', 'assigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
         ";
         $resultInfo = mysqli_query($con, $sqlInfo);
 
