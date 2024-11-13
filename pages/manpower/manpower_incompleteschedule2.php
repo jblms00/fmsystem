@@ -178,37 +178,71 @@ include("../../phpscripts/check-login.php");
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">Checkbox</th>
                                 <th scope="col">Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Status</th>
+                                <th scope="col">Number</th>
+                                <th scope="col">Schedule</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Garby Garbler</td>
+                                <td>Jamie Lee</td>
                                 <td>123123123</td>
-                                <td>Manila</td>
-                                <td></td>
+                                <th scope="col">Afternoon Shift</th>
+                                <th>
+                                    <select id="shift">
+                                        <option disabled selected>Select Franchise</option>
+                                        <option value="morning">Morning Shoft</option>
+                                        <option value="afternoon">Afternoon Shift</option>
+                                        <option value="full">Full Time Shift</option>
+                                </select></th>
                             </tr>
                             <tr>
-                                <td>Speak Easy</td>
+                                <td>Brian Salangsang</td>
                                 <td>123123123</td>
-                                <td>Paranaque</td>
-                                <td></td>
+                                <th scope="col">Afternoon Shift</th>
+                                <th>
+                                    <select id="shift">
+                                        <option disabled selected>Select Franchise</option>
+                                        <option value="morning">Morning Shoft</option>
+                                        <option value="afternoon">Afternoon Shift</option>
+                                        <option value="full">Full Time Shift</option>
+                                </select></th>
                             </tr>
                             <tr>
-                                <td>Moe Joe</td>
+                                <td>Julia Dalipe</td>
                                 <td>123123123</td>
-                                <td>Merville</td>
-                                <td></td>
+                                <th scope="col">Full Time Shift</th>
+                                <th>
+                                    <select id="shift">
+                                        <option disabled selected>Select Franchise</option>
+                                        <option value="morning">Morning Shoft</option>
+                                        <option value="afternoon">Afternoon Shift</option>
+                                        <option value="full">Full Time Shift</option>
+                                </select></th>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>Alex Cruz</td>
+                                <td>123123123</td>
+                                <th scope="col">Afternoon Shift</th>
+                                <th>
+                                    <select id="shift">
+                                        <option disabled selected>Select Franchise</option>
+                                        <option value="morning">Morning Shoft</option>
+                                        <option value="afternoon">Afternoon Shift</option>
+                                        <option value="full">Full Time Shift</option>
+                                </select></th>
+                            </tr>
+                            <tr>
+                                <td>Matteo Locsin</td>
+                                <td>123123123</td>
+                                <th scope="col">Morning Shift</th>
+                                <th>
+                                    <select id="shift">
+                                        <option disabled selected>Select Franchise</option>
+                                        <option value="morning">Morning Shoft</option>
+                                        <option value="afternoon">Afternoon Shift</option>
+                                        <option value="full">Full Time Shift</option>
+                                </select></th>
                             </tr>
                         </tbody>
                     </table>
