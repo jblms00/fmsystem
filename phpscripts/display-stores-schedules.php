@@ -25,8 +25,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         SELECT ua.user_id, ua.user_name, ui.assigned_at, ui.franchisee, ui.branch
         FROM users_accounts ua
         LEFT JOIN user_information ui ON ua.user_id = ui.user_id
-        WHERE ui.franchisee = '$franchisee' AND ui.employee_status = 'assigned'
-        GROUP BY ui.assigned_at, ui.franchisee, ui.branch
+        WHERE ui.franchisee = '$franchisee'
+        GROUP BY ui.assigned_at, ui.franchisee, ui.branch;
+
     ";
     $result = mysqli_query($con, $sql);
 

@@ -6,6 +6,7 @@ include("check-login.php");
 $user_data = check_login($con);
 $user_id_logged_in = $user_data['user_id'];
 
+
 function generateRandom7Digit()
 {
     return random_int(1000000, 9999999);
@@ -36,8 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if (empty($branch) || empty($franchisee)){
             $branch = '0';
+            $isassigned = 'unassigned';
             $franchisee = '0';
         }
+        else{
+            $isassigned = 'assigned';
+        }
+
         // Insert into users_accounts
         $sqlAccounts = "
         INSERT INTO users_accounts (user_id, user_name, user_photo, user_email, user_password, user_phone_number, user_address, user_birthdate, user_type, user_status, date_created)
@@ -85,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Insert into user_information with branch name instead of ID
         $sqlInfo = "
         INSERT INTO user_information (assigned_at, user_id, employee_status, franchisee, branch, user_shift, certification_name, certification_date, certificate_file_name)
-        VALUES ('$branch', '$userId', 'assigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
+        VALUES ('$branch', '$userId', '$isassigned', '$franchisee', '$branchName', '$shift', '$certificationList', '', '')
         ";
         $resultInfo = mysqli_query($con, $sqlInfo);
 
