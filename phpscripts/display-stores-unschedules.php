@@ -1,11 +1,11 @@
 <?php
 session_start();
-header('Content-Type: application/json');  // Ensure JSON response
+header('Content-Type: application/json');  // Set content type to JSON
 
 include("database-connection.php");
 
 $data = [];
-ob_start();  // Start output buffering to capture unexpected output
+ob_start();  // Start output buffering to capture any unexpected output
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $str = mysqli_real_escape_string($con, $_POST['str']);
@@ -32,11 +32,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         WHERE ac.franchisee = '$franchisee'
         GROUP BY ac.location, ac.franchisee
         HAVING employee_count <= 1;
-    ";
+";
 
+    
     $result = mysqli_query($con, $sql);
 
     if (!$result) {
+        // Log SQL error to file and prevent it from outputting to the response
         error_log("SQL Error: " . mysqli_error($con), 3, "/path/to/php-error.log");
         $data['status'] = 'error';
         $data['message'] = 'A database error occurred. Please check logs for details.';
@@ -56,5 +58,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 ob_end_clean();  // Clear any unintended output
-echo json_encode($data);  // Output JSON only
-?>
+echo json_encode($data);  // Output the JSON data only

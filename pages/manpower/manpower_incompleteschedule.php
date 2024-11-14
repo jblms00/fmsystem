@@ -9,23 +9,22 @@ $branch_id = isset($_GET['branch_id']) ? (int)$_GET['branch_id'] : 0;
 $data = [];
 
 // Fetch employees specifically assigned to the selected branch
-if ($branch_id > 0) {
-    $sql = "
-        SELECT ua.user_id, ua.user_name, ua.user_phone_number, ui.employee_status
-        FROM users_accounts ua
-        JOIN user_information ui ON ua.user_id = ui.user_id
-        WHERE ui.assigned_at = $branch_id
-    ";
-    $result = mysqli_query($con, $sql);
+// if ($branch_id > 0) {
+//     $sql = "
+//         SELECT ua.user_id, ua.user_name, ua.user_phone_number, ui.employee_status
+//         FROM user_information ui
+//         WHERE ui.assigned_at = $branch_id
+//     ";
+//     $result = mysqli_query($con, $sql);
 
-    if ($result && mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $data['employees'][] = $row;
-        }
-    } else {
-        $data['message'] = 'No employees assigned to this branch.';
-    }
-}
+//     if ($result && mysqli_num_rows($result) > 0) {
+//         while ($row = mysqli_fetch_assoc($result)) {
+//             $data['employees'][] = $row;
+//         }
+//     } else {
+//         $data['message'] = 'No employees assigned to this branch.';
+//     }
+// }
 ?>
 
 <!DOCTYPE html>
