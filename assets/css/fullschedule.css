@@ -103,7 +103,7 @@
     font-size: 20px;
     font-weight: 600;
     color: var(--text-color);
-    margin-bottom: 15px;
+    margin-bottom: 0px;
     text-align: center;
 }
 
@@ -269,3 +269,12 @@
     font-weight: bold; /* Ensure header cells are bold */
 }
 
+/* new */
+
+.brand-logo {
+    width: 100%;
+}
+
+#branchList .brand-logo:not(:first-child) {
+    display: none;
+}

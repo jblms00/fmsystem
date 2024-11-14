@@ -32,11 +32,8 @@ function displayStoreSchedules() {
                     );
 
                     var storeHTML = `
-                        <button type="button" class="select-branch border-0" data-ac-id="${employee.assigned_at}">
-                            <h2 class="branch-details">${formattedFranchisee}</h2>
-                            <img class="logo" src="../../assets/images/${img}" alt="${formattedFranchisee}">
-                            <h2 class="branch-details">${employee.branch}</h2>
-                        </button>
+                        <img class="logo brand-logo" src="../../assets/images/${img}" alt="${formattedFranchisee}">
+                        <button class="select-branch" data-ac-id="${employee.assigned_at}">${employee.branch}</button>
                     `;
 
                     listContainer.append(storeHTML);

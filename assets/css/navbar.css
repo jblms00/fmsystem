@@ -331,6 +331,10 @@ header .image-text .header-text {
     border-radius: 8px;
 }
 
+.menu-links .nav-link.active .icon {
+    color: #FFF !important;
+}
+
 .content-section {
     display: none;
 }
