@@ -28,74 +28,7 @@ $store = $_GET['str'];
 
 <body>
 
-<nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="../../assets/images/BoxLogo.png" alt="logo">
-                </span>
-                <div class="text header-text">
-                    <span class="name">NEVADA</span>
-                    <span class="profession">Management Group</span>
-                </div>
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="search" placeholder="Search...">
-                </li>
-                <ul class="menu-links">
-                    <li class="nav-link">
-                        <a href="../../dashboard">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../../pages/contract/franchiseeAgreement">
-                            <i class='bx bx-file icon'></i>
-                            <span class="text nav-text">Franchising Agreement</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../../pages/salesPerformance/sales">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Sales Performance</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../../pages/salesPerformance/expenses">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Expenses</span>
-                        </a>
-                    </li>
-                    <li class="nav-link">
-                        <a href="../../pages/inventory/inventory2">
-                            <i class='bx bx-store-alt icon'></i>
-                            <span class="text nav-text">Inventory</span>
-                        </a>
-                    </li>
-                    <li class="nav-link active">
-                        <a href="../../pages/manpower/manpower_dashboard">
-                            <i class='bx bx-group icon'></i>
-                            <span class="text nav-text">Manpower Deployment</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="bottom-content">
-                <li>
-                    <a href="../../phpscripts/user-logout.php">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-            </div>
-        </div>
-    </nav>
+    <?php include '../../navbar.php'; ?>
 
     <section class="home">
 
