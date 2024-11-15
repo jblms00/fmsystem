@@ -67,7 +67,7 @@ $dateToday = date("Y-m-d");
                             <option value="controllable-expenses">Franchisor Expenses</option>
                             <option value="non-controllable-expenses">Leasor Expenses</option>
                             <option value="other-expenses">Other Expenses</option>
-                        </select>
+                    </select>
                     </div>
                 </div>
 
@@ -113,9 +113,9 @@ $dateToday = date("Y-m-d");
                         <label>Expense Type</label>
                         <select class="selectedExpenseType">
                             <option disabled selected>Select Expense Type</option>
-                            <option value="franchiseFees">Franchise Fees</option>
-                            <option value="royaltyFees">Royalty Fees</option>
-                            <option value="agencyFees">Agency Fees</option>
+                            <option value="rentalsFees">Rentals</option>
+                            <option value="utilitiesFees">Utilities</option>
+                            <option value="maintenanceFees">Maintenance</option>
                             <option value="others">Others</option>
                         </select>
                         <div class="input-field transactions">

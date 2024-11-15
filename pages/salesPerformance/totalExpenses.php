@@ -72,12 +72,7 @@ include ("../../phpscripts/check-login.php");
                         </tr>
                     </thead>
                     <tbody>
-                        <tr id="expenses-row-1">
-                            <td><img src="../../assets/images/PotCor.png" alt="PotCor Logo" class="franchise-logo"></td>
-                            <td>Php XXXXXXXX</td>
-                            <td>Expense Category</td>
-                            <td>dd/mm/yyyy</td>
-                        </tr>
+                       
                     </tbody>
                 </table>
             </section>
