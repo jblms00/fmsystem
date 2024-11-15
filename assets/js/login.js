@@ -32,36 +32,37 @@ function userLogin() {
                     var successMessage = $(
                         "<div class='alert alert-success p-2 text-center m-0 mt-4 success-message'>Login Successfully!</div>"
                     );
-
+                
                     form.append(successMessage);
                     $("button, input").prop("disabled", true);
-                    $("a")
-                        .addClass("disabled")
-                        .on("click", function (e) {
-                            e.preventDefault();
-                        });
-
-                    if (response.user_type === "user") {
-                        successMessage.fadeOut(3000, function () {
-                            window.location.href = "dashboard";
-                        });
-                    } else {
-                        var errorMessage = $(
-                            "<div class='alert alert-danger p-2 text-center m-0 mt-4 error-message'>Account not found</div>"
-                        );
-                        form.append(errorMessage);
-                        errorMessage.fadeOut(3500);
-                    }
-                } else {
-                    var errorMessage = $(
-                        "<div class='alert alert-danger p-2 text-center m-0 mt-4 error-message'>" +
-                            response.message +
-                            "</div>"
-                    );
-
-                    form.append(errorMessage);
-                    errorMessage.fadeOut(4000);
+                    $("a").addClass("disabled").on("click", function (e) {
+                        e.preventDefault();
+                    });
+                
+                    successMessage.fadeOut(3000, function () {
+                        switch (response.user_type) {
+                            case "admin":
+                                window.location.href = "dashboard";
+                                break;
+                            case "sales":
+                                window.location.href = "dashboard-sales";
+                                break;
+                            case "inventory":
+                                window.location.href = "dashboard-inventory";
+                                break;
+                            case "business_development":
+                                window.location.href = "dashboard-contract";
+                                break;
+                            case "manpower":
+                                window.location.href = "dashboard-manpower";
+                                break;    
+                            default:
+                                window.location.href = "dashboard"; // Default redirect
+                                break;
+                        }
+                    });
                 }
+                
             },
             error: function (xhr, status, error) {
                 var errorMessage = $(
