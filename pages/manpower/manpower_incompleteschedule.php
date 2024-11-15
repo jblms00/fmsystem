@@ -134,7 +134,7 @@ $data = [];
                         <div class="box-group">
                             <h3 class="box-group-title">Store Schedules</h3>
                             <div class="branch-list" id="branchList">
-                                <button type="button" class="box box1 check-employee border-0">
+                                <button type="button" class="box box1 check-employee border-0" >
                                     <i class='bx bx-user'></i>
                                     <!-- <span class="text emp-name">Employee Name</span> -->
                                 </button>
@@ -162,11 +162,13 @@ $data = [];
                             <?php
                             // Replace `SelectedBranch` and `1` with dynamic values for branch_id and branch_name if available
                             $branch_name = isset($store) ? htmlspecialchars($store) : "Selected Branch";
-                            $branch_id = isset($_GET['branch_id']) ? (int)$_GET['branch_id'] : 1;
+                            $branch_id = isset($_GET['ac_id']) ? (int)$_GET['ac_id'] : 1;
+                            echo "<script>console.log('Debug - Branch ID:', " . json_encode($branch_name) . ");</script>";
                             ?>
                             <div class="text-end mt-3">
-                                <button type="button" class="btn btn-primary" id="openAssignModal" data-branch-id="<?php echo $branch_id; ?>">Assign Manpower</button>
+                                <button type="button" class="btn btn-primary" id="openAssignModal" data-ac-id="">Assign Manpower</button>
                             </div>
+
 
                         </div>
                     </div>
@@ -219,6 +221,16 @@ $data = [];
     <script src="../../assets/js/navbar.js"></script>
     <script src="../../assets/js/display-store-unschedules-script.js"></script>
     <script>
+    $(document).on('click', '.select-branch', function () {
+    const acId = $(this).data('ac-id');
+    console.log("Debug - Selected ac_id:", acId); // Log selected ac_id
+    $('#openAssignModal').data('ac-id', acId); // Pass ac_id to Assign Manpower button
+});
+
+
+
+        </script>
+    <script>
 $(document).ready(function () {
     // Load unassigned employees into modal
     $('#openAssignModal').on('click', function () {
@@ -261,39 +273,42 @@ $(document).ready(function () {
 
     // Save selected employees
     $('#saveAssignments').on('click', function () {
-        const selectedEmployees = [];
-        $('.assignCheckbox:checked').each(function () {
-            selectedEmployees.push($(this).val());
-        });
-
-        const acId = $('#openAssignModal').data('ac-id'); // Adjusted to ac_id
-        $.ajax({
-            url: '../../phpscripts/saveEmployeeAssignments.php', // Backend script to save assignments
-            method: 'POST',
-            data: {
-                ac_id: acId,
-                employees: selectedEmployees
-            },
-            success: function (response) {
-                try {
-                    const result = JSON.parse(response);
-                    if (result.status === 'success') {
-                        alert('Employees assigned successfully!');
-                        location.reload(); // Reload the page to reflect updated assignments
-                    } else {
-                        alert(result.message || 'Failed to assign employees.');
-                    }
-                    $('#assignModal').modal('hide');
-                } catch (error) {
-                    console.error("Parsing error:", error, "\nResponse:", response);
-                    alert('An error occurred. Please check the console for details.');
-                }
-            },
-            error: function () {
-                alert('Failed to assign employees. Please try again.');
-            }
-        });
+    const selectedEmployees = [];
+    $('.assignCheckbox:checked').each(function () {
+        selectedEmployees.push($(this).val());
     });
+
+    // Retrieve ac_id from #openAssignModal
+    const acId = $('#openAssignModal').data('ac-id');
+    console.log("Sending Data to Backend:", {
+        assigned_at: acId,
+        employees: selectedEmployees
+    });
+
+    $.ajax({
+        url: '../../phpscripts/assign-employees.php',
+        method: 'POST',
+        data: {
+            assigned_at: acId,
+            employees: selectedEmployees
+        },
+        success: function (response) {
+            console.log("Response from Backend:", response);
+            if (response.status === 'success') {
+                alert('Employees assigned successfully!');
+                location.reload();
+            } else {
+                alert(response.message || 'Failed to assign employees.');
+            }
+            $('#assignModal').modal('hide');
+        },
+        error: function () {
+            alert('Failed to assign employees. Please try again.');
+        }
+    });
+});
+
+
 });
 
 

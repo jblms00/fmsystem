@@ -25,37 +25,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 
     $sql = "
-        SELECT ac.location AS branch, ac.franchisee, COUNT(ui.user_id) AS employee_count
-        FROM agreement_contract ac
-        LEFT JOIN user_information ui 
-            ON ac.location = ui.branch AND ac.franchisee = ui.franchisee
-        WHERE ac.franchisee = '$franchisee'
-        GROUP BY ac.location, ac.franchisee
-        HAVING employee_count <= 1;
+    SELECT ac.ac_id, ac.location AS branch, ac.franchisee, COUNT(ui.user_id) AS employee_count
+    FROM agreement_contract ac
+    LEFT JOIN user_information ui 
+        ON ac.ac_id = ui.assigned_at
+    WHERE ac.franchisee = '$franchisee'
+    GROUP BY ac.ac_id, ac.location, ac.franchisee
+    HAVING employee_count <= 1
 ";
 
     
     $result = mysqli_query($con, $sql);
 
-    if (!$result) {
-        // Log SQL error to file and prevent it from outputting to the response
-        error_log("SQL Error: " . mysqli_error($con), 3, "/path/to/php-error.log");
-        $data['status'] = 'error';
-        $data['message'] = 'A database error occurred. Please check logs for details.';
-    } else if (mysqli_num_rows($result) > 0) {
-        $data['employees'] = [];
-        while ($row = mysqli_fetch_assoc($result)) {    
-            $data['employees'][] = $row;
-        }
-        $data['status'] = 'success';
-    } else {
-        $data['status'] = 'error';
-        $data['message'] = 'No branches found with 0 or 1 employee for the specified franchise.';
+if ($result && mysqli_num_rows($result) > 0) {
+    $data['employees'] = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $data['employees'][] = [
+            'ac_id' => $row['ac_id'],
+            'branch' => $row['branch'],
+            'franchisee' => $row['franchisee'],
+            'employee_count' => $row['employee_count']
+        ];
     }
+    $data['status'] = 'success';
 } else {
     $data['status'] = 'error';
-    $data['message'] = 'Invalid request method';
+    $data['message'] = 'No branches found with 0 or 1 employee for the specified franchise.';
 }
 
-ob_end_clean();  // Clear any unintended output
-echo json_encode($data);  // Output the JSON data only
+}
+echo json_encode($data);
+

@@ -11,10 +11,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Retrieve and validate the ac_id and employees data from the POST request
     $ac_id = isset($_POST['ac_id']) ? (int)$_POST['ac_id'] : 0;
     $employees = isset($_POST['employees']) ? $_POST['employees'] : [];
-
+    
     // Check if ac_id and employees array are valid
     if ($ac_id <= 0 || empty($employees)) {
-        echo json_encode(['status' => 'error', 'message' => 'Invalid data provided.']);
+        echo json_encode([
+            'status' => 'error', 
+            'message' => "Invalid data provided.Received ac_id: $ac_id",
+            'ac_id' => $ac_id,
+            'employees' => $employees
+        ]);
         exit();
     }
 

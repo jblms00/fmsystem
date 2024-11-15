@@ -29,12 +29,13 @@ function displayStoreSchedules() {
                     var img = getFranchiseImage(employee.franchisee);
                     var formattedFranchisee = formatFranchiseeName(
                         employee.franchisee
+                        
                     );
 
                     var storeHTML = `
-                        <img class="logo brand-logo" src="../../assets/images/${img}" alt="${formattedFranchisee}">
-                        <button class="select-branch" data-ac-id="${employee.assigned_at}">${employee.branch}</button>
-                    `;
+                    <img class="logo brand-logo" src="../../assets/images/${img}" alt="${formattedFranchisee}">
+                    <button class="select-branch" data-ac-id="${employee.ac_id}">${employee.branch}</button>
+                `;
 
                     listContainer.append(storeHTML);
                 });
