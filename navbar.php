@@ -44,7 +44,7 @@ $userRole = isset($_SESSION['user_type']) ? $_SESSION['user_type'] : 'guest';
                                         ? '../../dashboard-sales' 
                                         : (($userRole == 'manpower') 
                                             ? '../../dashboard-manpower' 
-                                            : '../../dashboard-default'))));
+                                            : '../../dashboard'))));
                     ?>">
                         <i class='bx bx-home-alt icon'></i>
                         <span class="text nav-text">Dashboard</span>
