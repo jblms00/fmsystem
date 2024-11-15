@@ -165,8 +165,9 @@ $data = [];
                             $branch_id = isset($_GET['branch_id']) ? (int)$_GET['branch_id'] : 1;
                             ?>
                             <div class="text-end mt-3">
-                                <a href="manpower_assign.php?branch=<?php echo urlencode($branch_name); ?>&branch_id=<?php echo $branch_id; ?>" class="btn btn-primary">Assign Manpower</a>
+                                <button type="button" class="btn btn-primary" id="openAssignModal" data-branch-id="<?php echo $branch_id; ?>">Assign Manpower</button>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -174,32 +175,35 @@ $data = [];
         </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="assignModal" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-md">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">Checkbox</th>
-                                <th scope="col">Name</th>
-                                <th scope="col">Phone</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody></tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Save</button>
-                </div>
+<!-- Assign Employees Modal -->
+<div class="modal fade" id="assignModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Assign Employees</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Checkbox</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Location</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="unassignedEmployeesTable"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveAssignments">Save</button>
             </div>
         </div>
     </div>
+</div>
+
 
     </section>
 
@@ -214,6 +218,86 @@ $data = [];
         crossorigin="anonymous"></script>
     <script src="../../assets/js/navbar.js"></script>
     <script src="../../assets/js/display-store-unschedules-script.js"></script>
+    <script>
+$(document).ready(function () {
+    // Load unassigned employees into modal
+    $('#openAssignModal').on('click', function () {
+        const acId = $(this).data('ac-id'); // Adjusted to ac_id
+        $.ajax({
+            url: '../../phpscripts/fetchUnassignedEmployees.php', // Backend script to fetch unassigned employees
+            method: 'POST',
+            data: { ac_id: acId },
+            success: function (response) {
+                try {
+                    const employees = JSON.parse(response);
+                    const tableBody = $('#unassignedEmployeesTable');
+                    tableBody.empty();
+                    if (employees.status === 'success') {
+                        employees.data.forEach((employee) => {
+                            const row = `
+                                <tr>
+                                    <td><input type="checkbox" value="${employee.user_id}" class="assignCheckbox"></td>
+                                    <td>${employee.user_name}</td>
+                                    <td>${employee.user_phone_number}</td>
+                                    <td>${employee.user_address}</td>
+                                    <td>${employee.employee_status}</td>
+                                </tr>`;
+                            tableBody.append(row);
+                        });
+                    } else {
+                        tableBody.append('<tr><td colspan="5">No unassigned employees found.</td></tr>');
+                    }
+                    $('#assignModal').modal('show');
+                } catch (error) {
+                    console.error("Parsing error:", error, "\nResponse:", response);
+                    alert('An error occurred. Please check the console for details.');
+                }
+            },
+            error: function () {
+                alert('Failed to fetch unassigned employees. Please try again.');
+            }
+        });
+    });
+
+    // Save selected employees
+    $('#saveAssignments').on('click', function () {
+        const selectedEmployees = [];
+        $('.assignCheckbox:checked').each(function () {
+            selectedEmployees.push($(this).val());
+        });
+
+        const acId = $('#openAssignModal').data('ac-id'); // Adjusted to ac_id
+        $.ajax({
+            url: '../../phpscripts/saveEmployeeAssignments.php', // Backend script to save assignments
+            method: 'POST',
+            data: {
+                ac_id: acId,
+                employees: selectedEmployees
+            },
+            success: function (response) {
+                try {
+                    const result = JSON.parse(response);
+                    if (result.status === 'success') {
+                        alert('Employees assigned successfully!');
+                        location.reload(); // Reload the page to reflect updated assignments
+                    } else {
+                        alert(result.message || 'Failed to assign employees.');
+                    }
+                    $('#assignModal').modal('hide');
+                } catch (error) {
+                    console.error("Parsing error:", error, "\nResponse:", response);
+                    alert('An error occurred. Please check the console for details.');
+                }
+            },
+            error: function () {
+                alert('Failed to assign employees. Please try again.');
+            }
+        });
+    });
+});
+
+
+    </script>
 </body>
 
 
