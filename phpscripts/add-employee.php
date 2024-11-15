@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $mobile = mysqli_real_escape_string($con, $_POST['mobile']);
     $franchisee = isset($_POST['franchisee']) ? mysqli_real_escape_string($con, $_POST['franchisee']) : '';
     $branch = isset($_POST['branch']) ? mysqli_real_escape_string($con, $_POST['branch']) : '';
-    $shift = mysqli_real_escape_string($con, $_POST['shift']);
+    $shift = isset($_POST['shift']) ? mysqli_real_escape_string($con, $_POST['shift']) : ''; // Add isset to prevent undefined warning
 
     $userId = generateRandom7Digit();
     $notificationId = generateRandom7Digit();  // Generate unique ID for notification
