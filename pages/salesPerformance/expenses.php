@@ -45,7 +45,7 @@ if ($expenses_result || $sales_result) {
 
 <body>
 
-    <?php include '../../navbar-sales.php'; ?>
+    <?php include '../../navbar.php'; ?>
 
     <section class="home">
         <header class="contractheader">

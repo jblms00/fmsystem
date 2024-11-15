@@ -37,7 +37,7 @@ if ($result) {
 </head>
 
 <body>
-    <?php include '../../navbar-sales.php'; ?>
+    <?php include '../../navbar.php'; ?>
 
     <section class="home">
         <header class="contractheader">
