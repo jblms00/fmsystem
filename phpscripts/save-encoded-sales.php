@@ -1,7 +1,7 @@
 <?php
 session_start();
-include ("database-connection.php");
-include ("check-login.php");
+include("database-connection.php");
+include("check-login.php");
 
 $user_data = check_login($con);
 $logged_in_user = $user_data['user_id'];
@@ -22,25 +22,23 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             '12' => 'macao-imperial',
             '13' => 'auntie-anne'
         ];
-        // Assign the formatted franchise name if the franchise is an ID
         $franchise = $franchiseNameMap[$franchise] ?? strtolower(str_replace(' ', '-', $franchise));
 
-        // Remaining code for inserting into sales_report table
         $location = mysqli_real_escape_string($con, $transaction['location']);
         $encoderName = mysqli_real_escape_string($con, $transaction['encoderName']);
         $date = mysqli_real_escape_string($con, $transaction['date']);
         $productName = mysqli_real_escape_string($con, $transaction['productName']);
-        $cashCard = isset($transaction['cashCard']) ? mysqli_real_escape_string($con, $transaction['cashCard']) : '';
-        $gCash = isset($transaction['gCash']) ? mysqli_real_escape_string($con, $transaction['gCash']) : '';
-        $paymaya = isset($transaction['paymaya']) ? mysqli_real_escape_string($con, $transaction['paymaya']) : '';
-        $grabFood = isset($transaction['grabFood']) ? mysqli_real_escape_string($con, $transaction['grabFood']) : '';
-        $foodPanda = isset($transaction['foodPanda']) ? mysqli_real_escape_string($con, $transaction['foodPanda']) : '';
-        $totalSales = mysqli_real_escape_string($con, $transaction['totalSales']);
+        $cashCard = isset($transaction['cashCard']) ? mysqli_real_escape_string($con, $transaction['cashCard']) : 0;
+        $gCash = isset($transaction['gCash']) ? mysqli_real_escape_string($con, $transaction['gCash']) : 0;
+        $paymaya = isset($transaction['paymaya']) ? mysqli_real_escape_string($con, $transaction['paymaya']) : 0;
+        $grabFood = isset($transaction['grabFood']) ? mysqli_real_escape_string($con, $transaction['grabFood']) : 0;
+        $foodPanda = isset($transaction['foodPanda']) ? mysqli_real_escape_string($con, $transaction['foodPanda']) : 0;
+        $totalSales = isset($transaction['totalSales']) ? mysqli_real_escape_string($con, $transaction['totalSales']) : 0;
         $acId = mysqli_real_escape_string($con, $transaction['acId']);
         $services = mysqli_real_escape_string($con, $transaction['services']);
-        $grandTotal = mysqli_real_escape_string($con, $transaction['grandTotal']);
+        $grandTotal = isset($transaction['grandTotal']) ? mysqli_real_escape_string($con, $transaction['grandTotal']) : 0;
 
-        // Build the transactions string based on selected service type
+        // Build the transactions string
         if ($services == "dine-in" || $services == "take-out") {
             $transactionsString = "$cashCard, $gCash, $paymaya, $totalSales";
             $requiredFields = [$cashCard, $gCash, $paymaya, $totalSales];
@@ -49,8 +47,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $requiredFields = [$grabFood, $foodPanda, $totalSales];
         }
 
+        // Validate fields to ensure no null values
         foreach ($requiredFields as $field) {
-            if (empty($field) || $totalSales == 0) {
+            if ($field === "" || $field === null) {
                 $data['status'] = "error";
                 $data['message'] = "Please fill in all required fields.";
                 echo json_encode($data);
@@ -58,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             }
         }
 
-        // Insert the record with mapped franchise name
+        // Insert the record into the database
         $insert_query = "INSERT INTO sales_report (
             ac_id,
             encoder_id,
