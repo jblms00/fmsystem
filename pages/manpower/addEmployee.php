@@ -60,7 +60,7 @@ include("../../phpscripts/check-login.php");
             <div class="form-section">
                 <h3>Employee Information</h3>
                 <div class="form-group">
-                    <label for="franchisee">Franchisee <span class="text-danger">*</span></label>
+                    <label for="franchisee">Franchisee</label>
                     <select id="franchisee" name="franchisee" required>
                         <option value="" disabled selected>Select Franchisee</option>
                         <option value="potato-corner">Potato Corner</option>
@@ -69,13 +69,13 @@ include("../../phpscripts/check-login.php");
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="branch">Branch <span class="text-danger">*</span></label>
+                    <label for="branch">Branch</label>
                     <select id="branch" name="branch" required>
                         <option value="" disabled selected>Select Branch</option>
 
                     </select>
                 </div>
-                <label for="shift">Shift <span class="text-danger">*</span></label>
+                <label for="shift">Shift</label>
                 <select class="form-select" id="shift" name="shift">
                     <option selected disabled>Open this select menu</option>
                     <option value="Morning Shift">Morning Shift</option>
@@ -84,7 +84,7 @@ include("../../phpscripts/check-login.php");
                 </select>
             </div>
             <div class="form-section">
-                <h3>Certification Information <span class="text-danger">*</span></h3>
+                <h3>Certification Information</h3>
                 <div id="certificationContainer">
                     <div class="certification-row">
                         <input type="text" placeholder="Certification/ID Name" name="certificationName[]" >
