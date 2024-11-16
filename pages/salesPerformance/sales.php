@@ -4,7 +4,7 @@ session_start();
 include ("../../phpscripts/database-connection.php");
 include ("../../phpscripts/check-login.php");
 
-$query = "SELECT * FROM sales_report ORDER BY date_added DESC LIMIT 5";
+$query = "SELECT * FROM sales_report ORDER BY date_added DESC, report_id DESC LIMIT 5";
 $result = mysqli_query($con, $query);
 
 if ($result) {
