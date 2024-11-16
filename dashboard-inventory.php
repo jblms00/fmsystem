@@ -48,7 +48,7 @@ include ("phpscripts/check-login.php");
                 </li>
                 <ul class="menu-links">
                     <li class="nav-link active" id="dashboard-link">
-                        <a href="dashboard-contract">
+                        <a href="dashboard-inventory">
                             <i class='bx bx-home-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
