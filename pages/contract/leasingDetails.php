@@ -61,7 +61,7 @@ function formatFranchiseeName($name)
         <div class="container">
             <div class="contract-content">
                 <div class="contract-title">LEASE CONTRACT</div>
-                <div class="contract-subtitle">
+                <div class="contract-subtitle franchisee-name">
                     <?php echo strtoupper(str_replace('-', ' ', $data['franchisee'])); ?>
                 </div>
 
@@ -78,34 +78,44 @@ function formatFranchiseeName($name)
                 <div class="contract-subtitle">
                     <span>RENT:</span>
                 </div>
-                <div class="detail-item">
-                    <span>Space Number:</span>
-                    <p><?php echo $data['space_number']; ?></p>
-                    <span>Area:</span>
-                    <p><?php echo $data['area']; ?></p>
-                    <span>Classification:</span>
-                    <p><?php echo $data['classification']; ?></p>
-                    <span>Rent:</span>
-                    <p><?php echo $data['rent']; ?></p>
-                    <span>Percentage Rent:</span>
-                    <p><?php echo $data['percentage_rent']; ?></p>
-                    <span>Minimum Rent:</span>
-                    <p><?php echo $data['minimum_rent']; ?></p>
+                <div class="detail-grid">
+                    <div class="detail-row">
+                        <span>Space Number:</span>
+                        <p><?php echo $data['space_number']; ?></p>
+                    </div>
+                    <div class="detail-row">
+                        <span>Area:</span>
+                        <p><?php echo $data['area']; ?> sqm</p>
+                    </div>
+                    <div class="detail-row">
+                        <span>Classification:</span>
+                        <p><?php echo $data['classification']; ?></p>
+                    </div>
+                    <div class="detail-row">
+                        <span>Rent:</span>
+                        <p>PHP <?php echo number_format($data['rent'], 2); ?></p>
+                    </div>
+                    <div class="detail-row">
+                        <span>Percentage Rent:</span>
+                        <p><?php echo $data['percentage_rent']; ?>%</p>
+                    </div>
+                    <div class="detail-row">
+                        <span>Minimum Rent:</span>
+                        <p>PHP <?php echo number_format($data['minimum_rent'], 2); ?></p>
+                    </div>
                 </div>
+
 
                 <div class="contract-subtitle">
                     <span>FEES:</span>
                 </div>
                 <div class="detail-item">
                     <span>Additional Fee:</span>
-                    <p>PHP</p>
-                    <p><?php echo $data['additional_fee']; ?></p>
+                    <p>₱ <?php echo number_format($data['additional_fee'], 2); ?></p>
                     <span>Total Monthly Dues:</span>
-                    <p>PHP</p>
-                    <p><?php echo $data['total_monthly_dues']; ?></p>
+                    <p>₱ <?php echo number_format($data['total_monthly_dues'], 2); ?></p>
                     <span>Lease Deposit:</span>
-                    <p>PHP</p>
-                    <p><?php echo $data['lease_deposit']; ?></p>
+                    <p>₱ <?php echo number_format($data['lease_deposit'], 2); ?></p>
                 </div>
 
                 <div class="contract-subtitle">

@@ -70,7 +70,7 @@ if ($expenses_result || $sales_result) {
                             <span class="text">Total Sales</span>
                         </a>
                         <div class="box box3">
-                            <span class="text1"><?php echo $totalSales - $totalExpenses ?></span>
+                            <span class="text1"><?php echo number_format($totalSales - $totalExpenses, 2) ?></span>
                             <span class="text">Profit</span>
                         </div>
                     </div>

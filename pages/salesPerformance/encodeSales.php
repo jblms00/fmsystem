@@ -76,9 +76,9 @@ $user_data = check_login($con);
                     <div class="sales-sections" id="salesSectionForm"></div>
                 </div>
             </div>
-            <div class="form-group2">
+            <!-- <div class="form-group2">
                 <button type="button" class="myButton add-transaction-btn">Add Transaction</button>
-            </div>
+            </div> -->
             <!-- Grand Total Form -->
             <form class="grandtotal-form m-auto" style="width: 40%;">
                 <div class="details franchisee">

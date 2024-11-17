@@ -37,7 +37,7 @@ include("../../phpscripts/check-login.php");
             <form id="leasing-document-form">
                 <!-- Franchise Selection -->
                 <div class="form-group">
-                    <label for="franchise">FRANCHISEE:</label>
+                    <label for="franchise">FRANCHISEE: <span class="text-danger">*</span> </label>
                     <div id="franchise-buttons">
                         <button type="button" class="btn-option franchise-button" data-value="potato-corner">
                             <img src="../../assets/images/PotCor.png" alt="Potato Corner">
@@ -67,9 +67,9 @@ include("../../phpscripts/check-login.php");
                 <div class="form-group-1">
                     <label for="termLeaseFranchise">LEASE PERIOD:</label>
                     <div class="input-field">
-                        <label for="lease-start-date" class="subLabel">Lease Start Date:</label>
+                        <label for="lease-start-date" class="subLabel">Lease Start Date: <span class="text-danger">*</span> </label>
                         <input type="date" id="lease-start-date" name="leaseStartDate" required>
-                        <label for="lease-end-date" class="subLabel">Lease End Date:</label>
+                        <label for="lease-end-date" class="subLabel">Lease End Date: <span class="text-danger">*</span> </label>
                         <input type="date" id="lease-end-date" name="leaseEndDate" required>
                     </div>
                 </div>
@@ -79,34 +79,34 @@ include("../../phpscripts/check-login.php");
                     <div class="input-field">
                         <div class="form-row">
                             <div class="input-group">
-                                <label for="space-number" class="subLabel">Space Number:</label>
+                                <label for="space-number" class="subLabel">Space Number: <span class="text-danger">*</span> </label>
                                 <input type="text" id="space-number" name="spaceNumber" class="notarizationInput"
                                     required>
                             </div>
                             <div class="input-group">
-                                <label for="area" class="subLabel">Area (sqm):</label>
+                                <label for="area" class="subLabel">Area (sqm): <span class="text-danger">*</span> </label>
                                 <input type="number" id="area" name="area" class="notarizationInput" step="any"
                                     required>
                             </div>
                             <div class="input-group">
-                                <label for="classification" class="subLabel">Classification:</label>
+                                <label for="classification" class="subLabel">Classification: <span class="text-danger">*</span> </label>
                                 <input type="text" id="classification" name="classification" class="notarizationInput"
                                     required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="input-group">
-                                <label for="rent" class="subLabel">Rent (PHP/sqm):</label>
+                                <label for="rent" class="subLabel">Rent (PHP/sqm): <span class="text-danger">*</span> </label>
                                 <input type="number" id="rent" name="rent" class="notarizationInput" step="any"
                                     required>
                             </div>
                             <div class="input-group">
-                                <label for="percentage-rent" class="subLabel">Percentage Rent (%):</label>
+                                <label for="percentage-rent" class="subLabel">Percentage Rent (%): <span class="text-danger">*</span> </label>
                                 <input type="number" id="percentage-rent" name="percentageRent"
                                     class="notarizationInput" step="any" required>
                             </div>
                             <div class="input-group">
-                                <label for="minimum-rent" class="subLabel">Minimum Rent (PHP/sqm):</label>
+                                <label for="minimum-rent" class="subLabel">Minimum Rent (PHP/sqm): <span class="text-danger">*</span> </label>
                                 <input type="number" id="minimum-rent" name="minimumRent" class="notarizationInput"
                                     step="any" required>
                             </div>
@@ -121,21 +121,21 @@ include("../../phpscripts/check-login.php");
 
                     <label for="franchiseFee">FEES:</label>
                     <div class="form-group payment-details">
-                        <label for="lease-fee">Additional Fee (PHP) <span class="note">(fill in):</span></label>
+                        <label for="lease-fee">Additional Fee (PHP): <span class="text-danger">*</span> </label>
                         <input type="number" id="lease-fee" name="leaseFee" min="0" step="any">
                         <textarea id="franchise-fee-note" name="franchiseFeeNote"
                             placeholder="Add a note..."></textarea>
 
                         <br>
                         <!-- Monthly Dues -->
-                        <label for="total-monthly-dues">Total Monthly Dues (PHP):</label>
+                        <label for="total-monthly-dues">Total Monthly Dues (PHP): <span class="text-danger">*</span> </label>
                         <input type="number" id="total-monthly-dues" name="totalMonthlyDues" step="any" required>
                         <textarea id="total-monthly-dues-note" name="totalMonthlyDues"
                             placeholder="Add a note..."></textarea>
 
                         <br>
                         <!-- Lease Deposit -->
-                        <label for="lease-deposit">Lease Deposit (PHP):</label>
+                        <label for="lease-deposit">Lease Deposit (PHP): <span class="text-danger">*</span> </label>
                         <input type="number" id="lease-deposit" name="leaseDeposit" step="any" required>
                         <textarea id="lease-deposit-note" name="depositNote" placeholder="Add a note..."></textarea>
                     </div>
@@ -147,30 +147,24 @@ include("../../phpscripts/check-login.php");
                     <div class="input-field">
                         <div class="form-row">
                             <div class="input-group">
-                                <label for="lessor-name" class="subLabel">Lessor Name:</label>
+                                <label for="lessor-name" class="subLabel">Lessor Name: <span class="text-danger">*</span> </label>
                                 <input type="text" id="lessor-name" name="lessorName" class="notarizationInput">
                             </div>
                             <div class="input-group">
-                                <label for="lessee-name" class="subLabel">Lessee Name:</label>
+                                <label for="lessee-name" class="subLabel">Lessee Name: <span class="text-danger">*</span> </label>
                                 <input type="text" id="lessee-name" name="lesseeName" class="notarizationInput">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="input-group">
-                                <label for="lessor-address" class="subLabel">Lessor Address:</label>
-                                <div class="location-input">
-                                    <input type="text" id="lessor-address" name="lessorAddress"
-                                        placeholder="Search location...">
-                                    <i class="bx bx-search-alt icon"></i>
-                                </div>
+                                <label for="lessor-address" class="subLabel">Lessor Address: <span class="text-danger">*</span> </label>
+                                    <input type="text" id="lessor-address" name="lessorAddress">
+                                    <!-- <i class="bx bx-search-alt icon"></i> -->
                             </div>
                             <div class="input-group">
-                                <label for="lessee-address" class="subLabel">Lessee Address:</label>
-                                <div class="location-input">
-                                    <input type="text" id="lessee-address" name="lesseeAddress"
-                                        placeholder="Search location...">
-                                    <i class="bx bx-search-alt icon"></i>
-                                </div>
+                                <label for="lessee-address" class="subLabel">Lessee Address: <span class="text-danger">*</span> </label>
+                                    <input type="text" id="lessee-address" name="lesseeAddress">
+                                    <!-- <i class="bx bx-search-alt icon"></i> -->
                             </div>
                         </div>
                     </div>
@@ -188,9 +182,9 @@ include("../../phpscripts/check-login.php");
                 <!-- Notarization Details -->
                 <div class="form-group-1">
                     <div class="form-group notarization-details">
-                        <label for="notary-seal-leasing">Notary Public's Seal:</label>
+                        <label for="notary-seal-leasing">Notary Public's Seal: <span class="text-danger">*</span></label>
                         <input type="file" id="notary-seal-leasing" name="notarySealLeasing">
-                        <p class="hint">Upload notarized contract</p>
+                        <p class="hint">Upload Notary Public's Seal</p>
                     </div>
                 </div>
                 <!-- Submit and Save Button -->

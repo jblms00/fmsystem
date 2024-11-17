@@ -55,19 +55,19 @@ function updateSalesSectionForm(urlParams, salesSectionForm = $("#salesSectionFo
                     <p>${urlParams.eatTypeFormatted}</p>
                     <div class="fields">
                         <div class="input-field transactionType">
-                            <label>Cash/Card:</label>
+                            <label>Cash/Card: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-cash-card" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>GCash:</label>
+                            <label>GCash: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-gcash" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>Paymaya:</label>
+                            <label>Paymaya: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-paymaya" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>Other ${urlParams.eatTypeFormatted} Sales:</label>
+                            <label>Other ${urlParams.eatTypeFormatted} Sales: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-total-sales" placeholder="Enter Amount" required>
                         </div>
                     </div>
@@ -81,15 +81,15 @@ function updateSalesSectionForm(urlParams, salesSectionForm = $("#salesSectionFo
                     <p>${urlParams.eatTypeFormatted}</p>
                     <div class="fields">
                         <div class="input-field transactionType">
-                            <label>GrabFood:</label>
+                            <label>GrabFood: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-grab-food" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>foodpanda:</label>
+                            <label>foodpanda: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-food-panda" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>Other ${urlParams.eatTypeFormatted} Sales:</label>
+                            <label>Other ${urlParams.eatTypeFormatted} Sales: <span class="text-danger">*</span></label>
                             <input type="number" class="amount-input input-total-sales" placeholder="Enter Amount" required>
                         </div>
                     </div>

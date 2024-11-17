@@ -7,7 +7,7 @@
 }
 
 body {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
 .container {
@@ -16,13 +16,13 @@ body {
     padding: 30px;
 }
 
+/* Header */
 .contractheader {
     height: 90px;
     background: #1F375D;
     color: white;
     display: flex;
     align-items: center;
-    
 }
 
 .container-header {
@@ -30,32 +30,66 @@ body {
 }
 
 .title {
-    font-size: 24px;
+    font-size: 32px;
     font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
 }
 
+/* Contract Content */
 .contract-content {
     background-color: #fff;
-    padding: 20px;
+    padding: 40px;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     margin-top: 20px;
 }
 
+/* Contract Title */
 .contract-title {
+    text-align: center;
     font-size: 24px;
     font-weight: bold;
+    text-transform: uppercase;
     color: #1F375D;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
 }
-
+.contract-subtitle.franchisee-name {
+    color: black; /* Set text color to black */
+    font-size: 22px; /* Increase font size */
+    font-weight: bold; /* Optional: Make it bold for emphasis */
+    text-align: center; /* Keep it centered like other subtitles */
+    margin-top: 10px; /* Optional: Add spacing if needed */
+    margin-bottom: 50px;
+}
+/* Contract Subtitle */
 .contract-subtitle {
     font-size: 18px;
     font-weight: bold;
+    text-transform: uppercase;
     color: #3965ab;
-    margin-bottom: 10px;
+    border-bottom: 2px solid #3965ab;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
 }
 
+.contract-subtitle:before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    width: 60px;
+    height: 2px;
+    background: #3965ab;
+    margin-top: 5px;
+}
+
+/* Details */
 .detail-item {
     margin-bottom: 20px;
 }
@@ -68,17 +102,28 @@ body {
 }
 
 .detail-item p {
-    margin-bottom: 10px;
+    text-indent: 50px;
+    margin-bottom: 15px;
     line-height: 1.6;
+    color: #333;
 }
 
+.detail-item img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* Buttons */
 .button-group {
-    margin-top: 20px;
+    margin-top: 30px;
     text-align: center;
 }
 
 .myButton {
-    padding: 10px 20px;
+    padding: 10px 30px;
     font-size: 16px;
     font-weight: bold;
     color: white;
@@ -87,16 +132,56 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0 10px;
+    margin: 10px;
 }
 
 .myButton:hover {
     background-color: #3c67a6;
 }
 
-/* Responsive adjustments */
+/* Detail Grid for RENT Section */
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Two columns: label and value */
+    gap: 10px 0px; /* Row and column spacing */
+    margin-bottom: 20px;
+}
+
+.detail-row {
+    display: contents; /* Ensure each row works within the grid */
+}
+
+.detail-row span {
+    font-weight: bold;
+    color: #1F375D;
+    align-self: center; /* Vertically align text */
+}
+
+.detail-row p {
+    margin: 0;
+    padding: 0;
+    color: #333;
+    text-align: left;
+    align-self: center; /* Vertically align text */
+    word-wrap: break-word; /* Handle long text gracefully */
+}
+
+
+/* Responsive Adjustments */
 @media (max-width: 768px) {
-    .details-grid {
-        grid-template-columns: 1fr;
+    .container {
+        padding: 20px;
+    }
+
+    .contract-content {
+        padding: 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .myButton {
+        margin-bottom: 10px;
     }
 }

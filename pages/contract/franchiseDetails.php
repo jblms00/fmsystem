@@ -63,9 +63,10 @@ function formatFranchiseeName($name)
             <div class="franchise-details">
                 <div class="contract-content">
                     <div class="contract-title">FRANCHISE AGREEMENT</div>
-                    <div class="contract-subtitle">
+                    <div class="contract-subtitle franchisee-name">
                         <?php echo strtoupper(str_replace('-', ' ', $data['franchisee'])); ?>
                     </div>
+
                     <!-- Other contract details and content here -->
 
                     <div class="detail-item">
@@ -78,7 +79,7 @@ function formatFranchiseeName($name)
                     </div>
                     <div class="detail-item">
                         <span>Classification:</span>
-                        <p></p>
+                        <p><?php echo $data['classification']; ?></p>
                     </div>
                     <div class="detail-item">
                         <span>Rights Granted:</span>
@@ -107,11 +108,11 @@ function formatFranchiseeName($name)
                         <span>TERM OF FRANCHISE</span>
                     </div>
                     <div class="detail-item">
-                        <span>Franchise Term:</span>
+                        <span>Agreement Date:</span>
                         <p><?php echo $data['franchise_term']; ?> years</p>
                     </div>
                     <div class="detail-item">
-                        <span>Agreement Date:</span>
+                        <span>End Date:</span>
                         <p><?php echo $data['agreement_date']; ?></p>
                     </div>
 
@@ -128,16 +129,16 @@ function formatFranchiseeName($name)
                     </div>
                     <div class="detail-item">
                         <span>Franchise Fee:</span>
-                        <p>PHP <?php echo number_format($data['franchise_fee'], 2); ?></p>
+                        <p>₱ <?php echo number_format($data['franchise_fee'], 2); ?></p>
                     </div>
 
                     <div class="detail-item">
                         <span>Franchise Package:</span>
-                        <p>PHP <?php echo number_format($data['franchise_package'], 2); ?></p>
+                        <p>₱ <?php echo number_format($data['franchise_package'], 2); ?></p>
                     </div>
                     <div class="detail-item">
                         <span>Bond:</span>
-                        <p>PHP <?php echo number_format($data['bond'], 2); ?></p>
+                        <p>₱ <?php echo number_format($data['bond'], 2); ?></p>
                     </div>
 
 
@@ -146,31 +147,37 @@ function formatFranchiseeName($name)
                     </div>
                     <div class="detail-item">
                         <span></span>
-                        <p></p>
+                        <p><?php echo $data['extra_note']; ?></p>
                     </div>
 
                     <div class="contract-subtitle">
-                        <span>NOTARIZATION</span>
-                    </div>
-                    <div class="detail-item">
-                        <span>Franchisor: </span>
+                <span>NOTARIZATION</span>
+                </div>
+
+            <div class="notarization-section">
+                <div class="notarization-item">
+                    <div class="notarization-line">
+                        <span>Franchisor:</span>
                         <p><?php echo $data['notarization_fr']; ?></p>
-                        <span>Represented by: </span>
+                        <span>Represented by:</span>
                         <p><?php echo $data['notarization_fr_rb']; ?></p>
                     </div>
-                    <div class="detail-item">
-                        <span>Franchisee: </span>
+                    <div class="notarization-line">
+                        <span>Franchisee:</span>
                         <p><?php echo $data['notarization_fe']; ?></p>
                         <span>Represented by:</span>
                         <p><?php echo $data['notarization_fe_rb']; ?></p>
                     </div>
+                </div>
 
+                <div class="notary-seal">
                     <div class="contract-subtitle">
                         <span>Notary Public's Seal:</span>
                     </div>
-                    <div class="detail-item">
-                        <img src="../../assets/images/notarySeals/<?php echo $data['notary_public_seal']; ?>" alt="img">
-                    </div>
+        <img src="../../assets/images/notarySeals/<?php echo $data['notary_public_seal']; ?>" alt="Notary Seal">
+    </div>
+</div>
+
 
                 </div>
 

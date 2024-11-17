@@ -89,7 +89,8 @@ if ($result) {
             </div>
             <!-- Table for Sales Report -->
             <table>
-                <caption><strong>Product Name:</strong> <?php echo htmlspecialchars($data['services']); ?></caption>
+                 <caption>Daily Sales Report: <strong><?php echo date("l, F d", strtotime($data['date_added'])); ?></strong> </caption>
+
                 <thead>
                     <tr>
                         <th>Transaction Type</th>
@@ -104,20 +105,23 @@ if ($result) {
                         <tr>
                             <td rowspan="3"><?php echo ucwords($data['services']) ?></td>
                             <td>Cash/Card</td>
-                            <td><?php echo $transactions[0] ?></td>
+                            <td>₱ <?php echo number_format($transactions[0], 2); ?></td>
+
                         </tr>
                         <tr>
                             <td>GCash</td>
-                            <td><?php echo $transactions[1] ?></td>
+                            <td>₱ <?php echo number_format($transactions[1], 2); ?></td>
+
                         </tr>
                         <tr>
                             <td>Paymaya</td>
-                            <td><?php echo $transactions[2] ?></td>
+                            <td>₱ <?php echo number_format($transactions[2], 2); ?></td>
+
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: right;">Others:
                             </td>
-                            <td><?php echo $transactions[3] ?></td>
+                            <td>₱ <?php echo number_format($transactions[3], 2); ?></td>
                         </tr>
                     <?php } else { ?>
 
@@ -125,22 +129,22 @@ if ($result) {
                         <tr>
                             <td rowspan="2">Delivery</td>
                             <td>GrabFood</td>
-                            <td><?php echo $transactions[0] ?></td>
+                            <td>₱ <?php echo number_format($transactions[0], 2); ?></td>
                         </tr>
                         <tr>
                             <td>foodpanda</td>
-                            <td><?php echo $transactions[1] ?></td>
+                            <td>₱ <?php echo number_format($transactions[1], 2); ?></td>
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: right;">Others:</td>
-                            <td><?php echo $transactions[2] ?></td>
+                            <td>₱ <?php echo number_format($transactions[2], 2); ?></td>
                         </tr>
                     <?php } ?>
                     <!-- Grand Total Row -->
                 <tfoot>
                     <tr>
                         <td colspan="2" style="text-align: right;">Grand Total:</td>
-                        <td><?php echo $data['grand_total'] ?></td>
+                        <td>₱ <?php echo number_format($data['grand_total'], 2); ?></td>
                     </tr>
                 </tfoot>
 
