@@ -8,8 +8,8 @@ $data = [];
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $currentDate = new DateTime(); // Today's date
 
-    // SQL Query to fetch active contracts
-    $sql = "SELECT ac_id, franchisee, classification, agreement_date, datetime_added 
+    // SQL Query to fetch active contracts with location
+    $sql = "SELECT ac_id, franchisee, location, agreement_date, datetime_added 
             FROM agreement_contract 
             WHERE status = 'active'";
 
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             if ($currentDate > $agreementDate) {
                 $data['notifications'][] = [
                     'franchisee' => $row['franchisee'],
-                    'classification' => $row['classification'],
+                    'location' => $row['location'],
                     'days_remaining' => 0,
                     'status' => "Expired"
                 ];
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                     $statusMessage = "Expiring in " . ($daysRemaining + 1) . " day(s)";
                     $data['notifications'][] = [
                         'franchisee' => $row['franchisee'],
-                        'classification' => $row['classification'],
+                        'location' => $row['location'],
                         'days_remaining' => $daysRemaining + 1, // Adjust for display
                         'status' => $statusMessage
                     ];

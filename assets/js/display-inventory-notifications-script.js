@@ -13,12 +13,17 @@ function fetchNotifications() {
 
             if (response.status === "success") {
                 response.notifications.forEach(function (notification) {
+                    var imgFile = getFranchiseImage(notification.franchisee);
+
                     var notificationItem = `
-                        <li>
+                        <li class="text-center">
+                            <h4 class="text-success mb-2">NEWLY OPENED</h4>
+                            <h3>
+                                <img src="../../assets/images/${imgFile}" alt="${notification.franchisee} Logo" class="franchise-logo mb-2">
+                            </h3>
+                            
+                            <h4 class="mb-2">${notification.location}</h4>
                             <h3>${formatDate(notification.datetime)}</h3>
-                            <h4 class="text-success">NEWLY OPENED</h4>
-                            <h4>${notification.franchisee}</h4>
-                            <h4>${notification.location}</h4>
                             <button type="button" onclick="handleAddStock('${
                                 notification.notification_id
                             }', '${notification.ac_id}', '${notification.franchisee}', '${
@@ -68,6 +73,19 @@ function handleAddStock(notificationId, acId, franchisee, branch) {
             alert("Error occurred while resolving the notification.");
         },
     });
+}
+
+function getFranchiseImage(franchise) {
+    switch (franchise) {
+        case "potato-corner":
+            return "PotCor.png";
+        case "auntie-anne":
+            return "AuntieAnn.png";
+        case "macao-imperial":
+            return "MacaoImp.png";
+        default:
+            return "default-image.png"; // Replace with a generic default image
+    }
 }
 
 function formatDate(datetime) {

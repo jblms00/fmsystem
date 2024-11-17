@@ -79,7 +79,7 @@ include("../../phpscripts/check-login.php");
                         <tr>
                             <th scope="col">Franchisee</th>
                             <th scope="col">Location</th>
-                            <th scope="col">Agreement</th>
+                            <th scope="col">Classification</th>
                             <th scope="col">Status</th>
                             <th scope="col">Days to Expire</th>
                         </tr>
@@ -97,7 +97,7 @@ include("../../phpscripts/check-login.php");
                     <thead>
                         <tr>
                             <th>Franchisee</th>
-                            <th>Agreement</th>
+                            <th>Classification</th>
                             <th>Status</th>
                             <th>Days to Expire</th>
                         </tr>

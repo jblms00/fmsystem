@@ -39,7 +39,7 @@ $dateToday = date("Y-m-d");
                 <span class="title">Expense Details</span>
                 <div class="fields">
                     <div class="input-field">
-                        <label>Franchisee</label>
+                        <label>Franchisee <span class="text-danger">*</span></label>
                         <select id="selectedFranchise">
                             <option disabled selected>Select Franchisee</option>
                             <option value="potato-corner">Potato Corner</option>
@@ -48,7 +48,7 @@ $dateToday = date("Y-m-d");
                         </select>
                     </div>
                     <div class="input-field">
-                        <label>Location</label>
+                        <label>Location <span class="text-danger">*</span></label>
                         <input type="text" id="franchiseLocation" placeholder="Enter Branch Location">
                     </div>
                     <div class="input-field">
@@ -61,7 +61,7 @@ $dateToday = date("Y-m-d");
                         <input type="date" id="dateToday" value="<?php echo $dateToday; ?>" disabled>
                     </div>
                     <div class="input-field transactions">
-                        <label>Expense Category</label>
+                        <label>Expense Category <span class="text-danger">*</span></label>
                         <select id="selectedExpense">
                             <option disabled selected>Select Expense Category</option>
                             <option value="controllable-expenses">Franchisor Expenses</option>
@@ -82,7 +82,7 @@ $dateToday = date("Y-m-d");
                 <span class="title">Franchisor Expenses</span>
                 <div class="fields">
                     <div class="input-field transactions">
-                        <label>Expense Type</label>
+                        <label>Expense Type <span class="text-danger">*</span></label>
                         <select class="selectedExpenseType">
                             <option disabled selected>Select Expense Type</option>
                             <option value="franchiseFees">Franchise Fees</option>
@@ -97,7 +97,7 @@ $dateToday = date("Y-m-d");
                 </div>
                 <div class="fields">
                     <div class="input-field transactions">
-                        <label>Amount</label>
+                        <label>Amount <span class="text-danger">*</span></label>
                         <input type="number" class="expensesAmount" placeholder="Enter Amount">
                         <textarea class="expensesDescription" placeholder="Add a description..."></textarea>
                     </div>
@@ -110,7 +110,7 @@ $dateToday = date("Y-m-d");
                 <span class="title">Leasor Expenses</span>
                 <div class="fields">
                     <div class="input-field transactions">
-                        <label>Expense Type</label>
+                        <label>Expense Type <span class="text-danger">*</span></label>
                         <select class="selectedExpenseType">
                             <option disabled selected>Select Expense Type</option>
                             <option value="rentalsFees">Rentals</option>
@@ -125,7 +125,7 @@ $dateToday = date("Y-m-d");
                 </div>
                 <div class="fields">
                     <div class="input-field transactions">
-                        <label>Amount</label>
+                        <label>Amount <span class="text-danger">*</span></label>
                         <input type="number" class="expensesAmount" placeholder="Enter Amount">
                         <textarea class="expensesDescription" placeholder="Add a description..."></textarea>
                     </div>
@@ -138,17 +138,17 @@ $dateToday = date("Y-m-d");
                 <span class="title">Other Expenses</span>
                 <div class="fields">
                     <div class="input-field transactions">
-                        <label>Expense Type</label>
+                        <label>Expense Type <span class="text-danger">*</span></label>
                         <input type="text" id="expensesType" placeholder="Expense Type">
                         <div class="input-field transactions">
-                            <label>Purpose</label>
+                            <label>Purpose <span class="text-danger">*</span></label>
                             <input type="text" class="otherPurpose" placeholder="Purpose">
                         </div>
                     </div>
                 </div>
                 <div class="fields">
                     <div class="input-field transactions">
-                        <label>Amount</label>
+                        <label>Amount <span class="text-danger">*</span></label>
                         <input type="number" class="expensesAmount" placeholder="Enter Amount">
                         <textarea class="expensesDescription" placeholder="Add a description..."></textarea>
                     </div>

@@ -18,7 +18,7 @@ function fetchContractNotifications() {
                     var listItem = `
                         <li class="text-center">
                             <h3><img src="../../assets/images/${imgFile}" alt="${notification.franchisee} Logo" class="franchise-logo mb-2"></h3>
-                            <h4 class="mb-2">${notification.classification}</h4>
+                            <h4 class="mb-2">${notification.location}</h4>
                             <span class="notification-details">${notification.status}</span>
                         </li>
                     `;
