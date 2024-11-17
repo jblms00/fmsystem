@@ -24,10 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         ];
         $franchise = $franchiseNameMap[$franchise] ?? strtolower(str_replace(' ', '-', $franchise));
 
-        $location = mysqli_real_escape_string($con, $transaction['location']);
+        // Optional fields
+        $location = isset($transaction['location']) ? mysqli_real_escape_string($con, $transaction['location']) : null;
+        $productName = isset($transaction['productName']) ? mysqli_real_escape_string($con, $transaction['productName']) : null;
+
+        // Mandatory fields
         $encoderName = mysqli_real_escape_string($con, $transaction['encoderName']);
         $date = mysqli_real_escape_string($con, $transaction['date']);
-        $productName = mysqli_real_escape_string($con, $transaction['productName']);
         $cashCard = isset($transaction['cashCard']) ? mysqli_real_escape_string($con, $transaction['cashCard']) : 0;
         $gCash = isset($transaction['gCash']) ? mysqli_real_escape_string($con, $transaction['gCash']) : 0;
         $paymaya = isset($transaction['paymaya']) ? mysqli_real_escape_string($con, $transaction['paymaya']) : 0;
@@ -47,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $requiredFields = [$grabFood, $foodPanda, $totalSales];
         }
 
-        // Validate fields to ensure no null values
+        // Validate only mandatory fields
         foreach ($requiredFields as $field) {
             if ($field === "" || $field === null) {
                 $data['status'] = "error";
@@ -78,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (mysqli_query($con, $insert_query)) {
             $data['status'] = "success";
-            $data['message'] = "Sales report data saved successfully";
+            $data['message'] = "Sales report data saved successfully.";
         } else {
             $data['status'] = "error";
             $data['message'] = "Failed to save report. Please try again later.";
@@ -87,7 +90,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     }
 } else {
     $data['status'] = "error";
-    $data['message'] = "Invalid request method";
+    $data['message'] = "Invalid request method.";
 }
 
 echo json_encode($data);

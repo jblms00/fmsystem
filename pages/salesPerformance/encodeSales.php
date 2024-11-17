@@ -43,10 +43,10 @@ $user_data = check_login($con);
                             <label>Franchisee</label>
                             <input type="text" class="input-franchise-name" placeholder="Enter Franchisee Name" disabled>
                         </div>
-                        <div class="input-field">
+                        <!-- <div class="input-field">
                             <label>Location</label>
                             <input type="text" class="input-location" placeholder="Enter Location" disabled>
-                        </div>
+                        </div> -->
                         <div class="input-field">
                             <label>Name</label>
                             <input type="text" class="input-encoders-name" placeholder="Enter Encoder's Name" disabled>
@@ -67,11 +67,11 @@ $user_data = check_login($con);
                 <div class="details transactions transaction-form p-4">
                     <p class="fw-semibold">Transactions</p>
                     <div class="fields mb-3">
-                        <div class="input-field transactions">
+                        <!-- <div class="input-field transactions">
                             <label>Product Name</label>
                             <input type="text" class="input-product-name" placeholder="Enter Product Name"
                                 style="width: 100%">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="sales-sections" id="salesSectionForm"></div>
                 </div>
