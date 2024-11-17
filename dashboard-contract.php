@@ -85,22 +85,9 @@ include ("phpscripts/check-login.php");
             <div class="container">
                 <div class="dash-content">
                     <div class="overview">
-
-                    <!-- profit (will fix design) -->
-                            <!-- <div class="boxes">
-                            <a href="totalExpenses" class="box box1">
-                                <span class="text1">####</span>
-                                <span class="text">Total Expenses</span>
-                            </a>
-                            <a href="chooseFranchisee" class="box box2">
-                                <span class="text1">####</span>
-                                <span class="text">Total Sales</span>
-                            </a>
-                            <div class="box box3">
-                                <span class="text1">####</span>
-                                <span class="text">Profit</span>
-                            </div>
-                        </div> -->
+                        <div class="greeting">
+                            <h2>Hi, <strong>Business Development Officer</strong>!</h2>
+                        </div>
                         <div class="boxes-container">
                             
                             <div class="box-group">

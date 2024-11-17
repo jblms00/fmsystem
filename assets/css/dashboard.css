@@ -126,6 +126,20 @@
     text-align: center; /* Center the text */
 }
 
+.greeting h2 {
+    /* text-align: center; */
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: #333;
+}
+
+.greeting h2 strong {
+    font-weight: bold;
+    color: var(--header-color); /* Optional: Change color for the bold text */
+}
+
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .box-group {
