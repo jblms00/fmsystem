@@ -21,78 +21,7 @@ include("../../phpscripts/check-login.php");
 
 <body>
 
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="../../assets/images/BoxLogo.png" alt="logo">
-                </span>
-
-                <div class="text header-text">
-                    <span class="name">NEVADA</span>
-                    <span class="profession">Management Group</span>
-                </div>
-            </div>
-
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="search" placeholder="Search...">
-                </li>
-                <ul class="menu-links">
-                    <li class="nav-link" id="dashboard-link">
-                        <a href="../../dashboard">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-link active" id="franchising-link">
-                        <a href="../../pages/contract/franchiseeAgreement">
-                            <i class='bx bx-file icon'></i>
-                            <span class="text nav-text">Franchising Agreement</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="sales-link">
-                        <a href="../../pages/salesPerformance/sales">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Sales Performance</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="expenses-link">
-                        <a href="../../pages/salesPerformance/expenses">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Expenses</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="inventory-link">
-                        <a href="../../pages/inventory/inventory2">
-                            <i class='bx bx-store-alt icon'></i>
-                            <span class="text nav-text">Inventory</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="manpower-link">
-                        <a href="../../pages/manpower/manpower_dashboard">
-                            <i class='bx bx-group icon'></i>
-                            <span class="text nav-text">Manpower Deployment</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="bottom-content">
-                <li>
-                    <a href="../../phpscripts/user-logout.php">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-            </div>
-
-        </div>
-    </nav>
+    <?php include '../../navbar.php'; ?>
 
     <section class="home">
 
@@ -107,7 +36,7 @@ include("../../phpscripts/check-login.php");
             <form id="agreement-document-form">
                 <!-- Franchise Selection -->
                 <div class="form-group-1">
-                    <label for="franchise">FRANCHISEE:</label>
+                    <label for="franchise">FRANCHISEE: <span class="text-danger">*</span></label>
                     <div id="franchise-buttons">
                         <button type="button" class="btn-option franchise-button" data-value="potato-corner">
                             <img src="../../assets/images/PotCor.png" alt="Potato Corner">
@@ -129,7 +58,7 @@ include("../../phpscripts/check-login.php");
                 <div class="form-group-1">
                     <label for="licenseGranted">LICENSE GRANTED:</label>
                     <div class="input-field">
-                        <label for="classification" class="subLabel">Classification:</label>
+                        <label for="classification" class="subLabel">Classification: <span class="text-danger">*</span> </label>
                         <input type="text" id="classification" name="classification" class="short-input" required>
                     </div>
 
@@ -166,10 +95,10 @@ include("../../phpscripts/check-login.php");
                         <!-- <label for="franchise-term" class="subLabel">Franchise Term (in years):</label>
                         <input type="number" id="franchise-term" name="franchiseTerm" class="short-input" min="1"
                             required> -->
-                        <<label for="agreement-start" class="subLabel">This Agreement entered into on this:</label>
+                        <label for="agreement-start" class="subLabel">This Agreement entered into on this: <span class="text-danger">*</span></label>
                         <input type="date" id="agreement-start" name="agreementStart" class="short-input" required>
 
-                        <label for="agreement-date" class="subLabel">End Date:</label>
+                        <label for="agreement-date" class="subLabel">End Date: <span class="text-danger">*</span></label>
                         <input type="date" id="agreement-date" name="agreementDate" class="short-input" required>
                     </div>
                 </div>
@@ -181,8 +110,8 @@ include("../../phpscripts/check-login.php");
 
                     <div class="input-field">
                         <div class="location-input">
-                            <label for="location" class="locLabel">Location:</label>
-                            <input type="text" id="location" name="location" placeholder="Search location..."
+                            <label for="location" class="locLabel">Location: <span class="text-danger">*</span></label>
+                            <input type="text" id="location" name="location"
                                 class="long-input">
                         </div>
                     </div>
@@ -194,23 +123,22 @@ include("../../phpscripts/check-login.php");
 
                     <label for="franchiseFee">FEES:</label>
                     <div class="form-group payment-details">
-                        <label for="franchise-fee">Franchise Fee (PHP) <span class="note">(fill in):</span></label>
+                        <label for="franchise-fee">Franchise Fee (PHP): <span class="text-danger">*</span></label>
                         <input type="number" id="franchise-fee" name="franchiseFee" min="0" step="any">
                         <textarea id="franchise-fee-note" name="franchiseFeeNote"
                             placeholder="Add a note..."></textarea>
 
                         <br>
                         <!-- Franchise Package -->
-                        <label for="franchise-package">Franchise Package (PHP) <span class="note">(fill
-                                in):</span></label>
+                        <label for="franchise-package">Franchise Package (PHP): <span class="text-danger">*</span></label>
                         <input type="number" id="franchise-package" name="franchisePackage" min="0" step="any">
                         <textarea id="franchise-package-note" name="franchisePackageNote"
                             placeholder="Add a note..."></textarea>
 
                         <br>
                         <!-- Bond -->
-                        <label for="bond">Bond (PHP) <span class="note">(fill in, waived in existing
-                                store):</span></label>
+                        <label for="bond">Bond (PHP) <span class="note">(waived in existing
+                                store):</span> <span class="text-danger">*</span></label>
                         <input type="number" id="bond" name="bond" min="0" step="any">
                         <textarea id="bond-note" name="bondNote" placeholder="Add a note..."></textarea>
 
@@ -234,21 +162,21 @@ include("../../phpscripts/check-login.php");
                     <div class="input-field">
                         <div class="form-row">
                             <div class="input-group">
-                                <label for="franchisor" class="subLabel">Franchisor:</label>
+                                <label for="franchisor" class="subLabel">Franchisor: <span class="text-danger">*</span></label>
                                 <input type="text" id="franchisor" name="franchisor" class="notarizationInput">
                             </div>
                             <div class="input-group">
-                                <label for="franchisee" class="subLabel">Franchisee:</label>
+                                <label for="franchisee" class="subLabel">Franchisee: <span class="text-danger">*</span></label>
                                 <input type="text" id="franchisee" name="franchisee" class="notarizationInput">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="input-group">
-                                <label for="franchisor-rep" class="subLabel">Represented by:</label>
+                                <label for="franchisor-rep" class="subLabel">Represented by: <span class="text-danger">*</span></label>
                                 <input type="text" id="franchisor-rep" name="franchisorRep" class="notarizationInput">
                             </div>
                             <div class="input-group">
-                                <label for="franchisee-rep" class="subLabel">Represented by:</label>
+                                <label for="franchisee-rep" class="subLabel">Represented by: <span class="text-danger">*</span></label>
                                 <input type="text" id="franchisee-rep" name="franchiseeRep" class="notarizationInput">
                             </div>
                         </div>
@@ -259,7 +187,7 @@ include("../../phpscripts/check-login.php");
                 <!-- Notarization Details -->
                 <div class="form-group-1">
                     <div class="form-group notarization-details">
-                        <label for="notary-seal-franchise">Notary Public's Seal:</label>
+                        <label for="notary-seal-franchise">Notary Public's Seal: <span class="text-danger">*</span></label>
                         <input type="file" id="notary-seal-franchise" name="notarySealFranchise">
                         <p class="hint">Upload notarized contract</p>
                     </div>

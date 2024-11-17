@@ -31,7 +31,8 @@ function displayExpenses() {
                                 <img src="../../assets/images/${img}" alt="img" class="franchise-logo">
                             </td>
                             <td>₱${formattedGrandTotal}</td>
-                            <td>${toTitleCase(info.expense_catergory)}</td>
+                            <td>${mapExpenseCategory(info.expense_catergory)}</td>
+
                             <td>${info.date_added}</td>
                         </tr>
                     `;
@@ -62,4 +63,17 @@ function toTitleCase(str) {
     return str.replace(/\w\S*/g, function (text) {
         return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
     });
+}
+
+function mapExpenseCategory(category) {
+    switch (category) {
+        case "controllable-expenses":
+            return "Franchisor Expenses";
+        case "non-controllable-expenses":
+            return "Leasing Expenses";
+        case "other-expenses":
+            return "Others Expenses";
+        default:
+            return category;
+    }
 }

@@ -67,7 +67,7 @@ function updateSalesSectionForm(urlParams, salesSectionForm = $("#salesSectionFo
                             <input type="number" class="amount-input input-paymaya" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>Total ${urlParams.eatTypeFormatted} Sales:</label>
+                            <label>Other ${urlParams.eatTypeFormatted} Sales:</label>
                             <input type="number" class="amount-input input-total-sales" placeholder="Enter Amount" required>
                         </div>
                     </div>
@@ -89,7 +89,7 @@ function updateSalesSectionForm(urlParams, salesSectionForm = $("#salesSectionFo
                             <input type="number" class="amount-input input-food-panda" placeholder="Enter Amount" required>
                         </div>
                         <div class="input-field transactionType">
-                            <label>Total ${urlParams.eatTypeFormatted} Sales:</label>
+                            <label>Other ${urlParams.eatTypeFormatted} Sales:</label>
                             <input type="number" class="amount-input input-total-sales" placeholder="Enter Amount" required>
                         </div>
                     </div>

@@ -12,6 +12,23 @@ $franchiseFormattedMap = [
     'macao-imperial' => 'Macao Imperial Tea'
 ];
 
+$expenseTypesMap = [
+    'agencyFees' => "Agency Fees",  
+    'Others' => "Others",
+    'franchiseFees' => "Franchise Fees",
+    'royaltyFees' => "Royalty Fees",
+    'rentalsFees' => "Rentals",
+    'utilitiesFees' => "Utilities",
+    'maintenanceFees' => "Maintenance"
+];
+
+$expenseCategoryMap = [
+    'controllable-expenses' => 'Franchisor',
+    'non-controllable-expenses' => 'Leasing',
+    'other-expenses' => 'Other'
+];
+
+
 if ($id) {
     $id = mysqli_real_escape_string($con, $id);
 
@@ -54,74 +71,8 @@ if ($id) {
 </head>
 
 <body>
-    <nav class="sidebar close">
-        <header>
-            <div class="image-text">
-                <span class="image">
-                    <img src="../../assets/images/BoxLogo.png" alt="logo">
-                </span>
-                <div class="text header-text">
-                    <span class="name">NEVADA</span>
-                    <span class="profession">Management Group</span>
-                </div>
-            </div>
-            <i class='bx bx-chevron-right toggle'></i>
-        </header>
-        <div class="menu-bar">
-            <div class="menu">
-                <li class="search-box">
-                    <i class='bx bx-search icon'></i>
-                    <input type="search" placeholder="Search...">
-                </li>
-                <ul class="menu-links">
-                    <li class="nav-link" id="dashboard-link">
-                        <a href="../../dashboard">
-                            <i class='bx bx-home-alt icon'></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="franchising-link">
-                        <a href="../../pages/contract/franchiseeAgreement">
-                            <i class='bx bx-file icon'></i>
-                            <span class="text nav-text">Franchising Agreement</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="sales-link">
-                        <a href="../../pages/salesPerformance/sales">
-                            <i class='bx bx-bar-chart-alt-2 icon'></i>
-                            <span class="text nav-text">Sales Performance</span>
-                        </a>
-                    </li>
-                    <li class="nav-link active" id="expenses-link">
-                        <a href="../../pages/salesPerformance/expenses">
-                            <i class='bx bx-wallet icon'></i>
-                            <span class="text nav-text">Expenses</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="inventory-link">
-                        <a href="../../pages/inventory/inventory2">
-                            <i class='bx bx-store-alt icon'></i>
-                            <span class="text nav-text">Inventory</span>
-                        </a>
-                    </li>
-                    <li class="nav-link" id="manpower-link">
-                        <a href="../../pages/manpower/manpower_dashboard">
-                            <i class='bx bx-group icon'></i>
-                            <span class="text nav-text">Manpower Deployment</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="bottom-content">
-                <li>
-                    <a href="../../phpscripts/user-logout.php">
-                        <i class='bx bx-log-out icon'></i>
-                        <span class="text nav-text">Logout</span>
-                    </a>
-                </li>
-            </div>
-        </div>
-    </nav>
+    
+    <?php include '../../navbar.php'; ?>
 
     <section class="home">
         <header class="contractheader">
@@ -148,57 +99,7 @@ if ($id) {
             </div>
             <!-- Table for Expenses -->
             <table>
-                <caption><strong>Franchisor Expenses</strong></caption>
-                <thead>
-                    <tr>
-                        <th>Expense Type</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Row 1 -->
-                    <tr>
-                        <td>Franchise Fees</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Row 2 -->
-                    <tr>
-                        <td>Royalty Fees</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Row 3 -->
-                    <tr>
-                        <td>Agency Fees</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Row 4 -->
-                    <tr>
-                        <td>Other Fees</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Grand Total Row -->
-                <tfoot>
-                    <tr>
-                        <td colspan="2" style="text-align: right;">Grand Total:</td>
-                        <td>Grand Total</td>
-                    </tr>
-                </tfoot>
-
-                </tbody>
-            </table>
-
-            <!-- Table for Expenses -->
-            <table>
-                <caption><strong>Leasor Expenses</strong> </caption>
+            <caption><strong><?php echo isset($expenseCategoryMap[$data['expense_catergory']]) ? $expenseCategoryMap[$data['expense_catergory']] : htmlspecialchars($data['expense_catergory']); ?> Expenses</strong></caption>
 
                 <thead>
                     <tr>
@@ -209,71 +110,17 @@ if ($id) {
                 </thead>
                 <tbody>
                     <!-- Row 1 -->
-                    <tr>
-                        <td>Rentals</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Row 2 -->
-                    <tr>
-                        <td>Utilities</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Row 3 -->
-                    <tr>
-                        <td>Maintenance</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Row 4 -->
-                    <tr>
-                        <td>Other Fees</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
+                    <td><?php echo htmlspecialchars($expenseTypesMap[$data['expense_type']]); ?></td>
+                        <td><?php echo htmlspecialchars($data['expense_description']); ?></td>
+                        <td><?php echo htmlspecialchars($data['expense_amount']); ?></td>
 
                     <!-- Grand Total Row -->
-                <tfoot>
+                <!-- <tfoot>
                     <tr>
                         <td colspan="2" style="text-align: right;">Grand Total:</td>
                         <td>Grand Total</td>
                     </tr>
-                </tfoot>
-
-                </tbody>
-            </table>
-
-
-            <!-- Table for Expenses -->
-            <table>
-                <caption><strong>Other Expenses</strong> </caption>
-
-                <thead>
-                    <tr>
-                        <th>Expense Type</th>
-                        <th>Description</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Row 4 -->
-                    <tr>
-                        <td>Other Fees</td>
-                        <td>Description</td>
-                        <td>Amount</td>
-                    </tr>
-
-                    <!-- Grand Total Row -->
-                <tfoot>
-                    <tr>
-                        <td colspan="2" style="text-align: right;">Grand Total:</td>
-                        <td>Grand Total</td>
-                    </tr>
-                </tfoot>
+                </tfoot> -->
 
                 </tbody>
             </table>
