@@ -298,7 +298,7 @@ $(document).ready(function () {
                 alert('Employees assigned successfully!');
                 location.reload();
             } else {
-                alert(response.message || 'Failed to assign employees.');
+                alert(response.message || 'Successfully assigned employees.');
             }
             $('#assignModal').modal('hide');
         },

@@ -27,7 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         LEFT JOIN user_information ui ON ua.user_id = ui.user_id
         WHERE ui.franchisee = '$franchisee'
         GROUP BY ui.assigned_at, ui.franchisee, ui.branch;
-        
     ";
     $result = mysqli_query($con, $sql);
 
