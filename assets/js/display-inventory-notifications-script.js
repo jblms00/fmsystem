@@ -13,26 +13,19 @@ function fetchNotifications() {
 
             if (response.status === "success") {
                 response.notifications.forEach(function (notification) {
-                    var notificationItem = "";
-
-                    if (
-                        notification.activity_type == "new_agreement_contract"
-                    ) {
-                        notificationItem = `
+                    var notificationItem = `
                         <li>
                             <h3>${formatDate(notification.datetime)}</h3>
                             <h4 class="text-success">NEWLY OPENED</h4>
                             <h4>${notification.franchisee}</h4>
                             <h4>${notification.location}</h4>
-                            <button type="button" onclick="goToInventoryPage('${
-                                notification.ac_id
-                            }', '${notification.franchisee}', '${
-                            notification.location
-                        }')" class="add-stock">Add stock</button>
+                            <button type="button" onclick="handleAddStock('${
+                                notification.notification_id
+                            }', '${notification.ac_id}', '${notification.franchisee}', '${
+                        notification.location
+                    }')" class="add-stock">Add stock</button>
                         </li>
                     `;
-                    }
-
                     notificationList.append(notificationItem);
                 });
             } else {
@@ -51,8 +44,30 @@ function fetchNotifications() {
     });
 }
 
-function goToInventoryPage(ac_id, franchisee, branch) {
-    window.location.href = `inventoryNewReport?id=${ac_id}&franchisee=${franchisee}&branch=${branch}`;
+function handleAddStock(notificationId, acId, franchisee, branch) {
+    // Mark notification as resolved via AJAX
+    $.ajax({
+        url: "../../phpscripts/get-inventory-notification.php",
+        method: "POST",
+        data: { notification_id: notificationId },
+        dataType: "json",
+        success: function (response) {
+            if (response.status === "success") {
+                // Refresh the notification list after resolving
+                fetchNotifications();
+
+                // Navigate to the inventory page
+                window.location.href = `inventoryNewReport?id=${acId}&franchisee=${franchisee}&branch=${branch}`;
+            } else {
+                console.error("Failed to resolve notification:", response.message);
+                alert("Failed to resolve notification. Please try again.");
+            }
+        },
+        error: function (xhr, status, error) {
+            console.error("AJAX Error resolving notification:", error);
+            alert("Error occurred while resolving the notification.");
+        },
+    });
 }
 
 function formatDate(datetime) {
