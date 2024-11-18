@@ -15,7 +15,12 @@ function fetchNotifications() {
                 response.notifications.forEach(function (notification) {
                     var imgFile = getFranchiseImage(notification.franchisee);
 
-                    var notificationItem = `
+                    var notificationItem = "";
+
+                    if (
+                        notification.activity_type == "new_agreement_contract"
+                    ) {
+                        notificationItem = `
                         <li class="text-center">
                             <h4 class="text-success mb-2">NEWLY OPENED</h4>
                             <h3>
@@ -31,6 +36,7 @@ function fetchNotifications() {
                     }')" class="add-stock">Add stock</button>
                         </li>
                     `;
+                }   
                     notificationList.append(notificationItem);
                 });
             } else {
