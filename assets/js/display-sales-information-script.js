@@ -75,7 +75,7 @@ function displaySalesReport(urlParams) {
                             <td>
                                 <img src="../../assets/images/${img}" alt="img" class="franchise-logo">
                             </td>
-                            <td>₱${formattedGrandTotal}</td>
+                            <td>₱ ${formattedGrandTotal}</td>
                             <td>${toTitleCase(sale.services)}</td>
                             <td>${sale.date_added}</td>
                         </tr>

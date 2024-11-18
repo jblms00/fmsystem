@@ -72,7 +72,8 @@ if ($result) {
                             <span class="text1"><?php echo $total_count; ?></span>
                             <span class="text">Total Employees</span>
                         </a>
-                        <a href="../../pages/manpower/selectActiveBranch2" class="box box3">
+                        <!-- <a href="../../pages/manpower/selectActiveBranch2" class="box box3"> -->
+                        <a href="" class="box box3">
                             <span class="text1"><?php echo $assigned_count; ?></span>
                             <span class="text">Active Employees</span>
                         </a>

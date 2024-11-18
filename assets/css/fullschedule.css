@@ -278,3 +278,163 @@
 #branchList .brand-logo:not(:first-child) {
     display: none;
 }
+
+/* Default button styles */
+.select-branch {
+    display: inline-block;
+    background-color: #f4f4f4;
+    color: var(--text-color);
+    border: 1px solid #ccc;
+    padding: 10px 10px;
+    /* margin: 10px; */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Active state styles */
+.select-branch.active {
+    background-color: var(--highlight-color); /* Highlight color */
+    color: white; /* Text color for active button */
+    /* font-weight: bold; */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+}
+
+/* Hover effect */
+.select-branch:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+/* Modal Styles */
+.modal-content {
+    background-color: var(--box-color); /* Match the box color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+    padding: 20px; /* Add padding for inner spacing */
+    color: var(--text-color); /* Use the text color */
+}
+
+.modal-header {
+    background-color: var(--header-color); /* Match the header color */
+    color: white; /* White text for contrast */
+    border-bottom: none; /* Remove the default border */
+    padding: 15px; /* Add padding for spacing */
+    border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+.modal-title {
+    font-size: 20px; /* Adjust font size */
+    font-weight: bold; /* Make the title stand out */
+    margin: 0; /* Remove default margin */
+}
+
+.modal-header .btn-close {
+    color: white; /* Ensure the close button matches the header */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.modal-header .btn-close:hover {
+    opacity: 1; /* Make the close button more visible on hover */
+}
+
+.modal-body {
+    padding: 20px; /* Add padding for inner spacing */
+    font-size: 14px; /* Adjust font size for readability */
+    background-color: var(--background-color); /* Subtle background */
+    border-radius: 8px; /* Ensure the inner section matches the modal */
+}
+
+.modal-body table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure the table looks clean */
+}
+
+.modal-body th,
+.modal-body td {
+    padding: 10px; /* Add spacing inside cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Subtle border for row separation */
+    font-size: 14px; /* Match the text size */
+}
+
+.modal-body th {
+    background-color: var(--header-color); /* Match the header color */
+    color: white; /* Ensure text is visible */
+    font-weight: bold; /* Emphasize headers */
+}
+
+.modal-body td {
+    background-color: var(--box-color); /* Match the modal background */
+    color: var(--text-color); /* Use primary text color */
+}
+
+.modal-footer {
+    display: flex; /* Align items horizontally */
+    justify-content: space-between; /* Space buttons evenly */
+    padding: 15px; /* Add padding for spacing */
+    background-color: var(--background-color); /* Subtle footer background */
+    border-top: none; /* Remove default border */
+    border-radius: 0 0 8px 8px; /* Rounded bottom corners */
+}
+
+.modal-footer .btn {
+    padding: 10px 20px; /* Add padding for larger click area */
+    font-size: 14px; /* Match font size */
+    font-weight: bold; /* Emphasize buttons */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modal-footer .btn-primary {
+    background-color: var(--header-color); /* Match header color */
+    color: white; /* Ensure contrast */
+    border: none; /* Remove default border */
+}
+
+.modal-footer .btn-primary:hover {
+    background-color: #121f35; /* Darker shade on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+.modal-footer .btn-secondary {
+    background-color: #ccc; /* Neutral background */
+    color: var(--text-color); /* Match primary text color */
+    border: none; /* Remove default border */
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #bbb; /* Slightly darker on hover */
+    transform: translateY(-3px); /* Lift effect */
+}
+
+.dynamic-row {
+    background-color: #ffffff; /* White background for dynamically added rows */
+    border-radius: 8px; /* Optional: Rounded corners for rows */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Subtle shadow for better visibility */
+    transition: background-color 0.3s ease;
+}
+
+.dynamic-row:hover {
+    background-color: #f9f9f9; /* Slightly lighter background on hover */
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .modal-dialog {
+        max-width: 90%; /* Adjust modal width for smaller screens */
+    }
+
+    .modal-body table th,
+    .modal-body table td {
+        font-size: 12px; /* Reduce text size for smaller screens */
+    }
+
+    .modal-footer .btn {
+        font-size: 12px; /* Adjust button text size */
+        padding: 8px 16px; /* Adjust padding for smaller buttons */
+    }
+}

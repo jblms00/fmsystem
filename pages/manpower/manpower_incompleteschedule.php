@@ -77,18 +77,21 @@ $data = [];
                         <h1 class="employee-title">Employees</h1>
                             <h1 class="count-title"><span>0</span>/2</h1>
                             <div class="activity">
-                                <section id="employees-section-unsched">
-                                    <table class="content-table">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Schedule</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
-                                </section>
+                            <section id="employees-section-unsched">
+                                <table class="content-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Schedule</th>
+                                            <th>Shift Options</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Dynamic rows will be inserted here -->
+                                    </tbody>
+                                </table>
+                            </section>
+
                             </div>
                             <!-- Add the new button here -->
                             <?php

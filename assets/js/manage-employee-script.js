@@ -86,6 +86,13 @@ function displayEmployees() {
 
 function showEmployeeDetails() {
     $(document).on("click", ".check-employee", function () {
+        // Remove active class from all employee buttons
+        $(".check-employee").removeClass("active");
+
+        // Add active class to the clicked button
+        $(this).addClass("active");
+
+        // Fetch employee details
         var employeeId = $(this).data("id");
         $.ajax({
             method: "POST",
@@ -134,6 +141,7 @@ function showEmployeeDetails() {
         });
     });
 }
+
 
 function addEmployee() {
     $(document).on("click", ".add-employee", function () {

@@ -50,7 +50,14 @@ function displayStoreSchedules() {
 
 function showStoreDetails() {
     $(document).on("click", ".select-branch", function () {
+        // Remove active class from all buttons
+        $(".select-branch").removeClass("active");
+
+        // Add active class to the clicked button
+        $(this).addClass("active");
+
         var id = $(this).data("ac-id");
+
         $.ajax({
             method: "POST",
             url: "../../phpscripts/get-store-details.php",

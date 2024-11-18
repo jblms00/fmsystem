@@ -29,13 +29,12 @@ function displayStoreSchedules() {
                     var img = getFranchiseImage(employee.franchisee);
                     var formattedFranchisee = formatFranchiseeName(
                         employee.franchisee
-                        
                     );
 
                     var storeHTML = `
-                    <img class="logo brand-logo" src="../../assets/images/${img}" alt="${formattedFranchisee}">
-                    <button class="select-branch" data-ac-id="${employee.ac_id}">${employee.branch}</button>
-                `;
+                        <img class="logo brand-logo" src="../../assets/images/${img}" alt="${formattedFranchisee}">
+                        <button class="select-branch" data-ac-id="${employee.ac_id}">${employee.branch}</button>
+                    `;
 
                     listContainer.append(storeHTML);
                 });
@@ -51,7 +50,12 @@ function displayStoreSchedules() {
 
 function showStoreDetails() {
     $(document).on("click", ".select-branch", function () {
+        // Mark the selected branch as active
+        $(".select-branch").removeClass("active");
+        $(this).addClass("active");
+
         var id = $(this).data("ac-id");
+
         $.ajax({
             method: "POST",
             url: "../../phpscripts/get-store-details.php",
@@ -59,20 +63,22 @@ function showStoreDetails() {
             dataType: "json",
             success: function (response) {
                 if (response.status === "success") {
-                    $(".assign-btn").removeClass("d-none");
                     var employees = response.employees;
-                    var htmlContent = "";
-                    var count = employees.length;
+                    var tableBody = $("#employees-section-unsched tbody");
 
+                    // Clear the existing table rows
+                    tableBody.empty();
+
+                    // Populate the table with new employee data
                     employees.forEach(function (employee) {
-                        htmlContent += `
-                            <tr data-user-id="${employee.user_id}">
+                        var rowHTML = `
+                            <tr class="dynamic-row" data-user-id="${employee.user_id}">
                                 <td>${employee.user_name}</td>
                                 <td class="current-schedule">${
-                                    employee.user_shift
+                                    employee.user_shift || "Unscheduled"
                                 }</td>
                                 <td>
-                                    <select class="form-select w-50 shift-select" name="shift">
+                                    <select class="form-select w-100 shift-select" name="shift">
                                         <option selected disabled>Select schedule</option>
                                         <option value="Morning Shift" ${
                                             employee.time_in_sched ===
@@ -96,14 +102,17 @@ function showStoreDetails() {
                                 </td>
                             </tr>
                         `;
+                        tableBody.append(rowHTML);
                     });
 
-                    // $(".assign-emp").attr("data-ac-id", id);
-
-                    $("#employees-section-unsched tbody").html(htmlContent);
-                    $(".count-title").text(`${count}/2`);
+                    // Update the count of employees
+                    $(".count-title").text(`${employees.length}/2`);
                 } else {
                     console.log(response.message);
+                    // Display a message if no employees are found
+                    $("#employees-section-unsched tbody").html(
+                        `<tr><td colspan="3">No employees assigned to this branch.</td></tr>`
+                    );
                 }
             },
             error: function (xhr, status, error) {
@@ -112,11 +121,17 @@ function showStoreDetails() {
         });
     });
 
+    // Handle dropdown selection and update table cell dynamically
     $(document).on("change", ".shift-select", function () {
-        var $this = $(this);
-        var userId = $this.closest("tr").data("user-id");
-        var newShift = $this.val();
+        var $dropdown = $(this);
+        var newShift = $dropdown.val();
+        var $row = $dropdown.closest("tr");
+        var userId = $row.data("user-id");
 
+        // Update the corresponding table cell
+        $row.find(".current-schedule").text(newShift);
+
+        // Optionally, send the new schedule to the server
         $.ajax({
             method: "POST",
             url: "../../phpscripts/update-schedule.php",
@@ -124,10 +139,6 @@ function showStoreDetails() {
             dataType: "json",
             success: function (response) {
                 if (response.status === "success") {
-                    $this
-                        .closest("tr")
-                        .find(".current-schedule")
-                        .text(newShift);
                     console.log("Schedule updated successfully.");
                 } else {
                     console.log(response.message);
@@ -138,16 +149,6 @@ function showStoreDetails() {
             },
         });
     });
-
-    // $(document).on("click", ".assign-emp", function () {
-    //     var id = $(this).data("ac-id");
-    //     var str = getUrlParameter("str");
-    //     var newUrl = `unassignedEmployees?str=${str}&id=${id}`;
-
-    //     console.log(id);
-    //     console.log(str);
-    //     window.location.href = newUrl;
-    // });
 }
 
 function formatFranchiseeName(name) {

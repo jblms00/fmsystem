@@ -275,6 +275,69 @@
     background-color: #121f35; /* Adjusted hover color */
 }
 
+/* Active state for employee buttons */
+.check-employee.active {
+    background-color: var(--highlight-color); /* Highlight color */
+    color: white; /* White text for contrast */
+    font-weight: bold; /* Emphasize the active state */
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for emphasis */
+}
+
+/* Hover effect for all buttons */
+.check-employee:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+.content-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add subtle shadow */
+}
+
+.content-table thead {
+    background-color: var(--header-color);
+    color: white;
+    font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content-table tbody tr:hover {
+    background-color: var(--highlight-color);
+    color: white;
+}
+
+.content-table tbody tr td select {
+    width: 100%; /* Ensure dropdowns span the full width */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .content-table {
+        font-size: 14px;
+    }
+
+    .content-table th,
+    .content-table td {
+        padding: 10px;
+    }
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .box-group,
