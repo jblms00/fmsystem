@@ -126,7 +126,7 @@ function showEmployeeDetails() {
                                 <span class="header-label">Certification Information</span>
                                 <span class="header-label2">Certifications Held:</span> ${employee.certifications}
                             </div>
-                            <button id="certification-btn" class="certification-btn"></i>Certification Tracking</button>
+                           
                         </div>
                     `;
 
